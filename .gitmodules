@@ -1,9 +1,0 @@
-[submodule "themes/ananke"]
-	path = themes/ananke
-	url = https://github.com/budparr/gohugo-theme-ananke.git
-[submodule "themes/geo"]
-	path = themes/geo
-	url = https://github.com/alexurquhart/hugo-geo.git
-[submodule "themes/black"]
-	path = themes/black
-	url = https://github.com/yoshiharuyamashita/blackburn.git
