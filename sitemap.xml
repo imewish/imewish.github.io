@@ -3,34 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/post/hello/</loc>
+    <loc>http://docs.gadgtdaily.live/post/hello/</loc>
     <lastmod>2018-01-27T14:27:35+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://docs.gadgtdaily.live/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://docs.gadgtdaily.live/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://docs.gadgtdaily.live/</loc>
     <lastmod>2018-01-27T14:27:35+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>http://docs.gadgtdaily.live/post/</loc>
     <lastmod>2018-01-27T14:27:35+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://docs.gadgtdaily.live/tags/</loc>
     <priority>0</priority>
   </url>
   
