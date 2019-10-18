@@ -30,7 +30,7 @@ pipeline {
         }
       }
     }
-    stage('Deployment') {
+    stage('Deployment to S3') {
       parallel {
         stage('Staging') {
           when {
