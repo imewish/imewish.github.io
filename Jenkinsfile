@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('deploy') {
       steps {
-        s3Upload(bucket: 'matic-jenkins-dev', pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: 'dist')
+        s3Upload(bucket: 'matic-jenkins-dev', pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: 'dist', includePathPattern: '**/*')
       }
     }
   }
