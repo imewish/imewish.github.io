@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'master'
-    }
-
-  }
+  agent any
   stages {
     stage('Install Packages') {
       steps {
