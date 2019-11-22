@@ -1,6 +1,6 @@
 ---
 tags: []
-layout: Home
+layout: post
 title: Hello World
 permalink: hello-world
 text: helloworld
