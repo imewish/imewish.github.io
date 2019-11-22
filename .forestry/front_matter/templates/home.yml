@@ -29,3 +29,5 @@ fields:
   type: tag_list
   default: []
   label: Tags
+pages:
+- heimdall-and-bor-matic-s-validator-and-block-production-layers.md
