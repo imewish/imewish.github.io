@@ -29,5 +29,3 @@ fields:
   type: tag_list
   default: []
   label: Tags
-pages:
-- _posts/2019-11-22-what-is-matic-network.md
