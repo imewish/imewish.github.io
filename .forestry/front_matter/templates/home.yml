@@ -30,4 +30,5 @@ fields:
   default: []
   label: Tags
 pages:
+- _posts/what-is-matic-network.md
 - _posts/2019-11-22-hello-world.md
