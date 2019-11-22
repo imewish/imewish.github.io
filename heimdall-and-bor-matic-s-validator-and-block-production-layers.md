@@ -8,7 +8,6 @@ title: Heimdall and Bor – Matic’s Validator and Block Production layers
 text: ''
 multiupload: []
 image_upload: "/uploads/heimdall-bor.png"
-published: false
 
 ---
 ![](/uploads/heimdall-bor.png)
