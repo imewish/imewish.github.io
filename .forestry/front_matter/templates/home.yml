@@ -24,3 +24,5 @@ fields:
   config:
     required: false
   label: image
+pages:
+- _posts/automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline.md
