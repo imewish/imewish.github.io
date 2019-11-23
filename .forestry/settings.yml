@@ -20,17 +20,17 @@ sections:
   label: Contributors
   create: all
   match: "**/*"
-upload_dir: uploads
-public_path: "/uploads"
-front_matter_path: ''
-use_front_matter_path: false
+upload_dir: assets/images
+public_path: "/assets/images"
+front_matter_path: "/assets/images"
+use_front_matter_path: true
 file_template: ":filename:"
 build:
   preview_env:
   - JEKYLL_ENV=staging
   preview_output_directory: _site
-  install_dependencies_command: bundle install --path vendor/bundle
-  preview_docker_image: forestryio/ruby:2.6
+  install_dependencies_command: bundle install --path vendor/bundle && npm install
+  preview_docker_image: forestryio/ruby:2.6-node10
   mount_path: "/srv"
   working_dir: "/srv"
   instant_preview_command: bundle exec jekyll serve --drafts --unpublished --future

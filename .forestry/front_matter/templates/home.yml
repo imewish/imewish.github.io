@@ -11,24 +11,18 @@ fields:
 - type: text
   name: permalink
   label: permalink
-- name: text
-  type: text
-  config:
-    required: false
-  label: Text
-- name: multiupload
-  type: image_gallery
-  config: {}
-  label: MultiUpload
-- name: image_upload
-  type: file
-  config:
-    maxSize: 250
-  label: Image Upload
 - name: tags
   type: tag_list
   default: []
   label: Tags
+- name: featured
+  type: boolean
+  label: Featured
+  hidden: false
+- name: image
+  type: text
+  config:
+    required: false
+  label: IMAGE
 pages:
-- _posts/what-is-matic-network.md
-- _posts/2019-11-22-hello-world.md
+- _posts/hello-world.md
