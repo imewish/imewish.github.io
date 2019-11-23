@@ -12,13 +12,6 @@ image_upload: ''
 featured: true
 
 ---
----
-title: Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline
-published: true
-cover_image: https://pdfimages.wondershare.com/pdf-business-tips/easy-deployment.png
-tags: serverless, AWS, Codepipeline, Lambda
----
-
 # TL;DR
 
 *In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild*
