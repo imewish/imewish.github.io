@@ -11,11 +11,6 @@ fields:
 - type: text
   name: permalink
   label: permalink
-- name: image_upload
-  type: file
-  config:
-    maxSize: 250
-  label: Image Upload
 - name: tags
   type: tag_list
   default: []
@@ -24,5 +19,10 @@ fields:
   type: boolean
   label: Featured
   hidden: false
+- name: image
+  type: text
+  config:
+    required: false
+  label: IMAGE
 pages:
 - _posts/hello-world.md
