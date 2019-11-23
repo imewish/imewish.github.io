@@ -24,5 +24,3 @@ fields:
   config:
     required: false
   label: image
-pages:
-- _posts/2019-11-23-automate-lambda-deployments-with-serverless-and-aws-codepipeline.md
