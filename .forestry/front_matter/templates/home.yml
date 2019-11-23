@@ -24,5 +24,3 @@ fields:
   config:
     maxSize: 250
   label: image
-pages:
-- _posts/heimdall-and-bor-matic-s-validator-and-block-production-layers.md
