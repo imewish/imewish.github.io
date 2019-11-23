@@ -20,14 +20,9 @@ fields:
   label: Featured
   hidden: false
 - name: image
-  type: text
-  config:
-    required: false
-  label: image
-- name: upload_image
   type: file
   config:
     maxSize: 250
-  label: Upload Image
+  label: image
 pages:
 - _posts/heimdall-and-bor-matic-s-validator-and-block-production-layers.md
