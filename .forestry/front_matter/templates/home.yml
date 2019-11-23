@@ -25,4 +25,4 @@ fields:
     required: false
   label: image
 pages:
-- _posts/automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline.md
+- _posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline.md
