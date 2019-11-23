@@ -20,9 +20,9 @@ fields:
   label: Featured
   hidden: false
 - name: image
-  type: file
+  type: text
   config:
-    maxSize: 250
+    required: false
   label: image
 pages:
 - _posts/2019-11-23-automate-lambda-deployments-with-serverless-and-aws-codepipeline.md
