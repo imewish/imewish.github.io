@@ -24,3 +24,5 @@ fields:
   type: boolean
   label: Featured
   hidden: false
+pages:
+- _posts/hello-world.md
