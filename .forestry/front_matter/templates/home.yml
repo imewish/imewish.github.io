@@ -23,4 +23,9 @@ fields:
   type: text
   config:
     required: false
-  label: IMAGE
+  label: image
+- name: upload_image
+  type: file
+  config:
+    maxSize: 250
+  label: Upload Image
