@@ -24,5 +24,3 @@ fields:
   config:
     required: false
   label: IMAGE
-pages:
-- _posts/hello-world.md
