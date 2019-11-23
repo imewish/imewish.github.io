@@ -25,4 +25,4 @@ fields:
     maxSize: 250
   label: image
 pages:
-- _posts/automate-lambda-deployments-with-serverless-and-aws-codepipeline.md
+- _posts/2019-11-23-automate-lambda-deployments-with-serverless-and-aws-codepipeline.md
