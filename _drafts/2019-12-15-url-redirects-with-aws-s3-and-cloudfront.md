@@ -52,6 +52,6 @@ Redirect Rule,
       </RoutingRule>
     </RoutingRules>
 
-Please note, the **_<HostName>example.com</HostName>_**  part is important if your S3 website is configured with **Cloudfront.** Else during redirect, the domain name will be replaced with the S3 website endpoint. 
+Please note, <HostName>example.com</HostName>  part is important if your S3 website is configured with **Cloudfront.** Else during redirect, the domain name will be replaced with the S3 website endpoint.
 
 That's it. Now any requests coming to the old URL will be automatically redirected to the new one
