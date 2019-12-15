@@ -38,28 +38,34 @@ To add the rules,
 2. Go to properties and click on static website hosting
 3. Under the redirection rules filed, put the following code
 
-> <RoutingRules>
->
->   <RoutingRule>
->
->     <Condition>
->
->       <KeyPrefixEquals>content/old-content/</KeyPrefixEquals>
->
->     </Condition>
->
->     <Redirect>
->
->       <HostName>example.com</HostName>
->
->       <ReplaceKeyPrefixWith>content/new/content/</ReplaceKeyPrefixWith>
->
->     </Redirect>
->
->   </RoutingRule>
->
-> </RoutingRules>
-
 Please note, the **_<HostName>example.com</HostName>_**  part is important if your S3 website is configured with **Cloudfront.** Else during redirect, the domain name will be replaced with the S3 website endpoint. 
 
 That's it. Now any requests coming to the old URL will be automatically redirected to the new one 
+
+    {
+      "apps": [
+        {
+          "name": "ether-watcher-node",
+          "script": "build/watcher.js",
+          "max_restarts": 5,
+          "error_file": "logs/ether-watcher-node.stderr.log",
+          "out_file": "logs/ether-watcher-node.stdout.log",
+          "pid_file": "pids/ether-watcher-node.pid",
+          "env": {
+            "NODE_ENV": "production"
+          }
+        },
+        {
+          "name": "ether-watcher-api",
+          "script": "build/index.js",
+          "max_restarts": 5,
+          "error_file": "logs/ether-watcher-api.stderr.log",
+          "out_file": "logs/ether-watcher-api.stdout.log",
+          "pid_file": "pids/ether-watcher-api.pid",
+          "env": {
+            "APP_PORT": 6001,
+            "NODE_ENV": "production"
+          }
+        }
+      ]
+    }
