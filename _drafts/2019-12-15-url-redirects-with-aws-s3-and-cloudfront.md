@@ -43,15 +43,15 @@ Redirect Rule,
     <RoutingRules>
       <RoutingRule>
         <Condition>
-          <KeyPrefixEquals>staking/node-setup-guide/</KeyPrefixEquals>
+          <KeyPrefixEquals>content/old-content/</KeyPrefixEquals>
         </Condition>
         <Redirect>
-          <HostName>docs.matic.netwaork</HostName>
-          <ReplaceKeyPrefixWith>staking/participate-in-counter-stake/</ReplaceKeyPrefixWith>
+          <HostName>example.com</HostName>
+    <ReplaceKeyPrefixWith>content/new/content</ReplaceKeyPrefixWith>
         </Redirect>
       </RoutingRule>
     </RoutingRules>
 
 Please note, the **_<HostName>example.com</HostName>_**  part is important if your S3 website is configured with **Cloudfront.** Else during redirect, the domain name will be replaced with the S3 website endpoint. 
 
-That's it. Now any requests coming to the old URL will be automatically redirected to the new one 
+That's it. Now any requests coming to the old URL will be automatically redirected to the new one
