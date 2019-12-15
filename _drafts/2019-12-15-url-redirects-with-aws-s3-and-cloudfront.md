@@ -42,30 +42,15 @@ Please note, the **_<HostName>example.com</HostName>_**  part is important if yo
 
 That's it. Now any requests coming to the old URL will be automatically redirected to the new one 
 
-    {
-      "apps": [
-        {
-          "name": "ether-watcher-node",
-          "script": "build/watcher.js",
-          "max_restarts": 5,
-          "error_file": "logs/ether-watcher-node.stderr.log",
-          "out_file": "logs/ether-watcher-node.stdout.log",
-          "pid_file": "pids/ether-watcher-node.pid",
-          "env": {
-            "NODE_ENV": "production"
-          }
-        },
-        {
-          "name": "ether-watcher-api",
-          "script": "build/index.js",
-          "max_restarts": 5,
-          "error_file": "logs/ether-watcher-api.stderr.log",
-          "out_file": "logs/ether-watcher-api.stdout.log",
-          "pid_file": "pids/ether-watcher-api.pid",
-          "env": {
-            "APP_PORT": 6001,
-            "NODE_ENV": "production"
-          }
-        }
-      ]
-    }
+    <RoutingRules>
+      <RoutingRule>
+        <Condition>
+          <KeyPrefixEquals>staking/node-setup-guide/</KeyPrefixEquals>
+        </Condition>
+        <Redirect>
+          <HostName>docs.matic.network</HostName>
+          <ReplaceKeyPrefixWith>staking/participate-in-counter-stake/</ReplaceKeyPrefixWith>
+        </Redirect>
+      </RoutingRule>
+    </RoutingRules>
+    
