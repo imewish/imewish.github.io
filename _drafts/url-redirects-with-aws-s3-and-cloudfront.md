@@ -38,17 +38,27 @@ To add the rules,
 2. Go to properties and click on static website hosting
 3. Under the redirection rules filed, put the following code
 
-    "<RoutingRules>
-      <RoutingRule>
-        <Condition>
-          <KeyPrefixEquals>content/old-content/</KeyPrefixEquals>
-        </Condition>
-        <Redirect>
-          <HostName>example.com</HostName>
-          <ReplaceKeyPrefixWith>content/new/content/</ReplaceKeyPrefixWith>
-        </Redirect>
-      </RoutingRule>
-    </RoutingRules>"
+> <RoutingRules>
+>
+>   <RoutingRule>
+>
+>     <Condition>
+>
+>       <KeyPrefixEquals>content/old-content/</KeyPrefixEquals>
+>
+>     </Condition>
+>
+>     <Redirect>
+>
+>       <HostName>example.com</HostName>
+>
+>       <ReplaceKeyPrefixWith>content/new/content/</ReplaceKeyPrefixWith>
+>
+>     </Redirect>
+>
+>   </RoutingRule>
+>
+> </RoutingRules>
 
 Please note, the **_<HostName>example.com</HostName>_**  part is important if your S3 website is configured with **Cloudfront.** Else during redirect, the domain name will be replaced with the S3 website endpoint. 
 
