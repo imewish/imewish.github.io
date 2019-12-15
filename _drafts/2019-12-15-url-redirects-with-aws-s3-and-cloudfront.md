@@ -38,9 +38,7 @@ To add the rules,
 2. Go to properties and click on static website hosting
 3. Under the redirection rules filed, put the following code
 
-Please note, the **_<HostName>example.com</HostName>_**  part is important if your S3 website is configured with **Cloudfront.** Else during redirect, the domain name will be replaced with the S3 website endpoint. 
-
-That's it. Now any requests coming to the old URL will be automatically redirected to the new one 
+Redirect Rule,
 
     <RoutingRules>
       <RoutingRule>
@@ -48,9 +46,12 @@ That's it. Now any requests coming to the old URL will be automatically redirect
           <KeyPrefixEquals>staking/node-setup-guide/</KeyPrefixEquals>
         </Condition>
         <Redirect>
-          <HostName>docs.matic.network</HostName>
+          <HostName>docs.matic.netwaork</HostName>
           <ReplaceKeyPrefixWith>staking/participate-in-counter-stake/</ReplaceKeyPrefixWith>
         </Redirect>
       </RoutingRule>
     </RoutingRules>
-    
+
+Please note, the **_<HostName>example.com</HostName>_**  part is important if your S3 website is configured with **Cloudfront.** Else during redirect, the domain name will be replaced with the S3 website endpoint. 
+
+That's it. Now any requests coming to the old URL will be automatically redirected to the new one 
