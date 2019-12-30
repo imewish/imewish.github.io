@@ -27,3 +27,4 @@ fields:
 pages:
 - _posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline.md
 - _posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront.md
+- _posts/uploading-multi-part-binary-files-through-api-gateway.md
