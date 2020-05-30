@@ -3,52 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/tags/aws/</loc>
+    <loc>https://imewish.github.io/tags/aws/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
+    <loc>https://imewish.github.io/posts/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/s3/</loc>
+    <loc>https://imewish.github.io/tags/s3/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/serverless/</loc>
+    <loc>https://imewish.github.io/tags/serverless/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://imewish.github.io/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://imewish.github.io/tags/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</loc>
+    <loc>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</loc>
+    <loc>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/about-hugo/</loc>
+    <loc>https://imewish.github.io/about-hugo/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/ci/cd/</loc>
+    <loc>https://imewish.github.io/tags/ci/cd/</loc>
   </url>
   
 </urlset>
