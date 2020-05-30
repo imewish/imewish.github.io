@@ -1,0 +1,204 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Serverless Notebook!</title>
+		<link>https://example.com/posts/</link>
+		<description>Recent content in Posts on Serverless Notebook!</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>URL redirects with AWS S3 and Cloudfront</title>
+			<link>https://example.com/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</link>
+			<pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://example.com/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</guid>
+			<description>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.
+In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.
+There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</description>
+			<content type="html"><![CDATA[<p>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.</p>
+<p>In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.</p>
+<p>There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</p>
+<p>To fix this issue the approach we had was to do add a temporary redirect for that old URL to the new one until it gets updated at google search.</p>
+<p><strong>The Fix</strong></p>
+<p>AWS S3 Static hosting provides an option to add redirection rules to the website hosted in a particular bucket. <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html" title="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html</a></p>
+<p><img src="/assets/images/staticwebsitehosting30.png" alt=""></p>
+<p>In this particular case, the URL&rsquo;s we are going to use will be these,</p>
+<p><strong>_<a href="https://example.com/content/old-content_">https://example.com/content/old-content_</a></strong></p>
+<p>and we will be redirecting this to</p>
+<p><strong>_<a href="https://example.com/content/new/content_">https://example.com/content/new/content_</a></strong></p>
+<p>To add the rules,</p>
+<ol>
+<li>Click on your bucket</li>
+<li>Go to properties and click on static website hosting</li>
+<li>Under the redirection rules filed, put the following code</li>
+</ol>
+<p>Redirect Rule,</p>
+<pre><code>&lt;RoutingRules&gt;
+  &lt;RoutingRule&gt;
+    &lt;Condition&gt;
+      &lt;KeyPrefixEquals&gt;content/old-content/&lt;/KeyPrefixEquals&gt;
+    &lt;/Condition&gt;
+    &lt;Redirect&gt;
+      &lt;HostName&gt;example.com&lt;/HostName&gt;
+&lt;ReplaceKeyPrefixWith&gt;content/new/content&lt;/ReplaceKeyPrefixWith&gt;
+    &lt;/Redirect&gt;
+  &lt;/RoutingRule&gt;
+&lt;/RoutingRules&gt;
+</code></pre>
+<p>Please note, The <strong>HostName(<strong>Line 7</strong>)</strong> part is important if your S3 website is configured with <strong>Cloudfront.</strong> Else during redirect, the domain name will be replaced with the S3 website endpoint.</p>
+<p>That&rsquo;s it. Now any requests coming to the old URL will be automatically redirected to the new one</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline</title>
+			<link>https://example.com/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</link>
+			<pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://example.com/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</guid>
+			<description>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
+1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
+&#39;use strict&#39;; module.exports.api = async event =&amp;gt; { return { statusCode: 200, body: JSON.</description>
+			<content type="html"><![CDATA[<p><em>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild</em></p>
+<h2 id="1-install-the-serverless-framework">1. Install the Serverless Framework</h2>
+<pre><code>npm install serverless -g
+</code></pre><h2 id="2-create-a-project">2. Create a project</h2>
+<pre><code>serverless create --template aws-nodejs --path serverless-nodejs-api
+</code></pre><p>This will create two files <code>handler.js</code> and <code>serveless.yml</code></p>
+<pre><code>'use strict';
+
+module.exports.api = async event =&gt; {
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      {
+        message: 'Go Serverless v1.0! Your function executed successfully!'
+      },
+      null,
+      2
+    ),
+  };
+};
+</code></pre><p>Update your serverless.yml to add an API Gateway endpoint.</p>
+<pre><code>service: serverless-nodejs-api
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+
+functions:
+  getMsg:
+    handler: handler.api
+    events:
+      - http: GET /
+</code></pre><p>Now we have our serverless API code ready.</p>
+<p>You can deploy this to AWS manually by running <code>sls deploy --stage dev</code></p>
+<p>This will deploy the lambda function and create an API gateway endpoint for the function.</p>
+<p>Once deployed, the output will print the newly created API gateway endpoint. test the function by calling the API endpoint. Something like this,</p>
+<pre><code>Service Information
+service: serverless-nodejs-api
+stage: dev
+region: us-east-1
+stack: serverless-nodejs-api-dev
+resources: 9
+api keys:
+  None
+endpoints:
+  GET - https://xxxxx.execute-api.us-east-1.amazonaws.com/dev
+functions:
+  api: serverless-nodejs-api-dev-getMsg
+layers:
+  None
+</code></pre><p>test the function by calling the API endpoint.</p>
+<pre><code>curl https://xxxxx.execute-api.us-east-1.amazonaws.com/dev
+
+{
+  &quot;message&quot;: &quot;Go Serverless v1.0! Your function executed successfully!&quot;
+}
+</code></pre><p><em><strong>Now let&rsquo;s automate the deployment process with Github, AWS Codepipeline</strong></em></p>
+<p>Let&rsquo;s consider this code as production-ready and push the code to the GitHub repo master branch.</p>
+<p><em>PS: We can create multiple pipelines per brach for eg: Master -&gt; Prod, Development -&gt; Staging/Dev Environment</em></p>
+<h2 id="3-setup-codepipeline">3. Setup Codepipeline</h2>
+<h4 id="31-set-pipeline-name-and-create-iam-role">3.1 Set Pipeline name and Create IAM Role</h4>
+<h1 id="httpsiimgurcom0g7lgp6jpg"><img src="https://i.imgur.com/0G7LGP6.jpg" alt=""></h1>
+<h4 id="32-add-source-stage">3.2 Add source stage</h4>
+<p>In this stage, Connect to your Github account and choose your repo and branch
+Set the detection method</p>
+<p><img src="https://i.imgur.com/d5R9UOA.jpg" alt=""></p>
+<h4 id="33-add-build-stage">3.3 Add build stage</h4>
+<p>In this step, we have to create a Codebuild project, where we configure our build and deploy environment and commands.</p>
+<p>Click on the <strong>Create Project</strong> button, it will take you to the Codebuild setup page.</p>
+<p><img src="https://i.imgur.com/881kqAW.jpg" alt=""></p>
+<p><em>Set the project name here</em></p>
+<p><img src="https://i.imgur.com/DalIjHD.jpg" alt=""></p>
+<p><em>Choose your runtime and image for the build environment</em></p>
+<p><em>Choose an IAM role for the project</em> - <strong>This part is important</strong></p>
+<p><strong>This role must have enough permissions for the serverless framework to deploy the function and its resources to AWS as follows,</strong></p>
+<ul>
+<li>Create an S3 bucket for your function deployments</li>
+<li>Upload your function zip files to that S3 bucket</li>
+<li>Submit a CloudFormation template</li>
+<li>Create the log groups for your Lambda functions</li>
+<li>Create a REST API in API Gateway</li>
+</ul>
+<p><em>You can use the below awesome NPM modules to create a narrow IAM policy template that will cover many Serverless use cases.</em></p>
+<p><code>npm install -g yo generator-serverless-policy</code></p>
+<p>then on your serverless app directory</p>
+<pre><code>$ yo serverless-policy
+? Your Serverless service name test-service
+? You can specify a specific stage, if you like: dev
+? You can specify a specific region, if you like: us-west-1
+? Does your service rely on DynamoDB? Yes
+? Is your service going to be using S3 buckets? Yes
+app name test-service
+app stage dev
+app region us-west-1
+Writing to test-service-dev-us-west-1-policy.json
+</code></pre><p><em><strong>After you finish creating the codebuild project go to its IAM role and append the policy with the rules created by the above template.</strong></em></p>
+<p>You can find the IAM policy we used for this guide here,
+<a href="https://github.com/imewish/serverless-nodejs-api/blob/master/codebuild-IAM-policy.json">https://github.com/imewish/serverless-nodejs-api/blob/master/codebuild-IAM-policy.json</a></p>
+<p><img src="https://i.imgur.com/RKn6C9O.jpg" alt="">
+<img src="https://i.imgur.com/tfJdYRF.jpg" alt=""></p>
+<p><em>Define Build Spec.</em></p>
+<p>You can find it here. <a href="https://github.com/imewish/serverless-nodejs-api/blob/master/buildspec.yml">https://github.com/imewish/serverless-nodejs-api/blob/master/buildspec.yml</a></p>
+<blockquote>
+<p>Here we will define the commands to set up the serverless framework and deploy commands to AWS.</p>
+<p>On install phase</p>
+<ul>
+<li>
+<p>Set nodejs 10 as runtime</p>
+</li>
+<li>
+<p>Install serverless framework
+On Build Phase</p>
+</li>
+<li>
+<p>Install npm packages</p>
+</li>
+<li>
+<p>Deploy to lambda with <code>sls deploy --stage dev/prod</code></p>
+</li>
+</ul>
+</blockquote>
+<p>NB: You can also run your tests here if you have test cases written for your lambda functions.</p>
+<p><img src="https://i.imgur.com/hORjMoL.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/FrOlrri.jpg" alt=""></p>
+<p>Enable Cloudwatch logs so that we can tail our build process logs.</p>
+<p>Then click on <strong>Continue to Codepipeline</strong> this will take us back to Codepipeline Setup.</p>
+<h4 id="4-deploy-stage">4. Deploy Stage</h4>
+<p>This stage is optional.</p>
+<p>Since the serverless framework already put the deployment artifacts to an S3 bucket we can skip this part. But if you want to store it to a different bucket you can set up like this.</p>
+<p><img src="https://i.imgur.com/2qmHBAX.jpg" alt=""></p>
+<p>Click Next and then review all the setup then Create the pipeline.</p>
+<p>That&rsquo;s it!. Now you can test this by going to the newly created pipeline and click on <em><strong>Release Change</strong></em></p>
+<p><img src="https://i.imgur.com/lQW9adE.jpg" alt="">
+<img src="https://i.imgur.com/8rE0W6o.jpg" alt=""></p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>
