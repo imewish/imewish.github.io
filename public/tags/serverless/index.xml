@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>serverless on Serverless Notebook!</title>
+    <link>https://example.com/tags/serverless/</link>
+    <description>Recent content in serverless on Serverless Notebook!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>URL redirects with AWS S3 and Cloudfront</title>
+      <link>https://example.com/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</guid>
+      <description>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.
+In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.
+There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</description>
+    </item>
+    
+    <item>
+      <title>Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline</title>
+      <link>https://example.com/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</guid>
+      <description>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
+1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
+&#39;use strict&#39;; module.exports.api = async event =&amp;gt; { return { statusCode: 200, body: JSON.</description>
+    </item>
+    
+  </channel>
+</rss>
