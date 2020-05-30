@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#f85959">
+	<meta name="msapplication-TileColor" content="#f85959">
+<meta itemprop="name" content="Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline">
+<meta itemprop="description" content="In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
+1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
+&#39;use strict&#39;; module.exports.api = async event =&gt; { return { statusCode: 200, body: JSON.">
+<meta itemprop="datePublished" content="2020-01-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="717">
+
+
+
+<meta itemprop="keywords" content="CI/CD,serverless,aws," /><meta property="og:title" content="Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline" />
+<meta property="og:description" content="In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
+1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
+&#39;use strict&#39;; module.exports.api = async event =&gt; { return { statusCode: 200, body: JSON." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/" />
+<meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline"/>
+<meta name="twitter:description" content="In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
+1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
+&#39;use strict&#39;; module.exports.api = async event =&gt; { return { statusCode: 200, body: JSON."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline</title>
+	<link rel="stylesheet" href="https://example.com/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://example.com">Serverless Notebook!</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://example.com/posts/">Posts</a>
+				<a href="https://example.com/about-hugo/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/vishnuprasad73" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/imewish" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/imewish" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://example.com/posts/">Posts</a></li>
+			<li><a href="https://example.com/about-hugo/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jan 1, 2020</span></div>
+				<h1>Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline</h1>
+			</header>
+			<div class="content">
+				<p><em>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild</em></p>
+<h2 id="1-install-the-serverless-framework">1. Install the Serverless Framework<a href="#1-install-the-serverless-framework" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<pre><code>npm install serverless -g
+</code></pre><h2 id="2-create-a-project">2. Create a project<a href="#2-create-a-project" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<pre><code>serverless create --template aws-nodejs --path serverless-nodejs-api
+</code></pre><p>This will create two files <code>handler.js</code> and <code>serveless.yml</code></p>
+<pre><code>'use strict';
+
+module.exports.api = async event =&gt; {
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      {
+        message: 'Go Serverless v1.0! Your function executed successfully!'
+      },
+      null,
+      2
+    ),
+  };
+};
+</code></pre><p>Update your serverless.yml to add an API Gateway endpoint.</p>
+<pre><code>service: serverless-nodejs-api
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+
+functions:
+  getMsg:
+    handler: handler.api
+    events:
+      - http: GET /
+</code></pre><p>Now we have our serverless API code ready.</p>
+<p>You can deploy this to AWS manually by running <code>sls deploy --stage dev</code></p>
+<p>This will deploy the lambda function and create an API gateway endpoint for the function.</p>
+<p>Once deployed, the output will print the newly created API gateway endpoint. test the function by calling the API endpoint. Something like this,</p>
+<pre><code>Service Information
+service: serverless-nodejs-api
+stage: dev
+region: us-east-1
+stack: serverless-nodejs-api-dev
+resources: 9
+api keys:
+  None
+endpoints:
+  GET - https://xxxxx.execute-api.us-east-1.amazonaws.com/dev
+functions:
+  api: serverless-nodejs-api-dev-getMsg
+layers:
+  None
+</code></pre><p>test the function by calling the API endpoint.</p>
+<pre><code>curl https://xxxxx.execute-api.us-east-1.amazonaws.com/dev
+
+{
+  &quot;message&quot;: &quot;Go Serverless v1.0! Your function executed successfully!&quot;
+}
+</code></pre><p><em><strong>Now let&rsquo;s automate the deployment process with Github, AWS Codepipeline</strong></em></p>
+<p>Let&rsquo;s consider this code as production-ready and push the code to the GitHub repo master branch.</p>
+<p><em>PS: We can create multiple pipelines per brach for eg: Master -&gt; Prod, Development -&gt; Staging/Dev Environment</em></p>
+<h2 id="3-setup-codepipeline">3. Setup Codepipeline<a href="#3-setup-codepipeline" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h4 id="31-set-pipeline-name-and-create-iam-role">3.1 Set Pipeline name and Create IAM Role<a href="#31-set-pipeline-name-and-create-iam-role" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h1 id="httpsiimgurcom0g7lgp6jpg"><img src="https://i.imgur.com/0G7LGP6.jpg" alt=""><a href="#httpsiimgurcom0g7lgp6jpg" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h4 id="32-add-source-stage">3.2 Add source stage<a href="#32-add-source-stage" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p>In this stage, Connect to your Github account and choose your repo and branch
+Set the detection method</p>
+<p><img src="https://i.imgur.com/d5R9UOA.jpg" alt=""></p>
+<h4 id="33-add-build-stage">3.3 Add build stage<a href="#33-add-build-stage" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p>In this step, we have to create a Codebuild project, where we configure our build and deploy environment and commands.</p>
+<p>Click on the <strong>Create Project</strong> button, it will take you to the Codebuild setup page.</p>
+<p><img src="https://i.imgur.com/881kqAW.jpg" alt=""></p>
+<p><em>Set the project name here</em></p>
+<p><img src="https://i.imgur.com/DalIjHD.jpg" alt=""></p>
+<p><em>Choose your runtime and image for the build environment</em></p>
+<p><em>Choose an IAM role for the project</em> - <strong>This part is important</strong></p>
+<p><strong>This role must have enough permissions for the serverless framework to deploy the function and its resources to AWS as follows,</strong></p>
+<ul>
+<li>Create an S3 bucket for your function deployments</li>
+<li>Upload your function zip files to that S3 bucket</li>
+<li>Submit a CloudFormation template</li>
+<li>Create the log groups for your Lambda functions</li>
+<li>Create a REST API in API Gateway</li>
+</ul>
+<p><em>You can use the below awesome NPM modules to create a narrow IAM policy template that will cover many Serverless use cases.</em></p>
+<p><code>npm install -g yo generator-serverless-policy</code></p>
+<p>then on your serverless app directory</p>
+<pre><code>$ yo serverless-policy
+? Your Serverless service name test-service
+? You can specify a specific stage, if you like: dev
+? You can specify a specific region, if you like: us-west-1
+? Does your service rely on DynamoDB? Yes
+? Is your service going to be using S3 buckets? Yes
+app name test-service
+app stage dev
+app region us-west-1
+Writing to test-service-dev-us-west-1-policy.json
+</code></pre><p><em><strong>After you finish creating the codebuild project go to its IAM role and append the policy with the rules created by the above template.</strong></em></p>
+<p>You can find the IAM policy we used for this guide here,
+<a href="https://github.com/imewish/serverless-nodejs-api/blob/master/codebuild-IAM-policy.json">https://github.com/imewish/serverless-nodejs-api/blob/master/codebuild-IAM-policy.json</a></p>
+<p><img src="https://i.imgur.com/RKn6C9O.jpg" alt="">
+<img src="https://i.imgur.com/tfJdYRF.jpg" alt=""></p>
+<p><em>Define Build Spec.</em></p>
+<p>You can find it here. <a href="https://github.com/imewish/serverless-nodejs-api/blob/master/buildspec.yml">https://github.com/imewish/serverless-nodejs-api/blob/master/buildspec.yml</a></p>
+<blockquote>
+<p>Here we will define the commands to set up the serverless framework and deploy commands to AWS.</p>
+<p>On install phase</p>
+<ul>
+<li>
+<p>Set nodejs 10 as runtime</p>
+</li>
+<li>
+<p>Install serverless framework
+On Build Phase</p>
+</li>
+<li>
+<p>Install npm packages</p>
+</li>
+<li>
+<p>Deploy to lambda with <code>sls deploy --stage dev/prod</code></p>
+</li>
+</ul>
+</blockquote>
+<p>NB: You can also run your tests here if you have test cases written for your lambda functions.</p>
+<p><img src="https://i.imgur.com/hORjMoL.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/FrOlrri.jpg" alt=""></p>
+<p>Enable Cloudwatch logs so that we can tail our build process logs.</p>
+<p>Then click on <strong>Continue to Codepipeline</strong> this will take us back to Codepipeline Setup.</p>
+<h4 id="4-deploy-stage">4. Deploy Stage<a href="#4-deploy-stage" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p>This stage is optional.</p>
+<p>Since the serverless framework already put the deployment artifacts to an S3 bucket we can skip this part. But if you want to store it to a different bucket you can set up like this.</p>
+<p><img src="https://i.imgur.com/2qmHBAX.jpg" alt=""></p>
+<p>Click Next and then review all the setup then Create the pipeline.</p>
+<p>That&rsquo;s it!. Now you can test this by going to the newly created pipeline and click on <em><strong>Release Change</strong></em></p>
+<p><img src="https://i.imgur.com/lQW9adE.jpg" alt="">
+<img src="https://i.imgur.com/8rE0W6o.jpg" alt=""></p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://example.com/tags/ci/cd">CI/CD</a></span><span class="tag"><a href="https://example.com/tags/serverless">serverless</a></span><span class="tag"><a href="https://example.com/tags/aws">aws</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>717 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-01-01 05:30 &#43;0050</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://example.com/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>URL redirects with AWS S3 and Cloudfront</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://example.com">Vishnu Prassad</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://example.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
