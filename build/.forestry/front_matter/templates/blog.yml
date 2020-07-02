@@ -17,3 +17,12 @@ fields:
 - type: datetime
   name: date
   label: date
+- name: image
+  type: image_gallery
+  config: {}
+  label: Gallery Upload
+- name: upload_image
+  type: file
+  config:
+    maxSize: 64
+  label: Upload Image
