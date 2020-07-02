@@ -1,19 +1,19 @@
 +++
-date = ""
+date = 2020-04-13T18:30:00Z
 draft = true
 image = []
 layout = ""
-permalink = ""
-tags = []
-title = ""
+permalink = "load-testin-serverless-applications-with-serverless-artillery"
+tags = ["aws-lambda", "serverlessartillery", "artillery", "loadtesting", "load testing", "aws", "serverless"]
+title = "Load Testin Serverless Applications With Serverless Artillery"
 upload_image = ""
 
 +++
-Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application. 
+Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
 
-\***Why is Load Testing important?***
+\***Why is Load Testing important?__*
 
-Load testing will help us to find the following 
+Load testing will help us to find the following
 
 \- How fast is the system
 
@@ -39,15 +39,15 @@ Each of the above tools provides common and some additional features and differe
 
 So how can we do load tests **at scale** without having a high-end testing infrastructure?
 
-solution image
+![](/uploads/modern-problems-require-5c6590-1.jpg)
 
 \## Load Testing Serverless Applications with \[Serverless-Artillery\]([https://github.com/Nordstrom/serverless-artillery](https://github.com/Nordstrom/serverless-artillery "https://github.com/Nordstrom/serverless-artillery"))
 
 \---
 
-Serverless artillery is a combination of \[serverless\]([http://serverless.com](http://serverless.com "http://serverless.com")) framework and \[artillery.io\]([https://artillery.io/](https://artillery.io/ "https://artillery.io/")). 
+Serverless artillery is a combination of \[serverless\]([http://serverless.com](http://serverless.com "http://serverless.com")) framework and \[artillery.io\]([https://artillery.io/](https://artillery.io/ "https://artillery.io/")).
 
-\***Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale**.*
+\***Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale__.*
 
 Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily and without having to maintain any servers or testing infrastructure.
 
@@ -61,29 +61,29 @@ Serverless-artillery makes it easy to test your services for performance and fun
 
 \### **How It Works**
 
-howit works image
+![](/uploads/howitworks-1.jpg)
 
-archtect image
+![](/uploads/architecture-1.gif)
 
 \- Serverless-artillery would be installed and run on your local machine. From command line run slsart --help to see various serverless-artillery commands
 
 \- It takes your JSON or YAML load script \`script.yml\` that specifies,
 
     - test target/URL/endpoint/service
-
+    
     - load progression
-
+    
     - and the scenarios that are important for your service to test.
 
 \## Let's See It in Action
 
-\**Load Testing A Sample Application**
+\*_Load Testing A Sample Application_*
 
 In this example, we will load test a single endpoint(GET) serverless API built with **AWS API Gateway, Lambda, and DynamoDB**
 
-\**Installing Serverless Artillery on local machine**
+\*_Installing Serverless Artillery on local machine_*
 
-\**Prerequisite**
+\*_Prerequisite_*
 
 \- NodeJS v8 +
 
@@ -91,9 +91,7 @@ In this example, we will load test a single endpoint(GET) serverless API built w
 
       \`npm install -g serverless\`
 
- 
-
-\**Installing serverless-artillery**
+\*_Installing serverless-artillery_*
 
 \`\`\`jsx
 
@@ -111,7 +109,7 @@ slsart --version
 
 We can also install it on a \[docker container\]([https://github.com/Nordstrom/serverless-artillery#installing-in-docker](https://github.com/Nordstrom/serverless-artillery#installing-in-docker "https://github.com/Nordstrom/serverless-artillery#installing-in-docker"))
 
-\**Setting up the Load Test Configuration**
+\*_Setting up the Load Test Configuration_*
 
 \`\`\`jsx
 
@@ -127,55 +125,55 @@ slsart script // this will create script.yml
 
 config:
 
-  target: "[https://xxxxxxx.execute-api.us-east-1.amazonaws.com](https://xxxxxxx.execute-api.us-east-1.amazonaws.com "https://xxxxxxx.execute-api.us-east-1.amazonaws.com")"
+target: "[https://xxxxxxx.execute-api.us-east-1.amazonaws.com](https://xxxxxxx.execute-api.us-east-1.amazonaws.com "https://xxxxxxx.execute-api.us-east-1.amazonaws.com")"
 
-  phases:
+phases:
 
     -
-
+    
       duration: 300
-
+    
       arrivalRate: 500
-
+    
       rampTo: 10000
 
 scenarios:
 
-  -
+* 
 
     flow:
-
+    
       -
-
+    
         get:
-
+    
           url: "/dev/get?id=john"
 
 \`\`\`
 
-Understanding \`script.yml\` 
+Understanding \`script.yml\`
 
-\**config:** 
+\*_config:_*
 
 The config section defines the target (the hostname or IP address of the system under test),the load progression, and protocol-specific settings such as HTTP response timeouts or \[Socket.io\]([http://socket.io/](http://socket.io/ "http://socket.io/")) transport options
 
-\**target**:  
+\*_target_*:
 
 the URI of the application under test. For an HTTP application, it's the base URL for all requests
 
- **phases**: 
+**phases**:
 
-  specify the duration of the test and the frequency of requests 
+specify the duration of the test and the frequency of requests
 
- **scenarios**:
+**scenarios**:
 
 The scenarios section contains definitions for one or more scenarios for the virtual users that Artillery will create.
 
-\**flow**:
+\*_flow_*:
 
 a "flow" is an array of operations that a virtual user performs, e.g. GET and POST requests for an HTTP-based application
 
-\**Deploy to AWS**
+\*_Deploy to AWS_*
 
 \`\`\`jsx
 
@@ -183,7 +181,7 @@ slsart deploy --stage <your-unique-stage-name>
 
 \`\`\`
 
-\**Start the load Test**
+\*_Start the load Test_*
 
 \`\`\`jsx
 
@@ -191,28 +189,28 @@ slsart invoke --stage <your-unique-stage-name>
 
 \`\`\`
 
-\***The above \`script.yml\` will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes***
+\***The above \`script.yml\` will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes__*
 
 And the result of the test will look like this in a cloudwatch dashboard.
 
-graph image
+![](/uploads/cw-graph.png)
 
-As we can see in the above graph, there are a lot of requests were throttled by lambda. That is because of lambda's concurrency limit of 1000. 
+As we can see in the above graph, there are a lot of requests were throttled by lambda. That is because of lambda's concurrency limit of 1000.
 
 \### How Load Testing Helps Serverless Applications
 
-One of the important insights we can get from load testing serverless applications is, It helps to find out the default soft limits or hidden limits of serverless tools. By knowing this we will be able to architecture our application to handle high traffic without throttling the request and hitting the AWS limits. 
+One of the important insights we can get from load testing serverless applications is, It helps to find out the default soft limits or hidden limits of serverless tools. By knowing this we will be able to architecture our application to handle high traffic without throttling the request and hitting the AWS limits.
 
 It also helps to find out the following things,
 
 \- Lambda Insights
 
     - To find concurrency limits
-
+    
     - To find out the timeouts
-
+    
     - To find out Memory Exceptions
-
+    
     - To find out Cold starts (You can warm up or add provisioned concurrency to those functions)
 
 \- API Gateway
