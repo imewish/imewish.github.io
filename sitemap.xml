@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>https://imewish.github.io/tags/hugo/</loc>
+    <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
   </url>
@@ -75,10 +80,6 @@
   <url>
     <loc>https://imewish.github.io/about-hugo/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/posts/load-testing-serverless-appliations/</loc>
   </url>
   
   <url>
