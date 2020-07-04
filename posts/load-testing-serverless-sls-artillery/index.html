@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#f85959">
+	<meta name="msapplication-TileColor" content="#f85959">
+<meta itemprop="name" content="Load Testin Serverless Applications With Serverless Artillery">
+<meta itemprop="description" content="Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
+**Why is Load Testing important?__
+Load testing will help us to find the following
+- How fast is the system
+- How much load can the system handle
+- Under what conditions will the system fail
+- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.">
+<meta itemprop="datePublished" content="2020-04-13T18:30:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-04-13T18:30:00&#43;00:00" />
+<meta itemprop="wordCount" content="926">
+
+
+
+<meta itemprop="keywords" content="aws-lambda,serverlessartillery,artillery,loadtesting,load testing,aws,serverless," /><meta property="og:title" content="Load Testin Serverless Applications With Serverless Artillery" />
+<meta property="og:description" content="Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
+**Why is Load Testing important?__
+Load testing will help us to find the following
+- How fast is the system
+- How much load can the system handle
+- Under what conditions will the system fail
+- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://imewish.github.io/posts/load-testing-serverless-sls-artillery/" />
+<meta property="article:published_time" content="2020-04-13T18:30:00+00:00" />
+<meta property="article:modified_time" content="2020-04-13T18:30:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Load Testin Serverless Applications With Serverless Artillery"/>
+<meta name="twitter:description" content="Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
+**Why is Load Testing important?__
+Load testing will help us to find the following
+- How fast is the system
+- How much load can the system handle
+- Under what conditions will the system fail
+- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Load Testin Serverless Applications With Serverless Artillery</title>
+	<link rel="stylesheet" href="https://imewish.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://imewish.github.io/">Serverless Notebook!</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://imewish.github.io/posts/">Posts</a>
+				<a href="https://imewish.github.io/about-hugo/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/vishnuprasad73" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/imewish" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/imewish" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://imewish.github.io/posts/">Posts</a></li>
+			<li><a href="https://imewish.github.io/about-hugo/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Apr 13, 2020</span></div>
+				<h1>Load Testin Serverless Applications With Serverless Artillery</h1>
+			</header>
+			<div class="content">
+				<p>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.</p>
+<p>**<em>Why is Load Testing important?__</em></p>
+<p>Load testing will help us to find the following</p>
+<p>- How fast is the system</p>
+<p>- How much load can the system handle</p>
+<p>- Under what conditions will the system fail</p>
+<p>- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc. during average and heavy user load. This will eventually help in determining the infrastructure needs as the system scales upward.</p>
+<p>- It gives us an opportunity to find strange behavior or surprises when we subject an application to an insane amount of load (stress testing). Strange behaviors include request timeouts, IO Exceptions, memory leaks, or any security issues.</p>
+<p>## <strong>Choosing a Load testing tool or framework</strong></p>
+<p>There are many great load testing frameworks available. Some of the leading tools are,</p>
+<p>- Jmeter</p>
+<p>- Locust</p>
+<p>- Artillery.io</p>
+<p>Each of the above tools provides common and some additional features and different methods of load testing. But the only problem with these tools is the throughput it can generate towards your application is limited to the host systems&rsquo; memory and CPU capacity. If you want to want to test high and quick traffic ramp-up scenarios it&rsquo;s not possible to do it from your laptop or PC. You can either have a high-end PC or you can run it on a Cloud Virtual Machine, it can be expensive, plus some of the above tools come with a GUI, which cannot be accessed via VM&rsquo;s.</p>
+<p>So how can we do load tests <strong>at scale</strong> without having a high-end testing infrastructure?</p>
+<p><img src="/uploads/modern-problems-require-5c6590-1.jpg" alt=""></p>
+<p>## Load Testing Serverless Applications with [Serverless-Artillery](<a href="https://github.com/Nordstrom/serverless-artillery" title="https://github.com/Nordstrom/serverless-artillery">https://github.com/Nordstrom/serverless-artillery</a>)</p>
+<p>-&ndash;</p>
+<p>Serverless artillery is a combination of [serverless](<a href="http://serverless.com" title="http://serverless.com">http://serverless.com</a>) framework and [artillery.io](<a href="https://artillery.io/" title="https://artillery.io/">https://artillery.io/</a>).</p>
+<p>***Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale__.*</p>
+<p>Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily and without having to maintain any servers or testing infrastructure.</p>
+<p>### <strong>Use serverless-artillery if</strong></p>
+<p>1. You want to know if your services (either internal or public) can handle different amount of traffic load (i.e. performance or load testing).</p>
+<p>2. You want to test if your services behave as you expect after you deploy new changes (i.e. acceptance testing).</p>
+<p>3. You want to constantly monitor your services over time to make sure the latency of your services is under control (i.e. monitoring mode).</p>
+<p>### <strong>How It Works</strong></p>
+<p><img src="/uploads/howitworks-1.jpg" alt=""></p>
+<p><img src="/uploads/architecture-1.gif" alt=""></p>
+<p>- Serverless-artillery would be installed and run on your local machine. From command line run slsart &ndash;help to see various serverless-artillery commands</p>
+<p>- It takes your JSON or YAML load script `script.yml` that specifies,</p>
+<pre><code>- test target/URL/endpoint/service
+
+- load progression
+
+- and the scenarios that are important for your service to test.
+</code></pre>
+<p>## Let&rsquo;s See It in Action</p>
+<p>*<em>Load Testing A Sample Application</em>*</p>
+<p>In this example, we will load test a single endpoint(GET) serverless API built with <strong>AWS API Gateway, Lambda, and DynamoDB</strong></p>
+<p>*<em>Installing Serverless Artillery on local machine</em>*</p>
+<p>*<em>Prerequisite</em>*</p>
+<p>- NodeJS v8 +</p>
+<p>- Serverless Framework CLI</p>
+<pre><code>  \`npm install -g serverless\`
+</code></pre>
+<p>*<em>Installing serverless-artillery</em>*</p>
+<p>```jsx</p>
+<p>npm install -g serverless-artillery</p>
+<p>```</p>
+<p>To check that the installation succeeded, run:</p>
+<p>```jsx</p>
+<p>slsart &ndash;version</p>
+<p>```</p>
+<p>We can also install it on a [docker container](<a href="https://github.com/Nordstrom/serverless-artillery#installing-in-docker" title="https://github.com/Nordstrom/serverless-artillery#installing-in-docker">https://github.com/Nordstrom/serverless-artillery#installing-in-docker</a>)</p>
+<p>*<em>Setting up the Load Test Configuration</em>*</p>
+<p>```jsx</p>
+<p>mkdir load-test</p>
+<p>cd load-test</p>
+<p>slsart script // this will create script.yml</p>
+<p>```</p>
+<p>```jsx</p>
+<p>config:</p>
+<p>target: &ldquo;<a href="https://xxxxxxx.execute-api.us-east-1.amazonaws.com" title="https://xxxxxxx.execute-api.us-east-1.amazonaws.com">https://xxxxxxx.execute-api.us-east-1.amazonaws.com</a>&rdquo;</p>
+<p>phases:</p>
+<pre><code>-
+
+  duration: 300
+
+  arrivalRate: 500
+
+  rampTo: 10000
+</code></pre>
+<p>scenarios:</p>
+<ul>
+<li></li>
+</ul>
+<pre><code>flow:
+
+  -
+
+    get:
+
+      url: &quot;/dev/get?id=john&quot;
+</code></pre>
+<p>```</p>
+<p>Understanding `script.yml`</p>
+<p>*<em>config:</em>*</p>
+<p>The config section defines the target (the hostname or IP address of the system under test),the load progression, and protocol-specific settings such as HTTP response timeouts or [Socket.io](<a href="http://socket.io/" title="http://socket.io/">http://socket.io/</a>) transport options</p>
+<p>*<em>target</em>*:</p>
+<p>the URI of the application under test. For an HTTP application, it&rsquo;s the base URL for all requests</p>
+<p><strong>phases</strong>:</p>
+<p>specify the duration of the test and the frequency of requests</p>
+<p><strong>scenarios</strong>:</p>
+<p>The scenarios section contains definitions for one or more scenarios for the virtual users that Artillery will create.</p>
+<p>*<em>flow</em>*:</p>
+<p>a &ldquo;flow&rdquo; is an array of operations that a virtual user performs, e.g. GET and POST requests for an HTTP-based application</p>
+<p>*<em>Deploy to AWS</em>*</p>
+<p>```jsx</p>
+<p>slsart deploy &ndash;stage <!-- raw HTML omitted --></p>
+<p>```</p>
+<p>*<em>Start the load Test</em>*</p>
+<p>```jsx</p>
+<p>slsart invoke &ndash;stage <!-- raw HTML omitted --></p>
+<p>```</p>
+<p>***The above `script.yml` will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes__*</p>
+<p>And the result of the test will look like this in a cloudwatch dashboard.</p>
+<p><img src="/uploads/cw-graph.png" alt=""></p>
+<p>As we can see in the above graph, there are a lot of requests were throttled by lambda. That is because of lambda&rsquo;s concurrency limit of 1000.</p>
+<p>### How Load Testing Helps Serverless Applications</p>
+<p>One of the important insights we can get from load testing serverless applications is, It helps to find out the default soft limits or hidden limits of serverless tools. By knowing this we will be able to architecture our application to handle high traffic without throttling the request and hitting the AWS limits.</p>
+<p>It also helps to find out the following things,</p>
+<p>- Lambda Insights</p>
+<pre><code>- To find concurrency limits
+
+- To find out the timeouts
+
+- To find out Memory Exceptions
+
+- To find out Cold starts (You can warm up or add provisioned concurrency to those functions)
+</code></pre>
+<p>- API Gateway</p>
+<pre><code>- To understand the request throttling limits, increase or decrease them according to application needs
+</code></pre>
+<p>- DynamoDB</p>
+<pre><code>- To get the read write usage metrics and do capacity planning  for handling different level of traffic</code></pre>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://imewish.github.io/tags/aws-lambda">aws-lambda</a></span><span class="tag"><a href="https://imewish.github.io/tags/serverlessartillery">serverlessartillery</a></span><span class="tag"><a href="https://imewish.github.io/tags/artillery">artillery</a></span><span class="tag"><a href="https://imewish.github.io/tags/loadtesting">loadtesting</a></span><span class="tag"><a href="https://imewish.github.io/tags/load-testing">load testing</a></span><span class="tag"><a href="https://imewish.github.io/tags/aws">aws</a></span><span class="tag"><a href="https://imewish.github.io/tags/serverless">serverless</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>926 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-04-14 00:00 &#43;00120</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>URL redirects with AWS S3 and Cloudfront</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://imewish.github.io/">Vishnu Prassad</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://imewish.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://imewish.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
