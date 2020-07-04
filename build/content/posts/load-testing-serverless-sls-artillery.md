@@ -2,7 +2,7 @@
 date = 2020-04-13T18:30:00Z
 image = []
 layout = ""
-permalink = "load-testin-serverless-applications-with-serverless-artillery"
+permalink = "load-testing-serverless-applications-with-serverless-artillery"
 tags = ["hugo", "aws-lambda", "serverlessartillery", "artillery", "loadtesting", "load testing", "aws", "serverless"]
 title = "Load Testin Serverless Applications With Serverless Artillery"
 upload_image = ""
