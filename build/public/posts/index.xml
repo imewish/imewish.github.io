@@ -341,15 +341,5 @@ On Build Phase</p>
 ]]></content>
 		</item>
 		
-		<item>
-			<title></title>
-			<link>https://imewish.github.io/posts/load-testing-serverless-appliations/</link>
-			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-			
-			<guid>https://imewish.github.io/posts/load-testing-serverless-appliations/</guid>
-			<description></description>
-			<content type="html"><![CDATA[]]></content>
-		</item>
-		
 	</channel>
 </rss>
