@@ -10,7 +10,7 @@
 		<atom:link href="https://imewish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>Load Testin Serverless Applications With Serverless Artillery</title>
+			<title>Load Testing Serverless Applications With Serverless Artillery</title>
 			<link>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</link>
 			<pubDate>Mon, 13 Apr 2020 18:30:00 +0000</pubDate>
 			
