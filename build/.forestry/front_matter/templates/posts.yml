@@ -22,5 +22,3 @@ fields:
   config:
     maxSize: 64
   label: Image Upload
-pages:
-- build/content/posts/hello-world.md
