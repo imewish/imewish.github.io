@@ -3,32 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://imewish.github.io/tags/aws/</loc>
-    <lastmod>2020-07-08T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/posts/hello-world/</loc>
-    <lastmod>2020-07-08T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/posts/</loc>
-    <lastmod>2020-07-08T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/</loc>
-    <lastmod>2020-07-08T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/tags/</loc>
-    <lastmod>2020-07-08T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://imewish.github.io/tags/artillery/</loc>
+    <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/aws/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
   </url>
   
@@ -58,12 +38,27 @@
   </url>
   
   <url>
+    <loc>https://imewish.github.io/posts/</loc>
+    <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://imewish.github.io/tags/serverless/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://imewish.github.io/</loc>
+    <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://imewish.github.io/tags/serverlessartillery/</loc>
+    <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
   </url>
   
