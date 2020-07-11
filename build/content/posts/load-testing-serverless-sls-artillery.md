@@ -1,6 +1,5 @@
 +++
 date = 2020-04-13T18:30:00Z
-draft = true
 image = []
 layout = "post"
 permalink = "load-testing-serverless-applications-with-serverless-artillery"
@@ -42,8 +41,6 @@ So how can we do load tests **at scale** without having a high-end testing infra
 ![](/static/uploads/modern-problems-require-5c6590-1.jpg)
 
 Load Testing Serverless Applications with Serverless Artillery
-
-/static/uploads/modern-problems-require-5c6590-1.jpg
 
 \---
 
