@@ -25,7 +25,7 @@ Load testing will help us to find the following
 
 \- It gives us an opportunity to find strange behavior or surprises when we subject an application to an insane amount of load (stress testing). Strange behaviors include request timeouts, IO Exceptions, memory leaks, or any security issues.
 
-#### **Choosing a Load testing tool or framework**
+### **Choosing a Load testing tool or framework**
 
 There are many great load testing frameworks available. Some of the leading tools are,
 
@@ -51,7 +51,7 @@ Serverless artillery is a combination of \[serverless\]([http://serverless.com](
 
 Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily, and without having to maintain any servers or testing infrastructure.
 
-#### **Use serverless-artillery if**
+### **Use serverless-artillery if**
 
 1\. You want to know if your services (either internal or public) can handle a different amounts of traffic load (i.e. performance or load testing).
 
@@ -59,13 +59,13 @@ Serverless-artillery makes it easy to test your services for performance and fun
 
 3\. You want to constantly monitor your services over time to make sure the latency of your services is under control (i.e. monitoring mode).
 
-\### **How It Works**
+#### **How It Works**
 
 ![](/uploads/howitworks-1.jpg)
 
 ![](/uploads/architecture-1.gif)
 
-\- Serverless-artillery would be installed and run on your local machine. From command line run slsart --help to see various serverless-artillery commands
+\- Serverless-artillery would be installed and run on your local machine. From the command line run slsart --help to see various serverless-artillery commands
 
 \- It takes your JSON or YAML load script \`script.yml\` that specifies,
 
@@ -75,7 +75,7 @@ Serverless-artillery makes it easy to test your services for performance and fun
     
     - and the scenarios that are important for your service to test.
 
-\## Let's See It in Action
+### Let's See It in Action
 
 \*_Load Testing A Sample Application_*
 
