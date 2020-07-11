@@ -22,3 +22,5 @@ fields:
   config:
     maxSize: 64
   label: Image Upload
+pages:
+- build/content/posts/image-processing-flow-with-aws-step-functions.md
