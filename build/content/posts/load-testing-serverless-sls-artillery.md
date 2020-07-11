@@ -9,7 +9,7 @@ title = "Load Testing Serverless Applications With Serverless Artillery"
 upload_image = ""
 
 +++
-Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
+![](/uploads/howitworks-1.jpg)Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
 
 **_Why is Load Testing important?_**
 
