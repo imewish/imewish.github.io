@@ -25,7 +25,7 @@ Load testing will help us to find the following
 
 \- It gives us an opportunity to find strange behavior or surprises when we subject an application to an insane amount of load (stress testing). Strange behaviors include request timeouts, IO Exceptions, memory leaks, or any security issues.
 
-\## **Choosing a Load testing tool or framework**
+#### **Choosing a Load testing tool or framework**
 
 There are many great load testing frameworks available. Some of the leading tools are,
 
