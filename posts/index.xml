@@ -6,8 +6,19 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 13 Apr 2020 18:30:00 +0000</lastBuildDate>
+		<lastBuildDate>Wed, 08 Jul 2020 18:30:00 +0000</lastBuildDate>
 		<atom:link href="https://imewish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Hello World</title>
+			<link>https://imewish.github.io/posts/hello-world/</link>
+			<pubDate>Wed, 08 Jul 2020 18:30:00 +0000</pubDate>
+			
+			<guid>https://imewish.github.io/posts/hello-world/</guid>
+			<description>This is a Hello World Post</description>
+			<content type="html"><![CDATA[<p>This is a Hello World Post</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Load Testing Serverless Applications With Serverless Artillery</title>
