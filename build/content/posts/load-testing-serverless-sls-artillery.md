@@ -65,7 +65,7 @@ Serverless-artillery makes it easy to test your services for performance and fun
 
 ![](/uploads/architecture-1.gif)
 
-\- Serverless-artillery would be installed and run on your local machine. From the command line run slsart --help to see various serverless-artillery commands
+\- Serverless-artillery would be installed and run on your local machine. From the command line run `slsart --help` to see various serverless-artillery commands
 
 \- It takes your JSON or YAML load script \`script.yml\` that specifies,
 
