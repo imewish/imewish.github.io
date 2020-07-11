@@ -43,6 +43,8 @@ So how can we do load tests **at scale** without having a high-end testing infra
 
 Load Testing Serverless Applications with Serverless Artillery
 
+/static/uploads/modern-problems-require-5c6590-1.jpg
+
 \---
 
 Serverless artillery is a combination of \[serverless\]([http://serverless.com](http://serverless.com "http://serverless.com")) framework and \[artillery.io\]([https://artillery.io/](https://artillery.io/ "https://artillery.io/")).
