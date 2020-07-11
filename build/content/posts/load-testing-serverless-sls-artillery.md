@@ -1,6 +1,5 @@
 +++
 date = 2020-04-13T18:30:00Z
-draft = true
 image = []
 layout = "post"
 permalink = "load-testing-serverless-applications-with-serverless-artillery"
