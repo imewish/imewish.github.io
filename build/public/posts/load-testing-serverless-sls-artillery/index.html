@@ -17,7 +17,7 @@ Load testing will help us to find the following
 - Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.">
 <meta itemprop="datePublished" content="2020-04-13T18:30:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-13T18:30:00&#43;00:00" />
-<meta itemprop="wordCount" content="916">
+<meta itemprop="wordCount" content="917">
 
 
 
@@ -90,7 +90,7 @@ Load testing will help us to find the following
 				<h1>Load Testing Serverless Applications With Serverless Artillery</h1>
 			</header>
 			<div class="content">
-				<p><img src="/uploads/howitworks-1.jpg" alt="">Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.</p>
+				<p>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.</p>
 <p><strong><em>Why is Load Testing important?</em></strong></p>
 <p>Load testing will help us to find the following</p>
 <p>- How fast is the system</p>
@@ -105,14 +105,14 @@ Load testing will help us to find the following
 <p>- Artillery.io</p>
 <p>Each of the above tools provides common and some additional features and different methods of load testing. But the only problem with these tools is the throughput it can generate towards your application is limited to the host systems&rsquo; memory and CPU capacity. If you want to want to test high and quick traffic ramp-up scenarios it&rsquo;s not possible to do it from your laptop or PC. You can either have a high-end PC or you can run it on a Cloud Virtual Machine, it can be expensive, plus some of the above tools come with a GUI, which cannot be accessed via VM&rsquo;s.</p>
 <p>So how can we do load tests <strong>at scale</strong> without having a high-end testing infrastructure?</p>
-<p><img src="/uploads/modern-problems-require-5c6590-1.jpg" alt=""></p>
-<p>## Load Testing Serverless Applications with [Serverless-Artillery](<a href="https://github.com/Nordstrom/serverless-artillery" title="https://github.com/Nordstrom/serverless-artillery">https://github.com/Nordstrom/serverless-artillery</a>)</p>
+<p><img src="/static/uploads/modern-problems-require-5c6590-1.jpg" alt=""></p>
+<p>Load Testing Serverless Applications with Serverless Artillery</p>
 <p>-&ndash;</p>
 <p>Serverless artillery is a combination of [serverless](<a href="http://serverless.com" title="http://serverless.com">http://serverless.com</a>) framework and [artillery.io](<a href="https://artillery.io/" title="https://artillery.io/">https://artillery.io/</a>).</p>
-<p>**<em>Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale</em>_._</p>
-<p>Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily and without having to maintain any servers or testing infrastructure.</p>
+<p><strong><em>Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale</em></strong></p>
+<p>Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily, and without having to maintain any servers or testing infrastructure.</p>
 <h4 id="use-serverless-artillery-if"><strong>Use serverless-artillery if</strong><a href="#use-serverless-artillery-if" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
-<p>1. You want to know if your services (either internal or public) can handle different amount of traffic load (i.e. performance or load testing).</p>
+<p>1. You want to know if your services (either internal or public) can handle a different amounts of traffic load (i.e. performance or load testing).</p>
 <p>2. You want to test if your services behave as you expect after you deploy new changes (i.e. acceptance testing).</p>
 <p>3. You want to constantly monitor your services over time to make sure the latency of your services is under control (i.e. monitoring mode).</p>
 <p>### <strong>How It Works</strong></p>
@@ -208,7 +208,7 @@ scenarios:
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://imewish.github.io/tags/hugo">hugo</a></span><span class="tag"><a href="https://imewish.github.io/tags/aws-lambda">aws-lambda</a></span><span class="tag"><a href="https://imewish.github.io/tags/serverlessartillery">serverlessartillery</a></span><span class="tag"><a href="https://imewish.github.io/tags/artillery">artillery</a></span><span class="tag"><a href="https://imewish.github.io/tags/loadtesting">loadtesting</a></span><span class="tag"><a href="https://imewish.github.io/tags/load-testing">load testing</a></span><span class="tag"><a href="https://imewish.github.io/tags/aws">aws</a></span><span class="tag"><a href="https://imewish.github.io/tags/serverless">serverless</a></span>
 				</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>916 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>917 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-04-14 00:00 &#43;00120</p>
 			</footer>
 		</article>

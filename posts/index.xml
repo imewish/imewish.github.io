@@ -6,8 +6,135 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Mon, 13 Apr 2020 18:30:00 +0000</lastBuildDate>
 		<atom:link href="https://imewish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Load Testing Serverless Applications With Serverless Artillery</title>
+			<link>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</link>
+			<pubDate>Mon, 13 Apr 2020 18:30:00 +0000</pubDate>
+			
+			<guid>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</guid>
+			<description>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
+Why is Load Testing important?
+Load testing will help us to find the following
+- How fast is the system
+- How much load can the system handle
+- Under what conditions will the system fail
+- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.</description>
+			<content type="html"><![CDATA[<p>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.</p>
+<p><strong><em>Why is Load Testing important?</em></strong></p>
+<p>Load testing will help us to find the following</p>
+<p>- How fast is the system</p>
+<p>- How much load can the system handle</p>
+<p>- Under what conditions will the system fail</p>
+<p>- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc. during average and heavy user load. This will eventually help in determining the infrastructure needs as the system scales upward.</p>
+<p>- It gives us an opportunity to find strange behavior or surprises when we subject an application to an insane amount of load (stress testing). Strange behaviors include request timeouts, IO Exceptions, memory leaks, or any security issues.</p>
+<h4 id="choosing-a-load-testing-tool-or-framework"><strong>Choosing a Load testing tool or framework</strong></h4>
+<p>There are many great load testing frameworks available. Some of the leading tools are,</p>
+<p>- Jmeter</p>
+<p>- Locust</p>
+<p>- Artillery.io</p>
+<p>Each of the above tools provides common and some additional features and different methods of load testing. But the only problem with these tools is the throughput it can generate towards your application is limited to the host systems&rsquo; memory and CPU capacity. If you want to want to test high and quick traffic ramp-up scenarios it&rsquo;s not possible to do it from your laptop or PC. You can either have a high-end PC or you can run it on a Cloud Virtual Machine, it can be expensive, plus some of the above tools come with a GUI, which cannot be accessed via VM&rsquo;s.</p>
+<p>So how can we do load tests <strong>at scale</strong> without having a high-end testing infrastructure?</p>
+<p><img src="/static/uploads/modern-problems-require-5c6590-1.jpg" alt=""></p>
+<p>Load Testing Serverless Applications with Serverless Artillery</p>
+<p>-&ndash;</p>
+<p>Serverless artillery is a combination of [serverless](<a href="http://serverless.com" title="http://serverless.com">http://serverless.com</a>) framework and [artillery.io](<a href="https://artillery.io/" title="https://artillery.io/">https://artillery.io/</a>).</p>
+<p><strong><em>Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale</em></strong></p>
+<p>Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily, and without having to maintain any servers or testing infrastructure.</p>
+<h4 id="use-serverless-artillery-if"><strong>Use serverless-artillery if</strong></h4>
+<p>1. You want to know if your services (either internal or public) can handle a different amounts of traffic load (i.e. performance or load testing).</p>
+<p>2. You want to test if your services behave as you expect after you deploy new changes (i.e. acceptance testing).</p>
+<p>3. You want to constantly monitor your services over time to make sure the latency of your services is under control (i.e. monitoring mode).</p>
+<p>### <strong>How It Works</strong></p>
+<p><img src="/uploads/howitworks-1.jpg" alt=""></p>
+<p><img src="/uploads/architecture-1.gif" alt=""></p>
+<p>- Serverless-artillery would be installed and run on your local machine. From command line run slsart &ndash;help to see various serverless-artillery commands</p>
+<p>- It takes your JSON or YAML load script `script.yml` that specifies,</p>
+<pre><code>- test target/URL/endpoint/service
+
+- load progression
+
+- and the scenarios that are important for your service to test.
+</code></pre>
+<p>## Let&rsquo;s See It in Action</p>
+<p>*<em>Load Testing A Sample Application</em>*</p>
+<p>In this example, we will load test a single endpoint(GET) serverless API built with <strong>AWS API Gateway, Lambda, and DynamoDB</strong></p>
+<p>*<em>Installing Serverless Artillery on local machine</em>*</p>
+<p>*<em>Prerequisite</em>*</p>
+<p>- NodeJS v8 +</p>
+<p>- Serverless Framework CLI</p>
+<pre><code>npm install -g serverless
+</code></pre>
+<p><strong><em>Installing serverless-artillery</em></strong></p>
+<pre><code>npm install -g serverless-artillery
+</code></pre>
+<p>To check that the installation succeeded, run:</p>
+<pre><code>slsart --version
+</code></pre>
+<p>We can also install it on a [docker container](<a href="https://github.com/Nordstrom/serverless-artillery#installing-in-docker" title="https://github.com/Nordstrom/serverless-artillery#installing-in-docker">https://github.com/Nordstrom/serverless-artillery#installing-in-docker</a>)</p>
+<p>*<em>Setting up the Load Test Configuration</em>*</p>
+<pre><code>mkdir load-test
+
+cd load-test
+
+slsart script // this will create script.yml
+
+config:
+  target: &quot;https://xxxxxxx.execute-api.us-east-1.amazonaws.com&quot;
+  phases:
+    -
+      duration: 300
+      arrivalRate: 500
+      rampTo: 10000
+scenarios:
+  -
+    flow:
+      -
+        get:
+          url: &quot;/dev/get?id=john&quot;
+</code></pre>
+<p>Understanding `script.yml`</p>
+<p><strong><em>config</em></strong><em>:</em></p>
+<p>The config section defines the target (the hostname or IP address of the system under test),the load progression, and protocol-specific settings such as HTTP response timeouts or [Socket.io](<a href="http://socket.io/" title="http://socket.io/">http://socket.io/</a>) transport options</p>
+<p><strong><em>target</em></strong>:</p>
+<p>the URI of the application under test. For an HTTP application, it&rsquo;s the base URL for all requests</p>
+<p><strong>phases</strong>:</p>
+<p>specify the duration of the test and the frequency of requests</p>
+<p><strong>scenarios</strong>:</p>
+<p>The scenarios section contains definitions for one or more scenarios for the virtual users that Artillery will create.</p>
+<p><strong>flow:</strong></p>
+<p>a &ldquo;flow&rdquo; is an array of operations that a virtual user performs, e.g. GET and POST requests for an HTTP-based application</p>
+<p>*<em>Deploy to AWS</em>*</p>
+<pre><code>slsart deploy --stage &lt;your-unique-stage-name&gt;
+</code></pre>
+<p><strong><em>Start the load Test</em></strong></p>
+<pre><code>slsart invoke --stage &lt;your-unique-stage-name&gt;
+</code></pre>
+<p><strong><em>The above &ldquo;script.yml&rdquo; will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes</em></strong></p>
+<p>And the result of the test will look like this in a cloud watch dashboard.</p>
+<p><img src="/uploads/cw-graph.png" alt=""></p>
+<p>As we can see in the above graph, there are a lot of requests that were throttled by lambda. That is because of lambda&rsquo;s concurrency limit of 1000.</p>
+<h3 id="how-load-testing-helps-serverless-applications">How Load Testing Helps Serverless Applications</h3>
+<p>One of the important insights we can get from load testing serverless applications is, It helps to find out the default soft limits or hidden limits of serverless tools. By knowing this we will be able to architecture our application to handle high traffic without throttling the request and hitting the AWS limits.</p>
+<p>It also helps to find out the following things,</p>
+<p>- Lambda Insights</p>
+<pre><code>- To find concurrency limits
+
+- To find out the timeouts
+
+- To find out Memory Exceptions
+
+- To find out Cold starts (You can warm up or add provisioned concurrency to those functions)
+</code></pre>
+<p>- API Gateway</p>
+<pre><code>- To understand the request throttling limits, increase or decrease them according to application needs
+</code></pre>
+<p>- DynamoDB</p>
+<pre><code>- To get the read write usage metrics and do capacity planning  for handling different level of traffic</code></pre>
+]]></content>
+		</item>
 		
 		<item>
 			<title>URL redirects with AWS S3 and Cloudfront</title>
