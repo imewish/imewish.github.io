@@ -10,7 +10,7 @@ upload_image = ""
 +++
 Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
 
-\***Why is Load Testing important?__*
+**_Why is Load Testing important?_**
 
 Load testing will help us to find the following
 
@@ -46,7 +46,7 @@ So how can we do load tests **at scale** without having a high-end testing infra
 
 Serverless artillery is a combination of \[serverless\]([http://serverless.com](http://serverless.com "http://serverless.com")) framework and \[artillery.io\]([https://artillery.io/](https://artillery.io/ "https://artillery.io/")).
 
-\***Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale__.*
+\**_Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale__._
 
 Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily and without having to maintain any servers or testing infrastructure.
 
@@ -188,7 +188,7 @@ slsart invoke --stage <your-unique-stage-name>
 
 \`\`\`
 
-\***The above \`script.yml\` will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes__*
+\**_The above \`script.yml\` will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes___
 
 And the result of the test will look like this in a cloudwatch dashboard.
 
