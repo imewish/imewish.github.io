@@ -8,7 +8,7 @@ title = "Load Testing Serverless Applications With Serverless Artillery"
 upload_image = ""
 
 +++
-![](/uploads/howitworks-1.jpg)Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
+Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
 
 **_Why is Load Testing important?_**
 
@@ -38,21 +38,21 @@ Each of the above tools provides common and some additional features and differe
 
 So how can we do load tests **at scale** without having a high-end testing infrastructure?
 
-![](/uploads/modern-problems-require-5c6590-1.jpg)
+![](/static/uploads/modern-problems-require-5c6590-1.jpg)
 
-\## Load Testing Serverless Applications with \[Serverless-Artillery\]([https://github.com/Nordstrom/serverless-artillery](https://github.com/Nordstrom/serverless-artillery "https://github.com/Nordstrom/serverless-artillery"))
+Load Testing Serverless Applications with Serverless Artillery
 
 \---
 
 Serverless artillery is a combination of \[serverless\]([http://serverless.com](http://serverless.com "http://serverless.com")) framework and \[artillery.io\]([https://artillery.io/](https://artillery.io/ "https://artillery.io/")).
 
-\**_Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale__._
+**_Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale_**
 
-Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily and without having to maintain any servers or testing infrastructure.
+Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily, and without having to maintain any servers or testing infrastructure.
 
 #### **Use serverless-artillery if**
 
-1\. You want to know if your services (either internal or public) can handle different amount of traffic load (i.e. performance or load testing).
+1\. You want to know if your services (either internal or public) can handle a different amounts of traffic load (i.e. performance or load testing).
 
 2\. You want to test if your services behave as you expect after you deploy new changes (i.e. acceptance testing).
 
