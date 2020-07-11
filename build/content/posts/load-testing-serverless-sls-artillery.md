@@ -51,7 +51,7 @@ Serverless artillery is a combination of \[serverless\]([http://serverless.com](
 
 Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily and without having to maintain any servers or testing infrastructure.
 
-\### **Use serverless-artillery if**
+#### **Use serverless-artillery if**
 
 1\. You want to know if your services (either internal or public) can handle different amount of traffic load (i.e. performance or load testing).
 
@@ -89,75 +89,47 @@ In this example, we will load test a single endpoint(GET) serverless API built w
 
 \- Serverless Framework CLI
 
-      \`npm install -g serverless\`
+    npm install -g serverless
 
-\*_Installing serverless-artillery_*
+**_Installing serverless-artillery_**
 
-\`\`\`jsx
-
-npm install -g serverless-artillery
-
-\`\`\`
+    npm install -g serverless-artillery
 
 To check that the installation succeeded, run:
 
-\`\`\`jsx
-
-slsart --version
-
-\`\`\`
+    slsart --version
 
 We can also install it on a \[docker container\]([https://github.com/Nordstrom/serverless-artillery#installing-in-docker](https://github.com/Nordstrom/serverless-artillery#installing-in-docker "https://github.com/Nordstrom/serverless-artillery#installing-in-docker"))
 
 \*_Setting up the Load Test Configuration_*
 
-\`\`\`jsx
-
-mkdir load-test
-
-cd load-test
-
-slsart script // this will create script.yml
-
-\`\`\`
-
-\`\`\`jsx
-
-config:
-
-target: "[https://xxxxxxx.execute-api.us-east-1.amazonaws.com](https://xxxxxxx.execute-api.us-east-1.amazonaws.com "https://xxxxxxx.execute-api.us-east-1.amazonaws.com")"
-
-phases:
-
-    -
+    mkdir load-test
     
-      duration: 300
+    cd load-test
     
-      arrivalRate: 500
+    slsart script // this will create script.yml
     
-      rampTo: 10000
-
-scenarios:
-
-* 
-
-    flow:
-    
+    config:
+      target: "https://xxxxxxx.execute-api.us-east-1.amazonaws.com"
+      phases:
+        -
+          duration: 300
+          arrivalRate: 500
+          rampTo: 10000
+    scenarios:
       -
-    
-        get:
-    
-          url: "/dev/get?id=john"
-
-\`\`\`
+        flow:
+          -
+            get:
+              url: "/dev/get?id=john"
 
 Understanding \`script.yml\`
 
-\*_config:_*
+**_config_**_:_
 
 The config section defines the target (the hostname or IP address of the system under test),the load progression, and protocol-specific settings such as HTTP response timeouts or \[Socket.io\]([http://socket.io/](http://socket.io/ "http://socket.io/")) transport options
 
-\*_target_*:
+**_target_**:
 
 the URI of the application under test. For an HTTP application, it's the base URL for all requests
 
@@ -169,35 +141,27 @@ specify the duration of the test and the frequency of requests
 
 The scenarios section contains definitions for one or more scenarios for the virtual users that Artillery will create.
 
-\*_flow_*:
+**flow:**
 
 a "flow" is an array of operations that a virtual user performs, e.g. GET and POST requests for an HTTP-based application
 
 \*_Deploy to AWS_*
 
-\`\`\`jsx
+    slsart deploy --stage <your-unique-stage-name>
 
-slsart deploy --stage <your-unique-stage-name>
+**_Start the load Test_**
 
-\`\`\`
+    slsart invoke --stage <your-unique-stage-name>
 
-\*_Start the load Test_*
+**_The above "script.yml" will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes_**
 
-\`\`\`jsx
-
-slsart invoke --stage <your-unique-stage-name>
-
-\`\`\`
-
-\**_The above \`script.yml\` will try to generate 500 user request/second  towards the API Gateway Endpoint and it will try to ramp up the requests to 10000/RPS in a period of 5 minutes___
-
-And the result of the test will look like this in a cloudwatch dashboard.
+And the result of the test will look like this in a cloud watch dashboard.
 
 ![](/uploads/cw-graph.png)
 
-As we can see in the above graph, there are a lot of requests were throttled by lambda. That is because of lambda's concurrency limit of 1000.
+As we can see in the above graph, there are a lot of requests that were throttled by lambda. That is because of lambda's concurrency limit of 1000.
 
-\### How Load Testing Helps Serverless Applications
+### How Load Testing Helps Serverless Applications
 
 One of the important insights we can get from load testing serverless applications is, It helps to find out the default soft limits or hidden limits of serverless tools. By knowing this we will be able to architecture our application to handle high traffic without throttling the request and hitting the AWS limits.
 
