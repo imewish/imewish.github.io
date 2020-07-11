@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 18:30:00 +0000</lastBuildDate>
     
 	<atom:link href="https://imewish.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Load Testing Serverless Applications With Serverless Artillery</title>
+      <link>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</link>
+      <pubDate>Mon, 13 Apr 2020 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</guid>
+      <description>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
+**Why is Load Testing important?__
+Load testing will help us to find the following
+- How fast is the system
+- How much load can the system handle
+- Under what conditions will the system fail
+- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.</description>
+    </item>
     
     <item>
       <title>URL redirects with AWS S3 and Cloudfront</title>
