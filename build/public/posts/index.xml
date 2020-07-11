@@ -16,21 +16,20 @@
 			
 			<guid>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</guid>
 			<description>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
-Why is Load Testing important?
-Load testing will help us to find the following
+Why is Load Testing important? Load testing will help us to find the following
 - How fast is the system
 - How much load can the system handle
 - Under what conditions will the system fail
 - Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.</description>
 			<content type="html"><![CDATA[<p>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.</p>
-<p><strong><em>Why is Load Testing important?</em></strong></p>
+<h3 id="_why-is-load-testing-important_"><strong><em>Why is Load Testing important?</em></strong></h3>
 <p>Load testing will help us to find the following</p>
 <p>- How fast is the system</p>
 <p>- How much load can the system handle</p>
 <p>- Under what conditions will the system fail</p>
 <p>- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc. during average and heavy user load. This will eventually help in determining the infrastructure needs as the system scales upward.</p>
 <p>- It gives us an opportunity to find strange behavior or surprises when we subject an application to an insane amount of load (stress testing). Strange behaviors include request timeouts, IO Exceptions, memory leaks, or any security issues.</p>
-<h4 id="choosing-a-load-testing-tool-or-framework"><strong>Choosing a Load testing tool or framework</strong></h4>
+<h3 id="choosing-a-load-testing-tool-or-framework"><strong>Choosing a Load testing tool or framework</strong></h3>
 <p>There are many great load testing frameworks available. Some of the leading tools are,</p>
 <p>- Jmeter</p>
 <p>- Locust</p>
@@ -38,19 +37,18 @@ Load testing will help us to find the following
 <p>Each of the above tools provides common and some additional features and different methods of load testing. But the only problem with these tools is the throughput it can generate towards your application is limited to the host systems&rsquo; memory and CPU capacity. If you want to want to test high and quick traffic ramp-up scenarios it&rsquo;s not possible to do it from your laptop or PC. You can either have a high-end PC or you can run it on a Cloud Virtual Machine, it can be expensive, plus some of the above tools come with a GUI, which cannot be accessed via VM&rsquo;s.</p>
 <p>So how can we do load tests <strong>at scale</strong> without having a high-end testing infrastructure?</p>
 <p><img src="/static/uploads/modern-problems-require-5c6590-1.jpg" alt=""></p>
-<p>Load Testing Serverless Applications with Serverless Artillery</p>
-<p>-&ndash;</p>
-<p>Serverless artillery is a combination of [serverless](<a href="http://serverless.com" title="http://serverless.com">http://serverless.com</a>) framework and [artillery.io](<a href="https://artillery.io/" title="https://artillery.io/">https://artillery.io/</a>).</p>
+<h3 id="load-testing-serverless-applications-with-serverless-artillery">Load Testing Serverless Applications with Serverless Artillery</h3>
+<p>Serverless artillery is a combination of <strong><em>serverless</em></strong> framework and <strong><em>artillery.io</em></strong></p>
 <p><strong><em>Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale</em></strong></p>
 <p>Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily, and without having to maintain any servers or testing infrastructure.</p>
-<h4 id="use-serverless-artillery-if"><strong>Use serverless-artillery if</strong></h4>
-<p>1. You want to know if your services (either internal or public) can handle a different amounts of traffic load (i.e. performance or load testing).</p>
+<h3 id="use-serverless-artillery-if"><strong>Use serverless-artillery if</strong></h3>
+<p>1. You want to know if your services (either internal or public) can handle different amounts of traffic load (i.e. performance or load testing).</p>
 <p>2. You want to test if your services behave as you expect after you deploy new changes (i.e. acceptance testing).</p>
-<p>3. You want to constantly monitor your services over time to make sure the latency of your services is under control (i.e. monitoring mode).</p>
-<p>### <strong>How It Works</strong></p>
+<p>3. You want to constantly monitor your services overtime to make sure the latency of your services is under control (i.e. monitoring mode).</p>
+<h4 id="how-it-works"><strong>How It Works</strong></h4>
 <p><img src="/uploads/howitworks-1.jpg" alt=""></p>
 <p><img src="/uploads/architecture-1.gif" alt=""></p>
-<p>- Serverless-artillery would be installed and run on your local machine. From command line run slsart &ndash;help to see various serverless-artillery commands</p>
+<p>- Serverless-artillery would be installed and run on your local machine. From the command line run <code>slsart --help</code> to see various serverless-artillery commands</p>
 <p>- It takes your JSON or YAML load script `script.yml` that specifies,</p>
 <pre><code>- test target/URL/endpoint/service
 
@@ -58,7 +56,7 @@ Load testing will help us to find the following
 
 - and the scenarios that are important for your service to test.
 </code></pre>
-<p>## Let&rsquo;s See It in Action</p>
+<h3 id="lets-see-it-in-action">Let&rsquo;s See It in Action</h3>
 <p>*<em>Load Testing A Sample Application</em>*</p>
 <p>In this example, we will load test a single endpoint(GET) serverless API built with <strong>AWS API Gateway, Lambda, and DynamoDB</strong></p>
 <p>*<em>Installing Serverless Artillery on local machine</em>*</p>

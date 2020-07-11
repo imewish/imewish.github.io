@@ -19,8 +19,7 @@
       
       <guid>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</guid>
       <description>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
-Why is Load Testing important?
-Load testing will help us to find the following
+Why is Load Testing important? Load testing will help us to find the following
 - How fast is the system
 - How much load can the system handle
 - Under what conditions will the system fail

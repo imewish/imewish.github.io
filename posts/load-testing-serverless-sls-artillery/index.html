@@ -9,22 +9,20 @@
 	<meta name="msapplication-TileColor" content="#f85959">
 <meta itemprop="name" content="Load Testing Serverless Applications With Serverless Artillery">
 <meta itemprop="description" content="Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
-Why is Load Testing important?
-Load testing will help us to find the following
+Why is Load Testing important? Load testing will help us to find the following
 - How fast is the system
 - How much load can the system handle
 - Under what conditions will the system fail
 - Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.">
 <meta itemprop="datePublished" content="2020-04-13T18:30:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-13T18:30:00&#43;00:00" />
-<meta itemprop="wordCount" content="917">
+<meta itemprop="wordCount" content="913">
 
 
 
 <meta itemprop="keywords" content="hugo,aws-lambda,serverlessartillery,artillery,loadtesting,load testing,aws,serverless," /><meta property="og:title" content="Load Testing Serverless Applications With Serverless Artillery" />
 <meta property="og:description" content="Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
-Why is Load Testing important?
-Load testing will help us to find the following
+Why is Load Testing important? Load testing will help us to find the following
 - How fast is the system
 - How much load can the system handle
 - Under what conditions will the system fail
@@ -36,8 +34,7 @@ Load testing will help us to find the following
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Load Testing Serverless Applications With Serverless Artillery"/>
 <meta name="twitter:description" content="Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
-Why is Load Testing important?
-Load testing will help us to find the following
+Why is Load Testing important? Load testing will help us to find the following
 - How fast is the system
 - How much load can the system handle
 - Under what conditions will the system fail
@@ -91,14 +88,14 @@ Load testing will help us to find the following
 			</header>
 			<div class="content">
 				<p>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.</p>
-<p><strong><em>Why is Load Testing important?</em></strong></p>
+<h3 id="_why-is-load-testing-important_"><strong><em>Why is Load Testing important?</em></strong><a href="#_why-is-load-testing-important_" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>Load testing will help us to find the following</p>
 <p>- How fast is the system</p>
 <p>- How much load can the system handle</p>
 <p>- Under what conditions will the system fail</p>
 <p>- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc. during average and heavy user load. This will eventually help in determining the infrastructure needs as the system scales upward.</p>
 <p>- It gives us an opportunity to find strange behavior or surprises when we subject an application to an insane amount of load (stress testing). Strange behaviors include request timeouts, IO Exceptions, memory leaks, or any security issues.</p>
-<h4 id="choosing-a-load-testing-tool-or-framework"><strong>Choosing a Load testing tool or framework</strong><a href="#choosing-a-load-testing-tool-or-framework" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h3 id="choosing-a-load-testing-tool-or-framework"><strong>Choosing a Load testing tool or framework</strong><a href="#choosing-a-load-testing-tool-or-framework" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>There are many great load testing frameworks available. Some of the leading tools are,</p>
 <p>- Jmeter</p>
 <p>- Locust</p>
@@ -106,19 +103,18 @@ Load testing will help us to find the following
 <p>Each of the above tools provides common and some additional features and different methods of load testing. But the only problem with these tools is the throughput it can generate towards your application is limited to the host systems&rsquo; memory and CPU capacity. If you want to want to test high and quick traffic ramp-up scenarios it&rsquo;s not possible to do it from your laptop or PC. You can either have a high-end PC or you can run it on a Cloud Virtual Machine, it can be expensive, plus some of the above tools come with a GUI, which cannot be accessed via VM&rsquo;s.</p>
 <p>So how can we do load tests <strong>at scale</strong> without having a high-end testing infrastructure?</p>
 <p><img src="/static/uploads/modern-problems-require-5c6590-1.jpg" alt=""></p>
-<p>Load Testing Serverless Applications with Serverless Artillery</p>
-<p>-&ndash;</p>
-<p>Serverless artillery is a combination of [serverless](<a href="http://serverless.com" title="http://serverless.com">http://serverless.com</a>) framework and [artillery.io](<a href="https://artillery.io/" title="https://artillery.io/">https://artillery.io/</a>).</p>
+<h3 id="load-testing-serverless-applications-with-serverless-artillery">Load Testing Serverless Applications with Serverless Artillery<a href="#load-testing-serverless-applications-with-serverless-artillery" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>Serverless artillery is a combination of <strong><em>serverless</em></strong> framework and <strong><em>artillery.io</em></strong></p>
 <p><strong><em>Combine serverless with artillery and you get serverless-artillery for an instant, cheap, and easy performance testing at scale</em></strong></p>
 <p>Serverless-artillery makes it easy to test your services for performance and functionality quickly, easily, and without having to maintain any servers or testing infrastructure.</p>
-<h4 id="use-serverless-artillery-if"><strong>Use serverless-artillery if</strong><a href="#use-serverless-artillery-if" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
-<p>1. You want to know if your services (either internal or public) can handle a different amounts of traffic load (i.e. performance or load testing).</p>
+<h3 id="use-serverless-artillery-if"><strong>Use serverless-artillery if</strong><a href="#use-serverless-artillery-if" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>1. You want to know if your services (either internal or public) can handle different amounts of traffic load (i.e. performance or load testing).</p>
 <p>2. You want to test if your services behave as you expect after you deploy new changes (i.e. acceptance testing).</p>
-<p>3. You want to constantly monitor your services over time to make sure the latency of your services is under control (i.e. monitoring mode).</p>
-<p>### <strong>How It Works</strong></p>
+<p>3. You want to constantly monitor your services overtime to make sure the latency of your services is under control (i.e. monitoring mode).</p>
+<h4 id="how-it-works"><strong>How It Works</strong><a href="#how-it-works" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p><img src="/uploads/howitworks-1.jpg" alt=""></p>
 <p><img src="/uploads/architecture-1.gif" alt=""></p>
-<p>- Serverless-artillery would be installed and run on your local machine. From command line run slsart &ndash;help to see various serverless-artillery commands</p>
+<p>- Serverless-artillery would be installed and run on your local machine. From the command line run <code>slsart --help</code> to see various serverless-artillery commands</p>
 <p>- It takes your JSON or YAML load script `script.yml` that specifies,</p>
 <pre><code>- test target/URL/endpoint/service
 
@@ -126,7 +122,7 @@ Load testing will help us to find the following
 
 - and the scenarios that are important for your service to test.
 </code></pre>
-<p>## Let&rsquo;s See It in Action</p>
+<h3 id="lets-see-it-in-action">Let&rsquo;s See It in Action<a href="#lets-see-it-in-action" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>*<em>Load Testing A Sample Application</em>*</p>
 <p>In this example, we will load test a single endpoint(GET) serverless API built with <strong>AWS API Gateway, Lambda, and DynamoDB</strong></p>
 <p>*<em>Installing Serverless Artillery on local machine</em>*</p>
@@ -208,7 +204,7 @@ scenarios:
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://imewish.github.io/tags/hugo">hugo</a></span><span class="tag"><a href="https://imewish.github.io/tags/aws-lambda">aws-lambda</a></span><span class="tag"><a href="https://imewish.github.io/tags/serverlessartillery">serverlessartillery</a></span><span class="tag"><a href="https://imewish.github.io/tags/artillery">artillery</a></span><span class="tag"><a href="https://imewish.github.io/tags/loadtesting">loadtesting</a></span><span class="tag"><a href="https://imewish.github.io/tags/load-testing">load testing</a></span><span class="tag"><a href="https://imewish.github.io/tags/aws">aws</a></span><span class="tag"><a href="https://imewish.github.io/tags/serverless">serverless</a></span>
 				</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>917 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>913 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-04-14 00:00 &#43;00120</p>
 			</footer>
 		</article>
