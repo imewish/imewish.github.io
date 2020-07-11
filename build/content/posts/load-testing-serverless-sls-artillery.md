@@ -10,7 +10,7 @@ upload_image = ""
 +++
 Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
 
-**_Why is Load Testing important?_**
+#### **_Why is Load Testing important?_**
 
 Load testing will help us to find the following
 
