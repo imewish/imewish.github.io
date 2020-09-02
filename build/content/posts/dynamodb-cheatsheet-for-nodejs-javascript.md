@@ -1,6 +1,5 @@
 +++
 date = 2020-09-01T18:30:00Z
-draft = true
 image_upload = ""
 layout = "post"
 permalink = "dynamodb-cheetsheat-nodejs-javascript"
