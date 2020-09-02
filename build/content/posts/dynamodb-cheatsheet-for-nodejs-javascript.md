@@ -4,7 +4,7 @@ draft = true
 image_upload = ""
 layout = "post"
 permalink = "dynamodb-cheetsheat-nodejs-javascript"
-tags = ["dynamodb", "serverless", "aws"]
+tags = ["database", "dynamodb", "serverless", "aws"]
 title = "DynamoDB CheatSheet For NodeJS/JavaScript"
 
 +++
