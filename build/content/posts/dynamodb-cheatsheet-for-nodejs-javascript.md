@@ -1,10 +1,10 @@
 +++
-date = ""
+date = 2020-09-01T18:30:00Z
 draft = true
 image_upload = ""
 layout = ""
 permalink = "dynamodb-cheetsheat-nodejs-javascript"
-tags = []
+tags = ["dynamodb", "serverless", "aws"]
 title = "DynamoDB CheatSheet For NodeJS/JavaScript"
 
 +++
@@ -231,9 +231,7 @@ async function updateNestedAttribute() {
 }
 ```
 
-> Note:
-
-If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute's name in the expression. In the above example, \`img-2\` attribute has \`-\` in its name. So if we set the update expression to \`set albums.album1.images.image-2  = :newImage\` it will throw an error.
+> **NOTE**: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute's name in the expression. In the above example, `img-2` attribute has `-` in its name. So if we set the update expression to \``et albums.album1.images.image-2  = :newImage``it will throw an error.
 
 #### APPEND TO A NESTED OBJECT
 
