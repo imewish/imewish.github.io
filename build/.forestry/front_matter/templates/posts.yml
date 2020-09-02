@@ -23,4 +23,5 @@ fields:
     maxSize: 64
   label: Image Upload
 pages:
+- build/content/posts/dynamodb-cheatsheet-for-nodejs-javascript.md
 - build/content/posts/image-processing-flow-with-aws-step-functions.md
