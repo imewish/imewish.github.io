@@ -178,7 +178,7 @@ async function query () {
 
 #### UPDATE A TOP-LEVEL ATTRIBUTE
 
-Let's update the \`updatedAt\` key
+Let's update the `updatedAt` key
 
 ```js
 async function updateItem () {
@@ -204,7 +204,7 @@ async function updateItem () {
 
 #### UPDATE A NESTED ATTRIBUTE
 
-Here we will add a new attribute(size) to \`img-1\` of \`album1\`
+Here we will add a new attribute(size) to `img-1` of `album1`
 
 ```js
 async function updateNestedAttribute() {
