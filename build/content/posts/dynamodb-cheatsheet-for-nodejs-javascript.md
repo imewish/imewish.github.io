@@ -2,7 +2,7 @@
 date = 2020-09-01T18:30:00Z
 draft = true
 image_upload = ""
-layout = ""
+layout = "post"
 permalink = "dynamodb-cheetsheat-nodejs-javascript"
 tags = ["dynamodb", "serverless", "aws"]
 title = "DynamoDB CheatSheet For NodeJS/JavaScript"
