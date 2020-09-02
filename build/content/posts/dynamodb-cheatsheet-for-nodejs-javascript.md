@@ -16,54 +16,54 @@ This cheat sheet will cover the most commonly used scenarios of data operations 
 
 #### Install
 
-\`npm install aws-sdk\`
+`npm install aws-sdk`
 
 #### Configure
 
-\`\`\`js
-
+```js
 const AWS = require('aws-sdk')
 
 const ddb = new AWS.DynamoDB.DocumentClient()
-
-\`\`\`
+```
 
 #### CREATE ITEM
 
 Let's create a new item for the new user. This user will have one album and one image in the album.
 
-    async function createItem (buildInfo) {
-      console.log('Creating new item')
-      let params = {
-        TableName: tableName,
-        Item: {
-          'userId': 'johnDoe',
-          'createdAt': 1598362623,
-          'updatedAt': 1598362623,
-          'albums': {
-             'album1': {
-                'id': 'album-kjuijhs342',
-                'createdAt': 1598362623,
-                'updatedAt': 1598362623,
-                'description': 'My First Album',
-                'Title': 'Holidays',
-                'images': {
-                   'img-1': {
-                      'filename': 'johndoe/album1/e8TtkC5xyv4.jpg',
-                      's3Url': 's3://photo-bucket/johndoe/album1/e8TtkC5xyv4.jpg',
-                      'tags': ['nature', 'animals']
-                    }
+```js
+async function createItem (buildInfo) {
+  console.log('Creating new item')
+  let params = {
+    TableName: tableName,
+    Item: {
+      'userId': 'johnDoe',
+      'createdAt': 1598362623,
+      'updatedAt': 1598362623,
+      'albums': {
+         'album1': {
+            'id': 'album-kjuijhs342',
+            'createdAt': 1598362623,
+            'updatedAt': 1598362623,
+            'description': 'My First Album',
+            'Title': 'Holidays',
+            'images': {
+               'img-1': {
+                  'filename': 'johndoe/album1/e8TtkC5xyv4.jpg',
+                  's3Url': 's3://photo-bucket/johndoe/album1/e8TtkC5xyv4.jpg',
+                  'tags': ['nature', 'animals']
                 }
-             }
-          }
-        }
-      }
-      try {
-        await ddb.put(params).promise()
-      } catch (error) {
-        console.log(error)
+            }
+         }
       }
     }
+  }
+  try {
+    await ddb.put(params).promise()
+  } catch (error) {
+    console.log(error)
+  }
+}
+```
 
 #### SCAN
 
@@ -235,7 +235,7 @@ async function updateNestedAttribute() {
 
 If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute's name in the expression. In the above example, \`img-2\` attribute has \`-\` in its name. So if we set the update expression to \`set albums.album1.images.image-2  = :newImage\` it will throw an error.
 
-\####APPEND TO A NESTED OBJECT
+#### APPEND TO A NESTED OBJECT
 
 Here we will add a new image to album1
 
