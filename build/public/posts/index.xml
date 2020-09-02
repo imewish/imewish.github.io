@@ -6,8 +6,250 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 13 Apr 2020 18:30:00 +0000</lastBuildDate>
+		<lastBuildDate>Tue, 01 Sep 2020 18:30:00 +0000</lastBuildDate>
 		<atom:link href="https://imewish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>DynamoDB CheatSheet For NodeJS/JavaScript</title>
+			<link>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</link>
+			<pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
+			
+			<guid>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</guid>
+			<description>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don&amp;rsquo;t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.
+This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs.</description>
+			<content type="html"><![CDATA[<p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don&rsquo;t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.</p>
+<p>This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs. The DynamoDB Document Client is the easiest and most preferred way to interact with a DynamoDB database from a Nodejs or JavaScript application.</p>
+<h2 id="getting-started">GETTING STARTED</h2>
+<h4 id="install">Install</h4>
+<p><code>npm install aws-sdk</code></p>
+<h4 id="configure">Configure</h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">ddb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">DynamoDB</span><span class="p">.</span><span class="nx">DocumentClient</span><span class="p">()</span>
+</code></pre></div><h4 id="create-item">CREATE ITEM</h4>
+<p>Let&rsquo;s create a new item for the new user. This user will have one album and one image in the album.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">createItem</span> <span class="p">(</span><span class="nx">buildInfo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Creating new item&#39;</span><span class="p">)</span>
+  <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">Item</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;userId&#39;</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;createdAt&#39;</span><span class="o">:</span> <span class="mi">1598362623</span><span class="p">,</span>
+      <span class="s1">&#39;updatedAt&#39;</span><span class="o">:</span> <span class="mi">1598362623</span><span class="p">,</span>
+      <span class="s1">&#39;albums&#39;</span><span class="o">:</span> <span class="p">{</span>
+         <span class="s1">&#39;album1&#39;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="s1">&#39;album-kjuijhs342&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;createdAt&#39;</span><span class="o">:</span> <span class="mi">1598362623</span><span class="p">,</span>
+            <span class="s1">&#39;updatedAt&#39;</span><span class="o">:</span> <span class="mi">1598362623</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span><span class="o">:</span> <span class="s1">&#39;My First Album&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Title&#39;</span><span class="o">:</span> <span class="s1">&#39;Holidays&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;images&#39;</span><span class="o">:</span> <span class="p">{</span>
+               <span class="s1">&#39;img-1&#39;</span><span class="o">:</span> <span class="p">{</span>
+                  <span class="s1">&#39;filename&#39;</span><span class="o">:</span> <span class="s1">&#39;johndoe/album1/e8TtkC5xyv4.jpg&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;s3Url&#39;</span><span class="o">:</span> <span class="s1">&#39;s3://photo-bucket/johndoe/album1/e8TtkC5xyv4.jpg&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;tags&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;nature&#39;</span><span class="p">,</span> <span class="s1">&#39;animals&#39;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="scan">SCAN</h4>
+<p>Scan and returns all items in a table</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">scan</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">scan</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="get-item">GET ITEM</h4>
+<p>Get a single item from the table</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">getItem</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">Key</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;userId&#39;</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div><h4 id="get-only-some-data-from-an-item">GET ONLY SOME DATA FROM AN ITEM</h4>
+<p>this will return only the tags from img1 and img2 in the result.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">getSome</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">ProjectionExpression</span><span class="o">:</span> <span class="sb">`albums.album1.images.#imageName1.tags, albums.album1.images.#imageName2.tags`</span><span class="p">,</span>
+    <span class="nx">ExpressionAttributeNames</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;#imageName1&#39;</span><span class="o">:</span> <span class="s1">&#39;img-1&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;#imageName2&#39;</span><span class="o">:</span> <span class="s1">&#39;img-2&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">Key</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;userId&#39;</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="delete-item">DELETE ITEM</h4>
+<p>deletes a single item from the table</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">deleteItem</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+     <span class="nx">Key</span><span class="o">:</span> <span class="p">{</span>
+       <span class="nx">userId</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span><span class="p">,</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="query">QUERY</h4>
+<p>Query an item from a table</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">query</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">KeyConditionExpression</span><span class="o">:</span> <span class="s1">&#39;userId = :id &#39;</span><span class="p">,</span>
+    <span class="nx">ExpressionAttributeValues</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;:id&#39;</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span> <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="update-a-top-level-attribute">UPDATE A TOP-LEVEL ATTRIBUTE</h4>
+<p>Let&rsquo;s update the <code>updatedAt</code> key</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">updateItem</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">Key</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">userId</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">UpdateExpression</span><span class="o">:</span> <span class="s1">&#39;set updatedAt = :newUpdatedAt&#39;</span><span class="p">,</span>
+    <span class="nx">ExpressionAttributeValues</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;:newUpdatedAt&#39;</span><span class="o">:</span> <span class="mi">1598367687</span>
+    <span class="p">},</span>
+    <span class="nx">ReturnValues</span><span class="o">:</span> <span class="s1">&#39;UPDATED_NEW&#39;</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="update-a-nested-attribute">UPDATE A NESTED ATTRIBUTE</h4>
+<p>Here we will add a new attribute(size) to <code>img-1</code> of <code>album1</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">updateNestedAttribute</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">Key</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">userId</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">UpdateExpression</span><span class="o">:</span> <span class="sb">`set albums.album1.images.#img.size  = :newImage`</span><span class="p">,</span>
+    <span class="nx">ConditionExpression</span><span class="o">:</span> <span class="sb">`attribute_not_exists(albums.album1.images.#img.size)`</span><span class="p">,</span> <span class="c1">// only creates if size attribute doestnt exists
+</span><span class="c1"></span>    <span class="nx">ExpressionAttributeNames</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;#img&#39;</span><span class="o">:</span> <span class="s1">&#39;img-1&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">ExpressionAttributeValues</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;:newImage&#39;</span><span class="o">:</span> <span class="mi">2048</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><blockquote>
+<p><strong>NOTE</strong>: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute&rsquo;s name in the expression. In the above example, <code>img-2</code> attribute has <code>-</code> in its name. So if we set the update expression to ``et albums.album1.images.image-2  = :newImage``it will throw an error.</p>
+</blockquote>
+<h4 id="append-to-a-nested-object">APPEND TO A NESTED OBJECT</h4>
+<p>Here we will add a new image to album1</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">appendToAnObject</span> <span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">newImage</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;filename&#39;</span><span class="o">:</span> <span class="s1">&#39;johndoe/album1/food-826349.jpg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;s3Url&#39;</span><span class="o">:</span> <span class="s1">&#39;s3://photo-bucket/johndoe/album1/food-826349.jpg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tags&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;burger&#39;</span><span class="p">,</span> <span class="s1">&#39;food&#39;</span><span class="p">]</span>
+  <span class="p">}</span>
+
+  <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">Key</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">userId</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">UpdateExpression</span><span class="o">:</span> <span class="sb">`set albums.album1.images.#image  = :newImage`</span><span class="p">,</span>
+    <span class="nx">ExpressionAttributeNames</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;#image&#39;</span><span class="o">:</span> <span class="s1">&#39;img-2&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">ExpressionAttributeValues</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;:newImage&#39;</span><span class="o">:</span> <span class="nx">newImage</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="append-to-a-list">APPEND TO A LIST</h4>
+<p>Here we will add a couple of tags to one of the image. Tags are stored as an array</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">appendToList</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">TableName</span><span class="o">:</span> <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">Key</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">userId</span><span class="o">:</span> <span class="s1">&#39;johnDoe&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">UpdateExpression</span><span class="o">:</span> <span class="s1">&#39;SET albums.album1.images.#image1.tags = list_append(albums.album1.images.#image1.tags, :newTags)&#39;</span><span class="p">,</span>
+    <span class="nx">ExpressionAttributeNames</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;#image1&#39;</span><span class="o">:</span> <span class="s1">&#39;img-1&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">ExpressionAttributeValues</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;:newTags&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;burger&#39;</span><span class="p">,</span> <span class="s1">&#39;pizza&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">ddb</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>]]></content>
+		</item>
 		
 		<item>
 			<title>Load Testing Serverless Applications With Serverless Artillery</title>

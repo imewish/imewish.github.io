@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 13 Apr 2020 18:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2020 18:30:00 +0000</lastBuildDate>
     
 	<atom:link href="https://imewish.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DynamoDB CheatSheet For NodeJS/JavaScript</title>
+      <link>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</link>
+      <pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</guid>
+      <description>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don&amp;rsquo;t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.
+This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs.</description>
+    </item>
     
     <item>
       <title>Load Testing Serverless Applications With Serverless Artillery</title>
