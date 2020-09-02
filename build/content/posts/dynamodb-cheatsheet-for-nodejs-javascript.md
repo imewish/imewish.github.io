@@ -12,13 +12,13 @@ Amazon DynamoDB is a fully managed NoSQL database service that provides fast and
 
 This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs. The DynamoDB Document Client is the easiest and most preferred way to interact with a DynamoDB database from a Nodejs or JavaScript application.
 
-\##GETTING STARTED
+## GETTING STARTED
 
-\####Install
+#### Install
 
 \`npm install aws-sdk\`
 
-\####Configure
+#### Configure
 
 \`\`\`js
 
@@ -28,458 +28,438 @@ const ddb = new AWS.DynamoDB.DocumentClient()
 
 \`\`\`
 
-\#### CREATE ITEM
+#### CREATE ITEM
 
 Let's create a new item for the new user. This user will have one album and one image in the album.
 
-\`\`\`js
-
-async function createItem (buildInfo) {
-
-  console.log('Creating new item')
-
-  let params = {
-
+    async function createItem (buildInfo) {
+    
+    console.log('Creating new item')
+    
+    let params = {
+    
     TableName: tableName,
-
+    
     Item: {
-
+    
       'userId': 'johnDoe',
-
+    
       'createdAt': 1598362623,
-
+    
       'updatedAt': 1598362623,
-
+    
       'albums': {
-
+    
          'album1': {
-
+    
             'id': 'album-kjuijhs342',
-
+    
             'createdAt': 1598362623,
-
+    
             'updatedAt': 1598362623,
-
+    
             'description': 'My First Album',
-
+    
             'Title': 'Holidays',
-
+    
             'images': {
-
+    
                'img-1': {
-
+    
                   'filename': 'johndoe/album1/e8TtkC5xyv4.jpg',
-
+    
                   's3Url': 's3://photo-bucket/johndoe/album1/e8TtkC5xyv4.jpg',
-
+    
                   'tags': \['nature', 'animals'\]
-
+    
                 }
-
+    
             }
-
+    
          }
-
+    
       }
-
+    
+    }
+    
+    }
+    
+    try {
+    
+     await ddb.put(params).promise()
+    
+    } catch (error) {
+    
+    console.log(error)
+    
+    }
+    
     }
 
-  }
-
-  try {
-
-    await ddb.put(params).promise()
-
-  } catch (error) {
-
-    console.log(error)
-
-  }
-
-}
-
-\`\`\`
-
-\####SCAN
+#### SCAN
 
 Scan and returns all items in a table
 
-\`\`\`js
-
+```js
 async function scan() {
 
-  let params = {
+let params = {
 
-    TableName: tableName
-
-  }
-
-  try {
-
-    let x = await ddb.scan(params).promise()
-
-    console.log(x)
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+TableName: tableName
 
 }
 
-\`\`\`
+try {
 
-\####GET ITEM
+let x = await ddb.scan(params).promise()
+
+console.log(x)
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+
+```
+
+#### GET ITEM
 
 Get a single item from the table
 
-\`\`\`js
-
+```js
 async function getItem() {
 
-  var params = {
+var params = {
 
-    TableName: tableName,
+TableName: tableName,
 
-    Key: {
+Key: {
 
-      'userId': 'johnDoe'
-
-    }
-
-  }
-
-  try {
-
-    let res = await ddb.get(params).promise()
-
-    console.log(res)
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+  'userId': 'johnDoe'
 
 }
 
-\`\`\`
+}
 
-\####GET ONLY SOME DATA FROM AN ITEM
+try {
+
+	let res = await ddb.get(params).promise()
+
+	console.log(res)
+
+} catch (error) {
+
+	console.error(error)
+
+}
+
+}
+```
+
+#### GET ONLY SOME DATA FROM AN ITEM
 
 this will return only the tags from img1 and img2 in the result.
 
-\`\`\`js
-
+```js
 async function getSome() {
 
-  var params = {
+var params = {
 
-    TableName: tableName,
+TableName: tableName,
 
-    ProjectionExpression: \`albums.album1.images.#imageName1.tags, albums.album1.images.#imageName2.tags\`,
+ProjectionExpression: \`albums.album1.images.#imageName1.tags, albums.album1.images.#imageName2.tags\`,
 
-    ExpressionAttributeNames: {
+ExpressionAttributeNames: {
 
-      '#imageName1': 'img-1',
+  '#imageName1': 'img-1',
 
-      '#imageName2': 'img-2'
+  '#imageName2': 'img-2'
 
-    },
+},
 
-    Key: {
+Key: {
 
-      'userId': 'johnDoe',
-
-    }
-
-  }
-
-  try {
-
-    let result = await ddb.get(params).promise()
-
-    console.log(JSON.stringify(result))
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+  'userId': 'johnDoe',
 
 }
 
-\`\`\`
+}
 
-\#### DELETE ITEM
+try {
+
+let result = await ddb.get(params).promise()
+
+console.log(JSON.stringify(result))
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+```
+
+#### DELETE ITEM
 
 deletes a single item from the table
 
-\`\`\`js
-
+```js
 async function deleteItem () {
 
-  let params = {
+let params = {
 
-    TableName: tableName,
+TableName: tableName,
 
-     Key: {
+ Key: {
 
-       userId: 'johnDoe',
+   userId: 'johnDoe',
 
-     }
-
-  }
-
-  try {
-
-    await ddb.delete(params).promise()
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+ }
 
 }
 
-\`\`\`
+try {
 
-\####QUERY
+await ddb.delete(params).promise()
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+```
+
+#### QUERY
 
 Query an item from a table
 
-\`\`\`js
-
+```js
 async function query () {
 
-  let params = {
+let params = {
 
-    TableName: tableName,
+TableName: tableName,
 
-    KeyConditionExpression: 'userId = :id ',
+KeyConditionExpression: 'userId = :id ',
 
-    ExpressionAttributeValues: { ':id': 'johnDoe' }
-
-  }
-
-  try {
-
-    let result = await ddb.query(params).promise()
-
-    console.log(result)
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+ExpressionAttributeValues: { ':id': 'johnDoe' }
 
 }
 
-\`\`\`
+try {
 
-\####UPDATE A TOP-LEVEL ATTRIBUTE
+let result = await ddb.query(params).promise()
+
+console.log(result)
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+```
+
+#### UPDATE A TOP-LEVEL ATTRIBUTE
 
 Let's update the \`updatedAt\` key
 
-\`\`\`js
-
+```js
 async function updateItem () {
 
-  const params = {
+const params = {
 
-    TableName: tableName,
+TableName: tableName,
 
-    Key: {
+Key: {
 
-      userId: 'johnDoe'
+  userId: 'johnDoe'
 
-    },
+},
 
-    UpdateExpression: 'set updatedAt = :newUpdatedAt',
+UpdateExpression: 'set updatedAt = :newUpdatedAt',
 
-    ExpressionAttributeValues: {
+ExpressionAttributeValues: {
 
-      ':newUpdatedAt': 1598367687
+  ':newUpdatedAt': 1598367687
 
-    },
+},
 
-    ReturnValues: 'UPDATED_NEW'
-
-  }
-
-  try {
-
-    await ddb.update(params).promise()
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+ReturnValues: 'UPDATED_NEW'
 
 }
 
-\`\`\`
+try {
 
-\####UPDATE A NESTED ATTRIBUTE
+await ddb.update(params).promise()
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+```
+
+#### UPDATE A NESTED ATTRIBUTE
 
 Here we will add a new attribute(size) to \`img-1\` of \`album1\`
 
-\`\`\`js
-
+```js
 async function updateNestedAttribute() {
 
-  let params = {
+let params = {
 
-    TableName: tableName,
+TableName: tableName,
 
-    Key: {
+Key: {
 
-      userId: 'johnDoe'
+  userId: 'johnDoe'
 
-    },
+},
 
-    UpdateExpression: \`set albums.album1.images.#img.size  = :newImage\`,
+UpdateExpression: \`set albums.album1.images.#img.size  = :newImage\`,
 
-    ConditionExpression: \`attribute_not_exists(albums.album1.images.#img.size)\`, // only creates if size attribute doestnt exists
+ConditionExpression: \`attribute_not_exists(albums.album1.images.#img.size)\`, // only creates if size attribute doestnt exists
 
-    ExpressionAttributeNames: {
+ExpressionAttributeNames: {
 
-      '#img': 'img-1'
+  '#img': 'img-1'
 
-    },
+},
 
-    ExpressionAttributeValues: {
+ExpressionAttributeValues: {
 
-      ':newImage': 2048
-
-    }
-
-  }
-
-  try {
-
-    await ddb.update(params).promise()
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+  ':newImage': 2048
 
 }
 
-\`\`\`
+}
 
-> Note: 
+try {
 
-If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute's name in the expression. In the above example, \`img-2\` attribute has \`-\` in its name. So if we set the update expression to \`set albums.album1.images.image-2  = :newImage\` it will throw an error. 
+await ddb.update(params).promise()
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+```
+
+> Note:
+
+If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute's name in the expression. In the above example, \`img-2\` attribute has \`-\` in its name. So if we set the update expression to \`set albums.album1.images.image-2  = :newImage\` it will throw an error.
 
 \####APPEND TO A NESTED OBJECT
 
 Here we will add a new image to album1
 
-\`\`\`JS
-
+```js
 async function appendToAnObject () {
 
-  let newImage = {
+let newImage = {
 
-    'filename': 'johndoe/album1/food-826349.jpg',
+'filename': 'johndoe/album1/food-826349.jpg',
 
-    's3Url': 's3://photo-bucket/johndoe/album1/food-826349.jpg',
+'s3Url': 's3://photo-bucket/johndoe/album1/food-826349.jpg',
 
-    'tags': \['burger', 'food'\]
-
-  }
-
-  let params = {
-
-    TableName: tableName,
-
-    Key: {
-
-      userId: 'johnDoe'
-
-    },
-
-    UpdateExpression: \`set albums.album1.images.#image  = :newImage\`,
-
-    ExpressionAttributeNames: {
-
-      '#image': 'img-2'
-
-    },
-
-    ExpressionAttributeValues: {
-
-      ':newImage': newImage
-
-    }
-
-  }
-
-  try {
-
-    await ddb.update(params).promise()
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+'tags': \['burger', 'food'\]
 
 }
 
-\`\`\`
+let params = {
 
-\####APPEND TO A LIST
+TableName: tableName,
+
+Key: {
+
+  userId: 'johnDoe'
+
+},
+
+UpdateExpression: \`set albums.album1.images.#image  = :newImage\`,
+
+ExpressionAttributeNames: {
+
+  '#image': 'img-2'
+
+},
+
+ExpressionAttributeValues: {
+
+  ':newImage': newImage
+
+}
+
+}
+
+try {
+
+await ddb.update(params).promise()
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+
+```
+
+#### APPEND TO A LIST
 
 Here we will add a couple of tags to one of the image. Tags are stored as an array
 
-\`\`\`js
-
+```js
 async function appendToList() {
 
-  let params = {
+let params = {
 
-    TableName: tableName,
+TableName: tableName,
 
-    Key: {
+Key: {
 
-      userId: 'johnDoe'
+  userId: 'johnDoe'
 
-    },
+},
 
-    UpdateExpression: 'SET albums.album1.images.#image1.tags = list_append(albums.album1.images.#image1.tags, :newTags)',
+UpdateExpression: 'SET albums.album1.images.#image1.tags = list_append(albums.album1.images.#image1.tags, :newTags)',
 
-    ExpressionAttributeNames: {
+ExpressionAttributeNames: {
 
-      '#image1': 'img-1'
+  '#image1': 'img-1'
 
-    },
+},
 
-    ExpressionAttributeValues: {
+ExpressionAttributeValues: {
 
-      ':newTags': \['burger', 'pizza'\]
-
-    }
-
-  }
-
-  try {
-
-    await ddb.update(params).promise()
-
-  } catch (error) {
-
-    console.error(error)
-
-  }
+  ':newTags': \['burger', 'pizza'\]
 
 }
 
-\`\`\`
+}
+
+try {
+
+await ddb.update(params).promise()
+
+} catch (error) {
+
+console.error(error)
+
+}
+
+}
+```
