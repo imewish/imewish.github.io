@@ -24,3 +24,4 @@ fields:
   label: Image Upload
 pages:
 - build/content/posts/dynamodb-cheatsheet-for-nodejs-javascript.md
+- build/content/posts/dynamodb-streams-custom-checkpointing.md
