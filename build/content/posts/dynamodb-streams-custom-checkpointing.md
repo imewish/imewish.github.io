@@ -5,6 +5,5 @@ layout = "post"
 permalink = "dynamodb-stream-custom-checkpoint"
 tags = ["serverless", "aws", "dynamodb"]
 title = "DynamoDB Streams Custom Checkpointing"
-
+draft = true
 +++
-Tets post
