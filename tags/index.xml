@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Serverless Notebook!</title>
+    <title>Tags on imewish</title>
     <link>https://imewish.github.io/tags/</link>
-    <description>Recent content in Tags on Serverless Notebook!</description>
+    <description>Recent content in Tags on imewish</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 01 Sep 2020 18:30:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 05 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
       <link>https://imewish.github.io/tags/aws/</link>
-      <pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
+      <pubDate>Fri, 05 Feb 2021 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamodb</title>
+      <link>https://imewish.github.io/tags/dynamodb/</link>
+      <pubDate>Fri, 05 Feb 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/dynamodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serverless</title>
+      <link>https://imewish.github.io/tags/serverless/</link>
+      <pubDate>Fri, 05 Feb 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/serverless/</guid>
       <description></description>
     </item>
     
@@ -27,24 +39,6 @@
       <pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/database/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dynamodb</title>
-      <link>https://imewish.github.io/tags/dynamodb/</link>
-      <pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
-      
-      <guid>https://imewish.github.io/tags/dynamodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>serverless</title>
-      <link>https://imewish.github.io/tags/serverless/</link>
-      <pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
-      
-      <guid>https://imewish.github.io/tags/serverless/</guid>
       <description></description>
     </item>
     
@@ -99,6 +93,24 @@
       <pubDate>Mon, 13 Apr 2020 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/serverlessartillery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>s3</title>
+      <link>https://imewish.github.io/tags/s3/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI/CD</title>
+      <link>https://imewish.github.io/tags/ci/cd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/ci/cd/</guid>
       <description></description>
     </item>
     

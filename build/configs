@@ -2,7 +2,7 @@ baseURL = "https://imewish.github.io/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Serverless Notebook!"
-theme = "hermit"
+theme = "hugo-PaperMod"
 # enableGitInfo = true
 pygmentsCodefences  = true
 pygmentsUseClasses  = true
@@ -30,7 +30,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 +0530"
-
+  
   # Metadata mostly used in document's head
   # description = ""
   # images = [""]
@@ -66,7 +66,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   [[params.social]]
     name = "github"
     url = "https://github.com/imewish"
-
+    
 [menu]
 
   [[menu.main]]
