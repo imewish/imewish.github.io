@@ -23,5 +23,6 @@ fields:
     maxSize: 64
   label: Image Upload
 pages:
+- build/content/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application.md
 - build/content/posts/dynamodb-cheatsheet-for-nodejs-javascript.md
 - build/content/posts/dynamodb-streams-custom-checkpointing.md
