@@ -80,7 +80,7 @@ There is a couple of workarounds to get rid of this limit.
 
     In this case the client makes an HTTP GET request to API Gateway, and the Lambda function generates and returns a pre-signed S3 URL, the client uploads the image to S3 directly, using the pre-signed S3 URL
 
-**Cloudformation**
+#### **Cloudformation**
 
 If you are using the **serverless framework** for deploying your application, as your application grows you may hit some of the cloudformation limits when you deploy as serverless framework uses cloudformation behind the scenes for deploying services.
 
