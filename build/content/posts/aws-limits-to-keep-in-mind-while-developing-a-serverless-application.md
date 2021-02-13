@@ -39,18 +39,18 @@ By default serverless framework zip and deploys your code first to S3 and deploy
 \*_WebPack_* is a well-known tool serving to create bundles of assets (code and files). Webpack helps to reduce and optimize the packaging size by
 
 * Include only the code used by your function
-* Optimize your NPM dependencies 
+* Optimize your NPM dependencies
 * Use a single file for your source code
 
 Optimizing and reducing the package size will also help to reduce the cold start of the functions.
 
 \- **75GB**: **_Total Size Of All Deployment Packages That Can Be Uploaded Per Region_**
 
-This limit is a region-wide soft limit. It can be increased by service Quota limit increase.  Most of the time people get hit by this limit is when they have a huge number of lambda functions and every time we update a new code a new version of lambda is created. Each version has its own deployment package it will be counted towards this limit.  
+This limit is a region-wide soft limit. It can be increased by service Quota limit increase.  Most of the time people get hit by this limit is when they have a huge number of lambda functions and every time we update a new code a new version of lambda is created. Each version has its own deployment package it will be counted towards this limit.
 
-**Is it a soft limit? : YES** 
+**Is it a soft limit? : YES**
 
-**How to Avoid?**  
+**How to Avoid?**
 
 * Version your code and do not version functions. (Except for lambda@edge, For lambda@edge versioning is a must)  - Remove older or unused versions
 * If you are updating the function via AWS CLI use `--no-publish` flag not to create a new version update**.**
@@ -58,33 +58,29 @@ This limit is a region-wide soft limit. It can be increased by service Quota lim
 
 \- **512MB: Amount of data that be stored inside lambda instance during execution (/tmp)**
 
-    If you want to download a file and store the **/tmp** directory to process it during the execution, this limit will be applied. You cannot store files into this directory only up to 512 MB, even if it is a single file or multiple files. 
-    
-    #####Is it a soft limit? : NO#####
-    
-    #####How to avoid?#####
-    
-    - Use ****the \[**Nodejs Stream\]([https://nodejs.org/dist/latest-v10.x/docs/api/stream.html](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html "https://nodejs.org/dist/latest-v10.x/docs/api/stream.html"))** method to read and process and write files without loading the whole file into lambdas ****filesystem
+If you want to download a file and store to the `/tmp`directory to process it during the execution, this limit will be applied. You cannot store files into this directory only up to 512 MB, even if it is a single file or multiple files. 
+
+**Is it a soft limit? : NO**
+
+**How to Avoid?**
+
+*  Use the [Nodejs Stream](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html\](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html) method to read and process and write files without loading the whole file into lambdas filesystem
 
 \- **6MB: Lambda payload limit**
 
-    This means We cannot POST more than 6MB of data to Lambda through API Gateway. So if we build an image or video uploading API to upload files to S3, we are limited to this 6MB Limit.
-    
-    #####Is it a soft limit? : NO#####
-    
-    #####How to avoid?
-    
-    There is a couple of workarounds to get rid of this limit.
-    
-    - Use a pre-signed S3 URL.
-    
-        In this case,
-    
-        - The client makes an HTTP GET request to API Gateway, and the Lambda function generates and returns a
-    
-        - The client uploads the image to S3 directly, using the pre-signed S3 URL
+This means We cannot POST more than 6MB of data to Lambda through API Gateway. So if we build an image or video uploading API to upload files to S3, we are limited to this 6MB Limit.
 
-\### **Cloudformation**
+**Is it a soft limit? : NO**
+
+How to avoid?
+
+There is a couple of workarounds to get rid of this limit.
+
+* Use a pre-signed S3 URL.
+
+    In this case the client makes an HTTP GET request to API Gateway, and the Lambda function generates and returns a pre-signed S3 URL, the client uploads the image to S3 directly, using the pre-signed S3 URL
+
+**Cloudformation**
 
 If you are using the **serverless framework** for deploying your application, as your application grows you may hit some of the cloudformation limits when you deploy as serverless framework uses cloudformation behind the scenes for deploying services.
 
