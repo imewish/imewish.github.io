@@ -1,6 +1,5 @@
 +++
 date = 2021-02-10T18:30:00Z
-draft = true
 image_upload = ""
 layout = "post"
 permalink = "aws-limits-to-keep-in-mind-while-developing-serverless-app"
