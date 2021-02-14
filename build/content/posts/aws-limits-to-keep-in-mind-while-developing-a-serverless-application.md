@@ -58,13 +58,13 @@ This limit is a region-wide soft limit. It can be increased by service Quota lim
 
 \- **512MB: Amount of data that be stored inside lambda instance during execution (/tmp)**
 
-If you want to download a file and store to the `/tmp`directory to process it during the execution, this limit will be applied. You cannot store files into this directory only up to 512 MB, even if it is a single file or multiple files. 
+If you want to download a file and store to the `/tmp`directory to process it during the execution, this limit will be applied. You cannot store files into this directory only up to 512 MB, even if it is a single file or multiple files.
 
 **Is it a soft limit? : NO**
 
 **How to Avoid?**
 
-*  Use the [Nodejs Stream](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html\](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html) method to read and process and write files without loading the whole file into lambdas filesystem
+* Use the \[Nodejs Stream\](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html\](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html) method to read and process and write files without loading the whole file into lambdas filesystem
 
 \- **6MB: Lambda payload limit**
 
@@ -78,7 +78,7 @@ There is a couple of workarounds to get rid of this limit.
 
 * Use a pre-signed S3 URL.
 
-    In this case the client makes an HTTP GET request to API Gateway, and the Lambda function generates and returns a pre-signed S3 URL, the client uploads the image to S3 directly, using the pre-signed S3 URL
+  In this case the client makes an HTTP GET request to API Gateway, and the Lambda function generates and returns a pre-signed S3 URL, the client uploads the image to S3 directly, using the pre-signed S3 URL
 
 #### **Cloudformation**
 
@@ -86,21 +86,17 @@ If you are using the **serverless framework** for deploying your application, as
 
 \- **A CloudFormation stack can have at most 500 resources**
 
-    Let's take an example of a backend Application with multiple REST API's. This Application may have multiple Lambda functions, API Gateway Endpoints, Methods, Custom Domains, SNS Topics, DynamoDB, S3 Buckets, etc. When we deploy this application to AWS with cloudformation, it will create cloudformation resources for all the mentioned services in a single cloudformation stack. There will be multiple resources created per services(IAM roles, IAM Policies, Cloudwatch log groups). In the case of a single lambda function following resources will be created per each function,
-    
-    - AWS::Lambda::Function
-    
-    - AWS::Lambda::Version
-    
-    - AWS::Logs::LogGroup
-    
-    Plus additional resources will be added if we attach event-sources like API Gateway, SNS to the function
-    
-    When the application grows, the total number of resources will also increase. And when it hit the 500 limit the deployments will start failing.
-    
-    #####Is it a soft limit? : NO#####
-    
-    #####How to Avoid?#####
+Let's take an example of a backend Application with multiple REST API's. This Application may have multiple Lambda functions, API Gateway Endpoints, Methods, Custom Domains, SNS Topics, DynamoDB, S3 Buckets, etc. When we deploy this application to AWS with cloudformation, it will create cloudformation resources for all the mentioned services in a single cloudformation stack. There will be multiple resources created per services(IAM roles, IAM Policies, Cloudwatch log groups). In the case of a single lambda function following resources will be created per each function,
+
+* AWS::Lambda::Function
+* AWS::Lambda::Version
+* AWS::Logs::LogGroup
+
+Plus additional resources will be added if we attach event-sources like API Gateway, SNS to the function  When the application grows, the total number of resources will also increase. And when it hit the 500 limit the deployments will start failing.  
+
+**Is it a soft limit? : NO**
+
+**How to Avoid?**
 
 \- Use **Cloudformation Nested Stacks** to Reuse Common Template Patterns,
 
