@@ -16,7 +16,7 @@ In this article, we will talk about some of those limits and how to avoid them.
 
 #### Lambda
 
-\- **50 MB**: **_Function Deployment Package Size_**, **250 MB**: **_Size of code/dependencies that you can zip into a deployment package_** (uncompressed .zip/.jar size)
+1\. **50 MB**: **_Function Deployment Package Size_**, **250 MB**: **_Size of code/dependencies that you can zip into a deployment package_** (uncompressed .zip/.jar size)
 
 There is a limit of 50MB on the package size of the code which we upload to lambda.
 
@@ -44,7 +44,7 @@ By default serverless framework zip and deploys your code first to S3 and deploy
 
 Optimizing and reducing the package size will also help to reduce the cold start of the functions.
 
-\- **75GB**: **_Total Size Of All Deployment Packages That Can Be Uploaded Per Region_**
+2\. **75GB**: **_Total Size Of All Deployment Packages That Can Be Uploaded Per Region_**
 
 This limit is a region-wide soft limit. It can be increased by service Quota limit increase.  Most of the time people get hit by this limit is when they have a huge number of lambda functions and every time we update a new code a new version of lambda is created. Each version has its own deployment package it will be counted towards this limit.
 
@@ -56,9 +56,9 @@ This limit is a region-wide soft limit. It can be increased by service Quota lim
 * If you are updating the function via AWS CLI use `--no-publish` flag not to create a new version update**.**
 * Keep only the latest version of the lambda function. Remove the older versions, and if we really needed to keep a specific older version of the function, add an **ALIAS** to those versions and remove all the unused versions.
 
-\- **512MB: Amount of data that be stored inside lambda instance during execution (/tmp)**
+3\. **512MB: Amount of data that be stored inside lambda instance during execution (/tmp)**
 
-If you want to download a file and store to the `/tmp`directory to process it during the execution, this limit will be applied. You cannot store files into this directory only up to 512 MB, even if it is a single file or multiple files.
+If you want to download a file and store in the `/tmp`directory to process it during the execution, this limit will be applied. You cannot store files into this directory only up to 512 MB, even if it is a single file or multiple files.
 
 **Is it a soft limit? : NO**
 
@@ -72,7 +72,7 @@ This means We cannot POST more than 6MB of data to Lambda through API Gateway. S
 
 **Is it a soft limit? : NO**
 
-How to avoid?
+**How to Avoid?**
 
 There is a couple of workarounds to get rid of this limit.
 
@@ -84,7 +84,7 @@ There is a couple of workarounds to get rid of this limit.
 
 If you are using the **serverless framework** for deploying your application, as your application grows you may hit some of the cloudformation limits when you deploy as serverless framework uses cloudformation behind the scenes for deploying services.
 
-\- **A CloudFormation stack can have at most 500 resources**
+1. **A CloudFormation stack can have at most 500 resources**
 
 Let's take an example of a backend Application with multiple REST API's. This Application may have multiple Lambda functions, API Gateway Endpoints, Methods, Custom Domains, SNS Topics, DynamoDB, S3 Buckets, etc. When we deploy this application to AWS with cloudformation, it will create cloudformation resources for all the mentioned services in a single cloudformation stack. There will be multiple resources created per services(IAM roles, IAM Policies, Cloudwatch log groups). In the case of a single lambda function following resources will be created per each function,
 
@@ -108,17 +108,17 @@ This plugin migrates CloudFormation resources into nested stacks in order to wor
 
 The recommended way is, Try to create your services(Multiple Micro Services) as small as you can. Keep an eye on no resources every time you deploy the stack, and when you think the stack may hit the limit,  break some of its features into alternative service.
 
-\- **An IAM role policy can have up to 10,240 characters**
+2. **An IAM role policy can have up to 10,240 characters**
 
-    This is one of the other limits we may hit when the stack grows. This happens when the whole application uses a single IAM role. By default serverless will include all the basic and custom IAM policies for all the functions used by the application into one single IAM role. 
-    
-    #####How to Avoid?#####
-    
-    - Create individual IAM roles for each function in the cloudformation stack instead of a single large IAM role for the whole stack. Using per-function roles is a recommended best practice to achieve and maintain the least privilege setup for your Lambda functions.
+This is one of the other limits we may hit when the stack grows. This happens when the whole application uses a single IAM role. By default serverless will include all the basic and custom IAM policies for all the functions used by the application into one single IAM role. 
+
+**How to Avoid?**
+
+\- Create individual IAM roles for each function in the cloudformation stack instead of a single large IAM role for the whole stack. Using per-function roles is a recommended best practice to achieve and maintain the least privilege setup for your Lambda functions.
 
 \- With the serverless framework, there are a couple of good plugins that help to do this.
 
-\## **Summary**
+**Summary**
 
 It is a good practice to know all the limits of all the AWS services that you are going to use when designing your infrastructure and develop the application. This will help us with the following,
 
