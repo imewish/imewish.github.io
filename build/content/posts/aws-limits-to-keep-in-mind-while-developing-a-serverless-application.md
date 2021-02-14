@@ -8,7 +8,7 @@ tags = ["limit", "aws", "serverless"]
 title = "AWS Limits To Keep In Mind While Developing A Serverless Application"
 
 +++
-Serverless is great, it helps companies to focus on product and application development without worrying much about the infrastructure and scaling. But there are some soft and hard limits for every AWS service which we need to keep in mind when we are developing a serverless application. These limits are meant to protect the customer as well as the provider against any unintentional use
+Serverless is great, it helps companies to focus on product and application development without worrying much about the infrastructure and scaling. But there are some soft and hard limits for every AWS service which we need to keep in mind when we are developing a serverless application. These limits are set to protect the customer as well as the provider against any unintentional use.
 
 In this article, we will talk about some of those limits and how to avoid them.
 
@@ -16,7 +16,7 @@ In this article, we will talk about some of those limits and how to avoid them.
 
 #### Lambda
 
-1\. **50 MB**: **_Function Deployment Package Size_**, **250 MB**: **_Size of code/dependencies that you can zip into a deployment package_** (uncompressed .zip/.jar size)
+1\. **50 MB**: **_Function Deployment Package Size_**, **250 MB**: **_Size of code/dependencies that you can zip into a deployment package_** **(uncompressed .zip/.jar size)**
 
 There is a limit of 50MB on the package size of the code which we upload to lambda.
 
@@ -46,7 +46,7 @@ Optimizing and reducing the package size will also help to reduce the cold start
 
 2\. **75GB**: **_Total Size Of All Deployment Packages That Can Be Uploaded Per Region_**
 
-This limit is a region-wide soft limit. It can be increased by service Quota limit increase.  Most of the time people get hit by this limit is when they have a huge number of lambda functions and every time we update a new code a new version of lambda is created. Each version has its own deployment package it will be counted towards this limit.
+This limit is a region-wide soft limit. It can be increased by a service Quota limit increase.  Most of the time people get hit by this limit is when they have a huge number of lambda functions and every time we update a new code a new version of lambda is created. Each version has its own deployment package it will be counted towards this limit.
 
 **Is it a soft limit? : YES**
 
@@ -64,21 +64,19 @@ If you want to download a file and store in the `/tmp`directory to process it du
 
 **How to Avoid?**
 
-* Use the \[Nodejs Stream\](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html\](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html) method to read and process and write files without loading the whole file into lambdas filesystem
+* Use the [Nodejs Stream](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html) method to read and process and write files without loading the whole file into lambdas filesystem
 
-\- **6MB: Lambda payload limit**
+4\. **6MB: Lambda payload limit**
 
-This means We cannot POST more than 6MB of data to Lambda through API Gateway. So if we build an image or video uploading API to upload files to S3, we are limited to this 6MB Limit.
+This means we cannot POST more than 6MB of data to Lambda through API Gateway. So if we build an image or video uploading API to upload files to S3, we are limited to this 6MB Limit.
 
 **Is it a soft limit? : NO**
 
 **How to Avoid?**
 
-There is a couple of workarounds to get rid of this limit.
+\- Use a pre-signed S3 URL.
 
-* Use a pre-signed S3 URL.
-
-  In this case the client makes an HTTP GET request to API Gateway, and the Lambda function generates and returns a pre-signed S3 URL, the client uploads the image to S3 directly, using the pre-signed S3 URL
+In this case, the client makes an HTTP GET request to API Gateway, and the Lambda function generates and returns a pre-signed S3 URL, the client uploads the image to S3 directly, using the pre-signed S3 URL
 
 #### **Cloudformation**
 
