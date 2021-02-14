@@ -120,6 +120,6 @@ This is one of the other limits we may hit when the stack grows. This happens wh
 
 It is a good practice to know all the limits of all the AWS services that you are going to use when designing your infrastructure and develop the application. This will help us with the following,
 
-\- Avoid redesigning the architecture in the future when we hit the limit
+\- Avoid redesigning the architecture in the future when we hit the hard limit
 
 \- Design scalable and fault-tolerant serverless infrastructure by planning and implementing workarounds to avoid hitting the limits or calculating and increasing the soft limit of each service as per the requirement of the application
