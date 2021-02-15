@@ -1,6 +1,5 @@
 +++
 date = ""
-draft = true
 image_upload = ""
 layout = "post"
 permalink = ""
