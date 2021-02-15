@@ -61,4 +61,8 @@ First, we need to create a new application in AppConfig. For that go to AWS Cons
 
 1. Create an Application
 
-[Screenshot_2020-11-20_at_8.12.59_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210215T094047Z&X-Amz-Expires=86400&X-Amz-Signature=5def1854cb04ef11c291cefcf33c3d578a90b14e26c69b0469d3519b25893962&X-Amz-SignedHeaders=host&response-content-disposition=filename %3D"Screenshot_2020-11-20_at_8.12.59_AM.png"](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a3d35bb6-c8bc-47dd-b8b9-f2f577ca3325/Screenshot_2020-11-20_at_8.12.59_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210215T094047Z&X-Amz-Expires=86400&X-Amz-Signature=5def1854cb04ef11c291cefcf33c3d578a90b14e26c69b0469d3519b25893962&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screenshot_2020-11-20_at_8.12.59_AM.png%22 'Screenshot_2020-11-20_at_8.12.59_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210215T094047Z&X-Amz-Expires=86400&X-Amz-Signature=5def1854cb04ef11c291cefcf33c3d578a90b14e26c69b0469d3519b25893962&X-Amz-SignedHeaders=host&response-content-disposition=filename %3D"Screenshot_2020-11-20_at_8.12.59_AM.png"')
+![](/static/uploads/screenshot_2020-11-20_at_8-12-59_am.png)
+
+2. Create an Environment
+
+![](/static/uploads/screenshot_2020-11-20_at_8-12-59_am.png)
