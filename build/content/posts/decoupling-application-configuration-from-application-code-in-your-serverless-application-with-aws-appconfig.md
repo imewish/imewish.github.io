@@ -87,17 +87,17 @@ Below is the sample code for our demo App.
 
 `handler.js`
 
-    const http = require('http');
-    const axios = require('axios')
-    
-    exports.demo = async (event) => {
-    
-      let configData = await axios.get("http://localhost:2772/applications/DemoApp/environments/develop/configurations/generalConfig")
-    
-      let discountPercentage = configData.data.discountPercentage
-      const response = {
-        statusCode: 200,
-        body: `You have ${discountPercentage}% off on your first purchase`,
-      };
-      return response;
-    };
+>     const http = require('http');
+>     const axios = require('axios')
+>     
+>     exports.demo = async (event) => {
+>     
+>       let configData = await axios.get("http://localhost:2772/applications/DemoApp/environments/develop/configurations/generalConfig")
+>     
+>       let discountPercentage = configData.data.discountPercentage
+>       const response = {
+>         statusCode: 200,
+>         body: `You have ${discountPercentage}% off on your first purchase`,
+>       };
+>       return response;
+>     };
