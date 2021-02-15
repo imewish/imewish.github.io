@@ -58,3 +58,5 @@ The determination of “how fresh is fresh” can be configured using Lambda env
 Now, Let's create a simple REST API for the demo.
 
 First, we need to create a new application in AppConfig. For that go to AWS Console → Systems Manager → AppConfig
+
+1. Create an Application
