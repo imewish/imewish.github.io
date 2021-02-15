@@ -54,3 +54,7 @@ The determination of “how fresh is fresh” can be configured using Lambda env
 * `AWS_APPCONFIG_EXTENSION_POLL_INTERVAL_SECONDS`, which defaults to 45 seconds, specifies the frequency with which the extension checks for new configuration data.
 * `AWS_APPCONFIG_EXTENSION_POLL_TIMEOUT_MILLIS`, which defaults to 3000 milliseconds, specifies the maximum time the extension waits for a piece of configuration data before giving up and trying again during the next poll interval
 * `AWS_APPCONFIG_EXTENSION_HTTP_PORT` which defaults to 2772, specifies the port that the proxy’s HTTP endpoint uses
+
+Now, Let's create a simple REST API for the demo.
+
+First, we need to create a new application in AppConfig. For that go to AWS Console → Systems Manager → AppConfig
