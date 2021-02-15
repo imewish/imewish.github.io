@@ -87,17 +87,113 @@ Below is the sample code for our demo App.
 
 `handler.js`
 
->     const http = require('http');
->     const axios = require('axios')
->     
->     exports.demo = async (event) => {
->     
->       let configData = await axios.get("http://localhost:2772/applications/DemoApp/environments/develop/configurations/generalConfig")
->     
->       let discountPercentage = configData.data.discountPercentage
->       const response = {
->         statusCode: 200,
->         body: `You have ${discountPercentage}% off on your first purchase`,
->       };
->       return response;
->     };
+    const http = require('http');
+    const axios = require('axios')
+    
+    exports.demo = async (event) => {
+    
+      let configData = await axios.get("http://localhost:2772/applications/DemoApp/environments/develop/configurations/generalConfig")
+    
+      let discountPercentage = configData.data.discountPercentage
+      const response = {
+        statusCode: 200,
+        body: `You have ${discountPercentage}% off on your first purchase`,
+      };
+      return response;
+    };
+
+[http://localhost:2772/applications/DemoApp/environments/develop/configurations/generalConfig](http://localhost:2772/applications/DemoApp/environments/develop/configurations/generalConfig) This URL is the HTTP endpoint for the proxy running on the lambda extension. Our Lambda will call this on every execution to get the latest configurations
+
+`serverless.yml`
+
+    service: appconfig-poc
+    
+    provider:
+      name: aws
+      runtime: nodejs12.x
+      region: us-west-2
+      iamRoleStatements:
+        - Effect: 'Allow'
+          Action:
+            - 'appconfig:GetConfiguration'
+          Resource: '*'
+      ## These are the lambda extension configurations
+      environment:
+        AWS_APPCONFIG_EXTENSION_POLL_INTERVAL_SECONDS: 30
+        AWS_APPCONFIG_EXTENSION_POLL_TIMEOUT_MILLIS: 3000
+        AWS_APPCONFIG_EXTENSION_HTTP_PORT: 2772
+      
+    
+    functions:
+      demo:
+        handler: handler.demo
+        ## AWS AppConfig Lambda Layer
+        ## Choose the layer for your region from here https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-integration-lambda-extensions.html
+        layers:
+          - arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension:18
+        events:
+          - http:
+              path: getDiscount
+              method: get
+
+Deploy the code. You will get an http endpoint.
+
+    ➜ sls deploy --stage dev                                                     
+    Serverless: Running "serverless" installed locally (in service node_modules)
+    Serverless: Packaging service...
+    Serverless: Excluding development dependencies...
+    Serverless: Uploading CloudFormation file to S3...
+    Serverless: Uploading artifacts...
+    Serverless: Uploading service appconfig-poc.zip file to S3 (135.58 KB)...
+    Serverless: Validating template...
+    Serverless: Updating Stack...
+    Serverless: Checking Stack update progress...
+    ...............
+    Serverless: Stack update finished...
+    Service Information
+    service: appconfig-poc
+    stage: dev
+    region: us-west-2
+    stack: appconfig-poc-dev
+    resources: 11
+    api keys:
+      None
+    endpoints:
+      GET - https://xxxxxx.execute-api.us-west-2.amazonaws.com/dev/getDiscount
+    functions:
+      demo: appconfig-poc-dev-demo
+    layers:
+      None
+    Serverless: Removing old service artifacts from S3...
+
+Now once you call the endpoint you will get the message like this.
+
+    ➜ curl https://xxxxxx.execute-api.us-west-2.amazonaws.com/dev/getDiscount
+    You have 5% off on your first purchase
+
+Now change the value for `discountPercentage` on AppConfig and deploy.
+
+1. Goto configuration profile and create a new version of the configuration
+
+![](/static/uploads/screenshot_2020-11-20_at_8-51-07_am.png)
+
+![](/static/uploads/screenshot_2020-11-20_at_8-51-30_am.png)
+
+2\. Deploy the new version of the config
+
+![](/static/uploads/screenshot_2020-11-20_at_8-52-00_am-1.png)
+
+Once the deployment is finished hit the endpoint to see the updated discount percentage.
+
+    ➜ curl https://xxxxx.execute-api.us-west-2.amazonaws.com/dev/getDiscount
+    You have 10% off on your first purchase
+
+See We have successfully updated our application config without changing/deploying our codebase 🎉
+
+### Conclusion
+
+The demo above is a very simple use case of AWS AppConfig. But there are many other things we can achieve with it. AWS customers are using this for multiple use cases like,
+
+* Feature flags: You can deploy features onto production that are hidden behind a feature flag. Toggling the feature flag turns on the feature immediately, without doing another code deployment.
+* Allow lists: You might have some features in your app that are for specific callers only. Using AWS AppConfig, you can control access to those features and dynamically update access rules without another code deployment
+* The verbosity of logging: You can control how often an event occurs by setting a variable limit. For example, you can adjust the verbosity of your logging during a production incident to better analyze what is going on. You would want to do another full deployment in the case of a production incident, but a quick configuration change gets you what you need.
