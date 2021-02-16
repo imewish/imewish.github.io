@@ -1,8 +1,8 @@
 +++
-date = ""
+date = 2021-02-14T18:30:00Z
 image_upload = ""
 layout = "post"
-permalink = ""
+permalink = "decoupling-application-configuration-from-applicationcode-in-your-serverless-application-with-aws-appconfig"
 tags = ["aws appconfig", "appconfig", "limits", "aws", "serverless"]
 title = "Decoupling Application configuration from application code in your serverless application with AWS Appconfig"
 
