@@ -108,11 +108,27 @@
   </url>
   
   <url>
+    <loc>https://imewish.github.io/tags/appconfig/</loc>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/aws-appconfig/</loc>
+  </url>
+  
+  <url>
     <loc>https://imewish.github.io/categories/</loc>
   </url>
   
   <url>
     <loc>https://imewish.github.io/tags/ci/cd/</loc>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</loc>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/limits/</loc>
   </url>
   
   <url>
