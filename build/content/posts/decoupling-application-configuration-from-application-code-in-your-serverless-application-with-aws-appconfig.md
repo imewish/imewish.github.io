@@ -60,23 +60,23 @@ First, we need to create a new application in AppConfig. For that go to AWS Cons
 
 1. Create an Application
 
-![](/static/uploads/screenshot_2020-11-20_at_8-12-59_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-12-59_am.png)
 
 2. Create an Environment
 
-![](/static/uploads/screenshot_2020-11-20_at_8-13-48_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-13-48_am.png)
 
 3. Create a Configuration Profile and add some configs
 
-![](/static/uploads/screenshot_2020-11-20_at_8-15-11_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-15-11_am.png)
 
-![](/static/uploads/screenshot_2020-11-20_at_8-16-11_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-16-11_am.png)
 
 4\. Deploy the configuration
 
-![](/static/uploads/screenshot_2020-11-20_at_8-28-59_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-28-59_am.png)
 
-![](/static/uploads/screenshot_2020-11-20_at_8-38-20_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-38-20_am.png)
 
 **To the Code**
 
@@ -174,13 +174,13 @@ Now change the value for `discountPercentage` on AppConfig and deploy.
 
 1. Goto configuration profile and create a new version of the configuration
 
-![](/static/uploads/screenshot_2020-11-20_at_8-51-07_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-51-07_am.png)
 
-![](/static/uploads/screenshot_2020-11-20_at_8-51-30_am.png)
+![](/uploads/screenshot_2020-11-20_at_8-51-30_am.png)
 
 2\. Deploy the new version of the config
 
-![](/static/uploads/screenshot_2020-11-20_at_8-52-00_am-1.png)
+![](/uploads/screenshot_2020-11-20_at_8-52-00_am-1.png)
 
 Once the deployment is finished hit the endpoint to see the updated discount percentage.
 
