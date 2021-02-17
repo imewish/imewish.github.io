@@ -42,7 +42,7 @@ if (!doNotTrack) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://imewish.github.io/tags/aws/" />
 <meta property="og:image" content="https://imewish.github.io/papermod-cover.png"/>
-<meta property="og:updated_time" content="2021-02-10T18:30:00+00:00" />
+<meta property="og:updated_time" content="2021-02-14T18:30:00+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://imewish.github.io/papermod-cover.png"/>
 
@@ -134,6 +134,24 @@ if (!doNotTrack) {
 
   <header class="entry-header">
     <h2>
+      Decoupling Application configuration from application code in your serverless application with AWS Appconfig
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.
+The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it....</p>
+  </section>
+  <footer class="entry-footer">
+
+February 14, 2021&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Vishnu Prasad
+</footer>
+  <a class="entry-link" aria-label="post link to Decoupling Application configuration from application code in your serverless application with AWS Appconfig" href="https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+
+  <header class="entry-header">
+    <h2>
       AWS Limits To Keep In Mind While Developing A Serverless Application
     </h2>
   </header>
@@ -205,25 +223,6 @@ There was a scenario which I was faced once in my company, One of our websites h
 January 28, 2020&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Vishnu Prasad
 </footer>
   <a class="entry-link" aria-label="post link to URL redirects with AWS S3 and Cloudfront" href="https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
-1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
-&#39;use strict&#39;; module.exports.api = async event =&gt; { return { statusCode: 200, body: JSON....</p>
-  </section>
-  <footer class="entry-footer">
-
-January 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
-</footer>
-  <a class="entry-link" aria-label="post link to Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline" href="https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
