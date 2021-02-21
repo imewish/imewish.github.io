@@ -73,7 +73,6 @@ First, we need to create a new application in AppConfig. For that go to AWS Cons
 ![](/uploads/screenshot_2020-11-20_at_8-16-11_am.png)
 
 4\. Deploy the configuration
-
 ![](/uploads/screenshot_2020-11-20_at_8-28-59_am.png)
 
 ![](/uploads/screenshot_2020-11-20_at_8-38-20_am.png)

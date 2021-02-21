@@ -52,6 +52,7 @@ params:
     ShowToc: true
     # comments: false
     images: ["papermod-cover.png"]
+    GoogleAnalyticsID: G-G13FWNNJ5X
 
     profileMode:
         enabled: false
