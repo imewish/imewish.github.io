@@ -17,7 +17,7 @@ The problem with this approach is, suppose you have a serverless application tha
     </item>
     
     <item>
-      <title>AWS Limits To Keep In Mind While Developing A Serverless Application</title>
+      <title>AWS Service Limits To Keep In Mind While Developing A Serverless Application</title>
       <link>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</link>
       <pubDate>Wed, 10 Feb 2021 18:30:00 +0000</pubDate>
       
