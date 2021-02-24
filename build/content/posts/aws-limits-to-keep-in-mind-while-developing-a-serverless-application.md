@@ -4,7 +4,7 @@ image_upload = ""
 layout = "post"
 permalink = "aws-limits-to-keep-in-mind-while-developing-serverless-app"
 tags = ["limit", "aws", "serverless"]
-title = "AWS Limits To Keep In Mind While Developing A Serverless Application"
+title = "AWS Service Limits To Keep In Mind While Developing A Serverless Application"
 
 +++
 Serverless is great, it helps companies to focus on product and application development without worrying much about the infrastructure and scaling. But there are some soft and hard limits for every AWS service which we need to keep in mind when we are developing a serverless application. These limits are set to protect the customer as well as the provider against any unintentional use.
