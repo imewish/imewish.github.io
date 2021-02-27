@@ -18,7 +18,7 @@ By default, Lambda invokes your function as soon as records are available in the
 
 * If you don't throw an error on your function and one of the messages didn't process correctly the message will be lost
 * If you catch and throw an error, the whole batch will be sent back to the queue including the ones which were processed successfully.  This batch will be retried again multiple times based on the `maxReceiveCount`  configuration if the error is not resolved. This will lead to reprocessing of successful messages multiple times
-* if you have configured a Dead letter Queue configured with your SQS Queue the failed batch will end up there once the  `ReceiveCount` for a message exceeds the `maxReceiveCount` . The successfully processed messaged will also end up in the DLQ. If the consumer of this DLQ has the ability to differentiate between failure and success messages in the batch we are good to go. 
+* if you have configured a Dead letter Queue configured with your SQS Queue the failed batch will end up there once the  `ReceiveCount` for a message exceeds the `maxReceiveCount` . The successfully processed messaged will also end up in the DLQ. If the consumer of this DLQ has the ability to differentiate between failure and success messages in the batch we are good to go.
 
 ### How to Handle The Partial Failure?
 
@@ -28,3 +28,50 @@ By default, Lambda invokes your function as soon as records are available in the
 2. **Delete successfully processed messages**
 
    This is the most effective method to handle this situation.  Process the batch messages inside a `try-catch` block and store the `receiptHandle` for each message in an array and call the `sq.deleteMessage` API and delete those messages when you catch the error and throw an error once you delete the messages that are successfully processed.
+
+       
+       'use strict';
+       const AWS = require('aws-sdk')
+       const sqs = new AWS.SQS();
+       
+       module.exports.handler = async event => {
+         const sqsSuccessMessages = [];
+       
+         try {
+           const records = event.Records ? event.Records : [event];
+           for (const record of records) {
+             await processMessageFucntion(record)
+             // Store successfully processed records 
+             sqsSuccessMessages.push(record);
+           }
+         } catch (e) {
+           if (sqsSuccessMessages.length > 0) {
+             await deleteSuccessMessages(sqsSuccessMessages);
+           }
+           throw new Error(e);
+         }
+       };
+       
+       // Delete success messages from the queue incase any failure while processing the batch
+       // On no failure case lambda will delete the whole batch once processed
+       const deleteSuccessMessages = async messages => {
+         for (const msg of messages) {
+           await sqs
+             .deleteMessage({
+               QueueUrl: getQueueUrl({
+                 sqs,
+                 eventSourceARN: msg.eventSourceARN
+               }),
+               ReceiptHandle: msg.receiptHandle
+             })
+             .promise();
+         }
+       };
+       
+       const getQueueUrl = ({ eventSourceARN, sqs }) => {
+         const [, , , , accountId, queueName] = eventSourceARN.split(':');
+       
+         return `${sqs.endpoint.href}${accountId}/${queueName}`;
+       };
+       
+       
