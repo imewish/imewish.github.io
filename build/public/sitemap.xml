@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://imewish.github.io/tags/appconfig/</loc>
-    <lastmod>2021-02-14T18:30:00+00:00</lastmod>
+    <loc>https://imewish.github.io/tags/aws/</loc>
+    <lastmod>2021-02-23T18:30:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://imewish.github.io/tags/aws/</loc>
+    <loc>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</loc>
+    <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/</loc>
+    <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/posts/</loc>
+    <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/serverless/</loc>
+    <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/sqs/</loc>
+    <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/</loc>
+    <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://imewish.github.io/tags/appconfig/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
   </url>
   
@@ -23,27 +53,7 @@
   </url>
   
   <url>
-    <loc>https://imewish.github.io/</loc>
-    <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://imewish.github.io/tags/limits/</loc>
-    <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/posts/</loc>
-    <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/tags/serverless/</loc>
-    <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://imewish.github.io/tags/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
   </url>
   

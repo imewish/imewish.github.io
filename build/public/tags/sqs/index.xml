@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sqs on imewish</title>
+    <link>https://imewish.github.io/tags/sqs/</link>
+    <description>Recent content in sqs on imewish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 23 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/sqs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS SQS Partial Failure Handling with Lambda trigger</title>
+      <link>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</link>
+      <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</guid>
+      <description>Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue. Lambda polls the queue and invokes your Lambda function synchronously with an event that contains queue messages. Lambda reads messages in batches and invokes your function once for each batch. When your function successfully processes a batch, Lambda deletes its messages from the queue.</description>
+    </item>
+    
+  </channel>
+</rss>

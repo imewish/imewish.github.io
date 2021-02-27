@@ -5,22 +5,40 @@
     <link>https://imewish.github.io/tags/</link>
     <description>Recent content in Tags on imewish</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 14 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>https://imewish.github.io/tags/aws/</link>
+      <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serverless</title>
+      <link>https://imewish.github.io/tags/serverless/</link>
+      <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/serverless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqs</title>
+      <link>https://imewish.github.io/tags/sqs/</link>
+      <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/sqs/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>appconfig</title>
       <link>https://imewish.github.io/tags/appconfig/</link>
       <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/appconfig/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://imewish.github.io/tags/aws/</link>
-      <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
-      
-      <guid>https://imewish.github.io/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -39,15 +57,6 @@
       <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/limits/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>serverless</title>
-      <link>https://imewish.github.io/tags/serverless/</link>
-      <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
-      
-      <guid>https://imewish.github.io/tags/serverless/</guid>
       <description></description>
     </item>
     
