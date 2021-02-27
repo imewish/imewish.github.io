@@ -26,3 +26,7 @@ By default, Lambda invokes your function as soon as records are available in the
 
    This is useful in low-traffic scenarios. Only one message will be sent to lambda on each invocation. But this limits the throughput of how quickly you are able to process messages
 2. **Delete successfully processed messages**
+
+   This is the most effective method to handle this situation.  When you process the batch, store `receiptHandle` for each message in an array
+
+   and call the `sq.deleteMessage` API and delete those messages when you catch the error and throw an error once you delete the messages that are successfully processed.
