@@ -28,54 +28,55 @@ By default, Lambda invokes your function as soon as records are available in the
 
    This is the most effective method to handle this situation.  Process the batch messages inside a `try-catch` block and store the `receiptHandle` for each message in an array and call the `sq.deleteMessage` API and delete those messages when you catch the error and throw an error once you delete the messages that are successfully processed.
 
-    
-    'use strict';
-    const AWS = require('aws-sdk')
-    const sqs = new AWS.SQS();
-    
-    module.exports.handler = async event => {
-      const sqsSuccessMessages = [];
-    
-      try {
-        const records = event.Records ? event.Records : [event];
-        for (const record of records) {
-          await processMessageFucntion(record)
-          // Store successfully processed records 
-          sqsSuccessMessages.push(record);
-        }
-      } catch (e) {
-        if (sqsSuccessMessages.length > 0) {
-          await deleteSuccessMessages(sqsSuccessMessages);
-        }
-        throw new Error(e);
-      }
-    };
-    
-    // Delete success messages from the queue incase any failure while processing the batch
-    // On no failure case lambda will delete the whole batch once processed
-    const deleteSuccessMessages = async messages => {
-      for (const msg of messages) {
-        await sqs
-          .deleteMessage({
-            QueueUrl: getQueueUrl({
-              sqs,
-              eventSourceARN: msg.eventSourceARN
-            }),
-            ReceiptHandle: msg.receiptHandle
-          })
-          .promise();
-      }
-    };
-    
-    const getQueueUrl = ({ eventSourceARN, sqs }) => {
-      const [, , , , accountId, queueName] = eventSourceARN.split(':');
-    
-      return `${sqs.endpoint.href}${accountId}/${queueName}`;
-    };
+       
+       'use strict';
+       const AWS = require('aws-sdk')
+       const sqs = new AWS.SQS();
+       
+       module.exports.handler = async event => {
+         const sqsSuccessMessages = [];
+       
+         try {
+           const records = event.Records ? event.Records : [event];
+           for (const record of records) {
+             await processMessageFucntion(record)
+             // Store successfully processed records 
+             sqsSuccessMessages.push(record);
+           }
+         } catch (e) {
+           if (sqsSuccessMessages.length > 0) {
+             await deleteSuccessMessages(sqsSuccessMessages);
+           }
+           throw new Error(e);
+         }
+       };
+       
+       // Delete success messages from the queue incase any failure while processing the batch
+       // On no failure case lambda will delete the whole batch once processed
+       const deleteSuccessMessages = async messages => {
+         for (const msg of messages) {
+           await sqs
+             .deleteMessage({
+               QueueUrl: getQueueUrl({
+                 sqs,
+                 eventSourceARN: msg.eventSourceARN
+               }),
+               ReceiptHandle: msg.receiptHandle
+             })
+             .promise();
+         }
+       };
+       
+       const getQueueUrl = ({ eventSourceARN, sqs }) => {
+         const [, , , , accountId, queueName] = eventSourceARN.split(':');
+       
+         return `${sqs.endpoint.href}${accountId}/${queueName}`;
+       };
+       
 
 **Conclusion**
 
-As of now, there is no support for handling partial batch failures in Lambda with SQS. It is totally up to you to decide if you want to handle it or not depends on your application need. 
+As of now, there is no support for handling partial batch failures in Lambda with SQS. It is totally up to you to decide if you want to handle it or not depends on your application need.
 
 Recently AWS had added support for custom checkpointing for DynamoDB Streams and Kinesis. This means customers now can automatically checkpoint records that have been successfully processed using a new parameter, FunctionResponseType. When customers set this parameter to `Report Batch Item Failure`, if a batch fails to process, only records after the last successful message are retried. This reduces duplicate processing and gives customers more options for failure handling.
 
