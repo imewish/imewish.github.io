@@ -18,4 +18,4 @@ By default, Lambda invokes your function as soon as records are available in the
 
 * If you don't throw an error on your function and one of the messages didn't process correctly the message will be lost
 * If you catch and throw an error, the whole batch will be sent back to the queue including the ones which were processed successfully.  This batch will be retried again multiple times based on the `maxReceiveCount`  configuration if the error is not resolved. This will lead to reprocessing of successful messages multiple times
-* if you have configured a Dead letter Queue configured with your SQS Queue 
+* if you have configured a Dead letter Queue configured with your SQS Queue the failed batch will end up there once the  `ReceiveCount` for a message exceeds the `maxReceiveCount` 
