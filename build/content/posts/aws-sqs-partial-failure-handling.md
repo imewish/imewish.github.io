@@ -76,6 +76,8 @@ By default, Lambda invokes your function as soon as records are available in the
 
 **Conclusion**
 
+As of now, there is no support for handling partial batch failures in Lambda with SQS. It is totally up to you to decide if you want to handle it or not depends on your application need. 
+
 Recently AWS had added support for custom checkpointing for DynamoDB Streams and Kinesis. This means customers now can automatically checkpoint records that have been successfully processed using a new parameter, FunctionResponseType. When customers set this parameter to `Report Batch Item Failure`, if a batch fails to process, only records after the last successful message are retried. This reduces duplicate processing and gives customers more options for failure handling.
 
-As of now, there is no support for handling partial batch failures in Lambda. It is totally up to you to decide if you want to handle it or not depends on your application need. 
+This gives hope, that AWS may add something similar for SQS as well🙏
