@@ -27,4 +27,3 @@ pages:
 - build/content/posts/aws-sqs-partial-failure-handling.md
 - build/content/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig.md
 - build/content/posts/dynamodb-cheatsheet-for-nodejs-javascript.md
-- build/content/posts/dynamodb-streams-custom-checkpointing.md
