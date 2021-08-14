@@ -32,7 +32,7 @@ Let's create a new item for the new user. This user will have one album and one 
 ```js
 async function createItem (buildInfo) {
   console.log('Creating new item')
-  let params = {
+  const params = {
     TableName: tableName,
     Item: {
       'userId': 'johnDoe',
@@ -70,13 +70,12 @@ Scan and returns all items in a table
 
 ```js
 async function scan() {
-  let params = {
+  const params = {
     TableName: tableName
   }
 
   try {
-    let x = await ddb.scan(params).promise()
-    console.log(x)
+    await ddb.scan(params).promise()
   } catch (error) {
     console.error(error)
   }
@@ -89,7 +88,7 @@ Get a single item from the table
 
 ```js
 async function getItem() {
-  var params = {
+  const params = {
     TableName: tableName,
     Key: {
       'userId': 'johnDoe'
@@ -97,8 +96,7 @@ async function getItem() {
   }
 
   try {
-    let res = await ddb.get(params).promise()
-    console.log(res)
+    await ddb.get(params).promise()
   } catch (error) {
     console.error(error)
   }
@@ -112,7 +110,7 @@ this will return only the tags from img1 and img2 in the result.
 
 ```js
 async function getSome() {
-  var params = {
+  const params = {
     TableName: tableName,
     ProjectionExpression: `albums.album1.images.#imageName1.tags, albums.album1.images.#imageName2.tags`,
     ExpressionAttributeNames: {
@@ -125,8 +123,7 @@ async function getSome() {
   }
 
   try {
-    let result = await ddb.get(params).promise()
-    console.log(JSON.stringify(result))
+    await ddb.get(params).promise()
   } catch (error) {
     console.error(error)
   }
@@ -139,7 +136,7 @@ deletes a single item from the table
 
 ```js
 async function deleteItem () {
-  let params = {
+  const params = {
     TableName: tableName,
      Key: {
        userId: 'johnDoe',
@@ -160,15 +157,14 @@ Query an item from a table
 
 ```js
 async function query () {
-  let params = {
+  const params = {
     TableName: tableName,
     KeyConditionExpression: 'userId = :id ',
     ExpressionAttributeValues: { ':id': 'johnDoe' }
   }
 
   try {
-    let result = await ddb.query(params).promise()
-    console.log(result)
+   await ddb.query(params).promise()
   } catch (error) {
     console.error(error)
   }
@@ -207,7 +203,7 @@ Here we will add a new attribute(size) to `img-1` of `album1`
 
 ```js
 async function updateNestedAttribute() {
-  let params = {
+  const params = {
     TableName: tableName,
     Key: {
       userId: 'johnDoe'
@@ -230,7 +226,7 @@ async function updateNestedAttribute() {
 }
 ```
 
-> **NOTE**: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute's name in the expression. In the above example, `img-2` attribute has `-` in its name. So if we set the update expression to \``et albums.album1.images.image-2  = :newImage``it will throw an error.
+> **NOTE**: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute's name in the expression. In the above example, `img-2` attribute has `-` in its name. So if we set the update expression to `set albums.album1.images.image-2  = :newImage` it will throw an error.
 
 #### APPEND TO A NESTED OBJECT
 
@@ -239,13 +235,13 @@ Here we will add a new image to album1
 ```js
 async function appendToAnObject () {
 
-  let newImage = {
+  const newImage = {
     'filename': 'johndoe/album1/food-826349.jpg',
     's3Url': 's3://photo-bucket/johndoe/album1/food-826349.jpg',
     'tags': ['burger', 'food']
   }
 
-  let params = {
+  const params = {
     TableName: tableName,
     Key: {
       userId: 'johnDoe'
@@ -269,12 +265,12 @@ async function appendToAnObject () {
 
 #### APPEND TO A LIST
 
-Here we will add a couple of tags to one of the image. Tags are stored as an array
+Here we will add a couple of tags to one of the images. Tags are stored as an array
 
 ```js
 async function appendToList() {
 
-  let params = {
+  const params = {
     TableName: tableName,
     Key: {
       userId: 'johnDoe'
