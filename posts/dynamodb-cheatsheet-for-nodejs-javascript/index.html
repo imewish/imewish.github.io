@@ -83,8 +83,8 @@ This cheat sheet will cover the most commonly used scenarios of data operations 
   "keywords": [
     "database", "dynamodb", "serverless", "aws"
   ],
-  "articleBody": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don’t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.\nThis cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs. The DynamoDB Document Client is the easiest and most preferred way to interact with a DynamoDB database from a Nodejs or JavaScript application.\nGETTING STARTED Install npm install aws-sdk\nConfigure const AWS = require('aws-sdk') const ddb = new AWS.DynamoDB.DocumentClient() CREATE ITEM Let’s create a new item for the new user. This user will have one album and one image in the album.\nasync function createItem (buildInfo) { console.log('Creating new item') let params = { TableName: tableName, Item: { 'userId': 'johnDoe', 'createdAt': 1598362623, 'updatedAt': 1598362623, 'albums': { 'album1': { 'id': 'album-kjuijhs342', 'createdAt': 1598362623, 'updatedAt': 1598362623, 'description': 'My First Album', 'Title': 'Holidays', 'images': { 'img-1': { 'filename': 'johndoe/album1/e8TtkC5xyv4.jpg', 's3Url': 's3://photo-bucket/johndoe/album1/e8TtkC5xyv4.jpg', 'tags': ['nature', 'animals'] } } } } } } try { await ddb.put(params).promise() } catch (error) { console.log(error) } } SCAN Scan and returns all items in a table\nasync function scan() { let params = { TableName: tableName } try { let x = await ddb.scan(params).promise() console.log(x) } catch (error) { console.error(error) } } GET ITEM Get a single item from the table\nasync function getItem() { var params = { TableName: tableName, Key: { 'userId': 'johnDoe' } } try { let res = await ddb.get(params).promise() console.log(res) } catch (error) { console.error(error) } } GET ONLY SOME DATA FROM AN ITEM this will return only the tags from img1 and img2 in the result.\nasync function getSome() { var params = { TableName: tableName, ProjectionExpression: `albums.album1.images.#imageName1.tags, albums.album1.images.#imageName2.tags`, ExpressionAttributeNames: { '#imageName1': 'img-1', '#imageName2': 'img-2' }, Key: { 'userId': 'johnDoe', } } try { let result = await ddb.get(params).promise() console.log(JSON.stringify(result)) } catch (error) { console.error(error) } } DELETE ITEM deletes a single item from the table\nasync function deleteItem () { let params = { TableName: tableName, Key: { userId: 'johnDoe', } } try { await ddb.delete(params).promise() } catch (error) { console.error(error) } } QUERY Query an item from a table\nasync function query () { let params = { TableName: tableName, KeyConditionExpression: 'userId = :id ', ExpressionAttributeValues: { ':id': 'johnDoe' } } try { let result = await ddb.query(params).promise() console.log(result) } catch (error) { console.error(error) } } UPDATE A TOP-LEVEL ATTRIBUTE Let’s update the updatedAt key\nasync function updateItem () { const params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: 'set updatedAt = :newUpdatedAt', ExpressionAttributeValues: { ':newUpdatedAt': 1598367687 }, ReturnValues: 'UPDATED_NEW' } try { await ddb.update(params).promise() } catch (error) { console.error(error) } } UPDATE A NESTED ATTRIBUTE Here we will add a new attribute(size) to img-1 of album1\nasync function updateNestedAttribute() { let params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: `set albums.album1.images.#img.size = :newImage`, ConditionExpression: `attribute_not_exists(albums.album1.images.#img.size)`, // only creates if size attribute doestnt exists  ExpressionAttributeNames: { '#img': 'img-1' }, ExpressionAttributeValues: { ':newImage': 2048 } } try { await ddb.update(params).promise() } catch (error) { console.error(error) } }  NOTE: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute’s name in the expression. In the above example, img-2 attribute has - in its name. So if we set the update expression to ``et albums.album1.images.image-2 = :newImage``it will throw an error.\n APPEND TO A NESTED OBJECT Here we will add a new image to album1\nasync function appendToAnObject () { let newImage = { 'filename': 'johndoe/album1/food-826349.jpg', 's3Url': 's3://photo-bucket/johndoe/album1/food-826349.jpg', 'tags': ['burger', 'food'] } let params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: `set albums.album1.images.#image = :newImage`, ExpressionAttributeNames: { '#image': 'img-2' }, ExpressionAttributeValues: { ':newImage': newImage } } try { await ddb.update(params).promise() } catch (error) { console.error(error) } } APPEND TO A LIST Here we will add a couple of tags to one of the image. Tags are stored as an array\nasync function appendToList() { let params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: 'SET albums.album1.images.#image1.tags = list_append(albums.album1.images.#image1.tags, :newTags)', ExpressionAttributeNames: { '#image1': 'img-1' }, ExpressionAttributeValues: { ':newTags': ['burger', 'pizza'] } } try { await ddb.update(params).promise() } catch (error) { console.error(error) } } ",
-  "wordCount" : "751",
+  "articleBody": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don’t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.\nThis cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs. The DynamoDB Document Client is the easiest and most preferred way to interact with a DynamoDB database from a Nodejs or JavaScript application.\nGETTING STARTED Install npm install aws-sdk\nConfigure const AWS = require('aws-sdk') const ddb = new AWS.DynamoDB.DocumentClient() CREATE ITEM Let’s create a new item for the new user. This user will have one album and one image in the album.\nasync function createItem (buildInfo) { console.log('Creating new item') const params = { TableName: tableName, Item: { 'userId': 'johnDoe', 'createdAt': 1598362623, 'updatedAt': 1598362623, 'albums': { 'album1': { 'id': 'album-kjuijhs342', 'createdAt': 1598362623, 'updatedAt': 1598362623, 'description': 'My First Album', 'Title': 'Holidays', 'images': { 'img-1': { 'filename': 'johndoe/album1/e8TtkC5xyv4.jpg', 's3Url': 's3://photo-bucket/johndoe/album1/e8TtkC5xyv4.jpg', 'tags': ['nature', 'animals'] } } } } } } try { await ddb.put(params).promise() } catch (error) { console.log(error) } } SCAN Scan and returns all items in a table\nasync function scan() { const params = { TableName: tableName } try { await ddb.scan(params).promise() } catch (error) { console.error(error) } } GET ITEM Get a single item from the table\nasync function getItem() { const params = { TableName: tableName, Key: { 'userId': 'johnDoe' } } try { await ddb.get(params).promise() } catch (error) { console.error(error) } } GET ONLY SOME DATA FROM AN ITEM this will return only the tags from img1 and img2 in the result.\nasync function getSome() { const params = { TableName: tableName, ProjectionExpression: `albums.album1.images.#imageName1.tags, albums.album1.images.#imageName2.tags`, ExpressionAttributeNames: { '#imageName1': 'img-1', '#imageName2': 'img-2' }, Key: { 'userId': 'johnDoe', } } try { await ddb.get(params).promise() } catch (error) { console.error(error) } } DELETE ITEM deletes a single item from the table\nasync function deleteItem () { const params = { TableName: tableName, Key: { userId: 'johnDoe', } } try { await ddb.delete(params).promise() } catch (error) { console.error(error) } } QUERY Query an item from a table\nasync function query () { const params = { TableName: tableName, KeyConditionExpression: 'userId = :id ', ExpressionAttributeValues: { ':id': 'johnDoe' } } try { await ddb.query(params).promise() } catch (error) { console.error(error) } } UPDATE A TOP-LEVEL ATTRIBUTE Let’s update the updatedAt key\nasync function updateItem () { const params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: 'set updatedAt = :newUpdatedAt', ExpressionAttributeValues: { ':newUpdatedAt': 1598367687 }, ReturnValues: 'UPDATED_NEW' } try { await ddb.update(params).promise() } catch (error) { console.error(error) } } UPDATE A NESTED ATTRIBUTE Here we will add a new attribute(size) to img-1 of album1\nasync function updateNestedAttribute() { const params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: `set albums.album1.images.#img.size = :newImage`, ConditionExpression: `attribute_not_exists(albums.album1.images.#img.size)`, // only creates if size attribute doestnt exists  ExpressionAttributeNames: { '#img': 'img-1' }, ExpressionAttributeValues: { ':newImage': 2048 } } try { await ddb.update(params).promise() } catch (error) { console.error(error) } }  NOTE: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute’s name in the expression. In the above example, img-2 attribute has - in its name. So if we set the update expression to set albums.album1.images.image-2 = :newImage it will throw an error.\n APPEND TO A NESTED OBJECT Here we will add a new image to album1\nasync function appendToAnObject () { const newImage = { 'filename': 'johndoe/album1/food-826349.jpg', 's3Url': 's3://photo-bucket/johndoe/album1/food-826349.jpg', 'tags': ['burger', 'food'] } const params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: `set albums.album1.images.#image = :newImage`, ExpressionAttributeNames: { '#image': 'img-2' }, ExpressionAttributeValues: { ':newImage': newImage } } try { await ddb.update(params).promise() } catch (error) { console.error(error) } } APPEND TO A LIST Here we will add a couple of tags to one of the images. Tags are stored as an array\nasync function appendToList() { const params = { TableName: tableName, Key: { userId: 'johnDoe' }, UpdateExpression: 'SET albums.album1.images.#image1.tags = list_append(albums.album1.images.#image1.tags, :newTags)', ExpressionAttributeNames: { '#image1': 'img-1' }, ExpressionAttributeValues: { ':newTags': ['burger', 'pizza'] } } try { await ddb.update(params).promise() } catch (error) { console.error(error) } } ",
+  "wordCount" : "736",
   "inLanguage": "en",
   "datePublished": "2020-09-01T18:30:00Z",
   "dateModified": "2020-09-01T18:30:00Z",
@@ -245,7 +245,7 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
 <p>Let&rsquo;s create a new item for the new user. This user will have one album and one image in the album.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createItem</span> (<span style="color:#a6e22e">buildInfo</span>) {
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Creating new item&#39;</span>)
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
     <span style="color:#a6e22e">Item</span><span style="color:#f92672">:</span> {
       <span style="color:#e6db74">&#39;userId&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johnDoe&#39;</span>,
@@ -278,13 +278,12 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
 </code></pre></div><h4 id="scan">SCAN<a hidden class="anchor" aria-hidden="true" href="#scan">#</a></h4>
 <p>Scan and returns all items in a table</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">scan</span>() {
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>
   }
 
   <span style="color:#66d9ef">try</span> {
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">scan</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">x</span>)
+    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">scan</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
   } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>)
   }
@@ -292,7 +291,7 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
 </code></pre></div><h4 id="get-item">GET ITEM<a hidden class="anchor" aria-hidden="true" href="#get-item">#</a></h4>
 <p>Get a single item from the table</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getItem</span>() {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
     <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> {
       <span style="color:#e6db74">&#39;userId&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johnDoe&#39;</span>
@@ -300,8 +299,7 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
   }
 
   <span style="color:#66d9ef">try</span> {
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>)
+    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
   } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>)
   }
@@ -310,7 +308,7 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
 </code></pre></div><h4 id="get-only-some-data-from-an-item">GET ONLY SOME DATA FROM AN ITEM<a hidden class="anchor" aria-hidden="true" href="#get-only-some-data-from-an-item">#</a></h4>
 <p>this will return only the tags from img1 and img2 in the result.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getSome</span>() {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
     <span style="color:#a6e22e">ProjectionExpression</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`albums.album1.images.#imageName1.tags, albums.album1.images.#imageName2.tags`</span>,
     <span style="color:#a6e22e">ExpressionAttributeNames</span><span style="color:#f92672">:</span> {
@@ -323,8 +321,7 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
   }
 
   <span style="color:#66d9ef">try</span> {
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">result</span>))
+    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
   } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>)
   }
@@ -332,7 +329,7 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
 </code></pre></div><h4 id="delete-item">DELETE ITEM<a hidden class="anchor" aria-hidden="true" href="#delete-item">#</a></h4>
 <p>deletes a single item from the table</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">deleteItem</span> () {
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
      <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> {
        <span style="color:#a6e22e">userId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johnDoe&#39;</span>,
@@ -348,15 +345,14 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
 </code></pre></div><h4 id="query">QUERY<a hidden class="anchor" aria-hidden="true" href="#query">#</a></h4>
 <p>Query an item from a table</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">query</span> () {
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
     <span style="color:#a6e22e">KeyConditionExpression</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;userId = :id &#39;</span>,
     <span style="color:#a6e22e">ExpressionAttributeValues</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#39;:id&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johnDoe&#39;</span> }
   }
 
   <span style="color:#66d9ef">try</span> {
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>)
+   <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">ddb</span>.<span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">promise</span>()
   } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>)
   }
@@ -385,7 +381,7 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
 </code></pre></div><h4 id="update-a-nested-attribute">UPDATE A NESTED ATTRIBUTE<a hidden class="anchor" aria-hidden="true" href="#update-a-nested-attribute">#</a></h4>
 <p>Here we will add a new attribute(size) to <code>img-1</code> of <code>album1</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateNestedAttribute</span>() {
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
     <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> {
       <span style="color:#a6e22e">userId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johnDoe&#39;</span>
@@ -407,19 +403,19 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
   }
 }
 </code></pre></div><blockquote>
-<p><strong>NOTE</strong>: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute&rsquo;s name in the expression. In the above example, <code>img-2</code> attribute has <code>-</code> in its name. So if we set the update expression to ``et albums.album1.images.image-2  = :newImage``it will throw an error.</p>
+<p><strong>NOTE</strong>: If an attribute name begins with a number or contains a space, a special character, or a reserved word, then you must use an expression attribute name to replace that attribute&rsquo;s name in the expression. In the above example, <code>img-2</code> attribute has <code>-</code> in its name. So if we set the update expression to <code>set albums.album1.images.image-2  = :newImage</code> it will throw an error.</p>
 </blockquote>
 <h4 id="append-to-a-nested-object">APPEND TO A NESTED OBJECT<a hidden class="anchor" aria-hidden="true" href="#append-to-a-nested-object">#</a></h4>
 <p>Here we will add a new image to album1</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">appendToAnObject</span> () {
 
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">newImage</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newImage</span> <span style="color:#f92672">=</span> {
     <span style="color:#e6db74">&#39;filename&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johndoe/album1/food-826349.jpg&#39;</span>,
     <span style="color:#e6db74">&#39;s3Url&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;s3://photo-bucket/johndoe/album1/food-826349.jpg&#39;</span>,
     <span style="color:#e6db74">&#39;tags&#39;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;burger&#39;</span>, <span style="color:#e6db74">&#39;food&#39;</span>]
   }
 
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
     <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> {
       <span style="color:#a6e22e">userId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johnDoe&#39;</span>
@@ -440,10 +436,10 @@ September 1, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
   }
 }
 </code></pre></div><h4 id="append-to-a-list">APPEND TO A LIST<a hidden class="anchor" aria-hidden="true" href="#append-to-a-list">#</a></h4>
-<p>Here we will add a couple of tags to one of the image. Tags are stored as an array</p>
+<p>Here we will add a couple of tags to one of the images. Tags are stored as an array</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">appendToList</span>() {
 
-  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">TableName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableName</span>,
     <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> {
       <span style="color:#a6e22e">userId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;johnDoe&#39;</span>
