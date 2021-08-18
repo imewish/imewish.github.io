@@ -25,5 +25,6 @@ fields:
 pages:
 - build/content/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application.md
 - build/content/posts/aws-sqs-partial-failure-handling.md
+- build/content/posts/cloudwath-custom-metrics-and-how-to-create-them.md
 - build/content/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig.md
 - build/content/posts/dynamodb-cheatsheet-for-nodejs-javascript.md
