@@ -18,7 +18,7 @@ Metrics help us with finding the performance of the AWS services and the applica
 
 #### Custom Metrics
 
-By default, AWS provides free metrics for most of its services. Apart from its own service metrics, AWS allows us to publish custom metrics, which means you can send your application-specific metrics to cloudwatch metrics. for eg, you can push the metrics for the duration of third-party api calls, or the count of status codes returned by an API, then you can create [alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html "Cloudwatch Alarms"), dashboards based on those metrics.
+By default, AWS provides free metrics for most of its services. Apart from its own service metrics, AWS allows us to publish custom metrics, which means you can send your application-specific metrics to cloudwatch metrics. for example, you can push the metrics for the duration of third-party api calls, or the count of status codes returned by an API, etc. Then you can create [alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html "Cloudwatch Alarms"), dashboards based on those metrics.
 
 Now let's see how we can create custom metrics and put data points to them, There are three ways of creating custom cloudwatch metrics from your application.
 
