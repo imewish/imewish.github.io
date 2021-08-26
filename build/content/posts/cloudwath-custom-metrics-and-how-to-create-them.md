@@ -97,14 +97,41 @@ _Let's see how we can create Custom metrics with the above three methods. For th
            console.log('failed',error)
          }
        };
-       
 2. **Using Metric Log Filters**
 
    Metric log filters can search and filter data points needed to create metrics from Cloudwatch log groups. CloudWatch Logs uses these metric filters to turn log data into numerical CloudWatch metrics that you can graph or set an alarm on. When you create a metric from a log filter, you can also choose to assign dimensions and a unit to the metric. If you specify a unit, be sure to specify the correct one when you create the filter. Changing the unit for the filter later will have no effect.
 
-   With this method, the metrics are generated asynchronously. You don't need any additional API calls from the application to generate the metrics. We just need to log the metrics data in a JSON format in the application and create a metric filter for each metric on the applications cloudwatch log group which filters the metric data from the logs based on the filter expressions defined.
+   With this method, the metrics are generated asynchronously. You don't need any additional API calls from the application to generate the metrics. You just need to log the metrics data in a JSON format in the application and create a metric filter for each metric on the applications cloudwatch log group which filters the metric data from the logs based on the filter expressions defined.
 
-   The only downside I see with this method is the creation of metric filters on log groups every time you need to create metrics. You can create them manually or use any IaC tools to generate them on demand. Apart from this, it's pretty straightforward and asynchronous.
+   The only downside I see with this method is the creation of metric filters on log groups every time you need to create a new metric. You can create them manually or use any IaC tool to generate them on demand.
+
+   **Example:**
+
+    'use strict';
+    
+    const axios = require('axios')
+    
+    module.exports.handler = async (event) => {
+      try {
+       
+        const startTime = new Date()
+        const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/8')
+        const apiStatusCode = response.status
+        const endTime = new Date()
+    
+        const apiCallDuration = endTime - startTime
+        
+        console.log({ metricName: 'api_call_duration', metricValue: apiCallDuration })
+        console.log({ metricName: 'status_code_count', metricValue: apiStatusCode})
+    
+        console.log({[`http_${apiStatusCode}`]: 1})
+    
+      } catch (error) {
+        console.log(error)
+      }
+    };
+     
+
 3. **Cloudwatch Embedded Metric Format**
 
    The CloudWatch embedded metric format is a JSON specification used to instruct CloudWatch Logs to automatically extract metric values embedded in structured log events. You can use CloudWatch to graph and create alarms on the extracted metric values.
