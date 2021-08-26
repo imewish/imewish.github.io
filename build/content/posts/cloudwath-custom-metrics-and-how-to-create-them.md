@@ -130,7 +130,6 @@ _Let's see how we can create Custom metrics with the above three methods. For th
            console.log(error)
          }
        };
-       
 
 ![](/static/uploads/screenshot-2021-08-26-at-7-12-02-am.png)
 
