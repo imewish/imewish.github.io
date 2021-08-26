@@ -107,32 +107,40 @@ _Let's see how we can create Custom metrics with the above three methods. For th
 
    **Example:**
 
-    'use strict';
-    
-    const axios = require('axios')
-    
-    module.exports.handler = async (event) => {
-      try {
+       'use strict';
        
-        const startTime = new Date()
-        const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/8')
-        const apiStatusCode = response.status
-        const endTime = new Date()
-    
-        const apiCallDuration = endTime - startTime
-        
-        console.log({ metricName: 'api_call_duration', metricValue: apiCallDuration })
-        console.log({ metricName: 'status_code_count', metricValue: apiStatusCode})
-    
-        console.log({[`http_${apiStatusCode}`]: 1})
-    
-      } catch (error) {
-        console.log(error)
-      }
-    };
-     
+       const axios = require('axios')
+       
+       module.exports.handler = async (event) => {
+         try {
+          
+           const startTime = new Date()
+           const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/8')
+           const apiStatusCode = response.status
+           const endTime = new Date()
+       
+           const apiCallDuration = endTime - startTime
+           
+           console.log({ metricName: 'api_call_duration', metricValue: apiCallDuration })
+           console.log({ metricName: 'status_code_count', metricValue: apiStatusCode})
+       
+           console.log({[`http_${apiStatusCode}`]: 1})
+       
+         } catch (error) {
+           console.log(error)
+         }
+       };
+       
 
-3. **Cloudwatch Embedded Metric Format**
+![](/static/uploads/screenshot-2021-08-26-at-7-12-02-am.png)
+
+![](/static/uploads/screenshot-2021-08-26-at-7-12-52-am.png)
+
+![](/static/uploads/screenshot-2021-08-26-at-7-14-02-am.png)
+
+![](/static/uploads/screenshot-2021-08-26-at-7-14-37-am.png)
+
+1. **Cloudwatch Embedded Metric Format**
 
    The CloudWatch embedded metric format is a JSON specification used to instruct CloudWatch Logs to automatically extract metric values embedded in structured log events. You can use CloudWatch to graph and create alarms on the extracted metric values.
 
