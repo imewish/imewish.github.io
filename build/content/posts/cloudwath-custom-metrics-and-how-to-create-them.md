@@ -5,7 +5,7 @@ image_upload = ""
 layout = "post"
 permalink = "aws-cloud-watch-custom-metrics-howto"
 tags = ["cloud", "aws", "custommetrics", "metrics", "clodwatch", "serverless"]
-title = "Cloudwatch Custom Metrics And How To Generate Them Asynchronously"
+title = "CloudWatch Custom Metrics And How To Create Them"
 
 +++
 #### Introduction
