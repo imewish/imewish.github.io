@@ -147,3 +147,79 @@ Follow the below screenshots to see how to create a metric filter based on the l
 The CloudWatch embedded metric format is a JSON specification used to instruct CloudWatch Logs to automatically extract metric values embedded in structured log events. You can use CloudWatch to graph and create alarms on the extracted metric values.
 
 This is my personal favorite method. This is asynchronous, which means it does not make any API call to generate metrics, and no metric filters are needed. All you have to do is log your metrics to cloudwatch in a specific JSON format as documented [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html). AWS will automatically parse these logs from cloudwatch log groups and generate the metrics for you.
+
+There are two ways to use this method, 
+
+1. Directly log the metrics in JSON format as documented [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html)
+2. Using embedded metric [NPM](https://github.com/awslabs/aws-embedded-metrics-node) module from AWS (Examples available at the modules GitHub page [here](https://github.com/awslabs/aws-embedded-metrics-node))
+
+Below is an example of the first method.
+
+    'use strict';
+    
+    const axios = require('axios')
+    
+    module.exports.handler = async (event) => {
+      try {
+       
+        const startTime = new Date()
+        const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/')
+        const apiStatusCode = response.status
+        const endTime = new Date()
+    
+        console.log(apiStatusCode)
+    
+        const apiCallDuration = endTime - startTime
+    
+        // Create Metric For Status Code Count
+        console.log(
+          JSON.stringify({
+            message: '[Embedded Metric]', // Identifier for metric logs in CW logs
+            status_code_count: 1, // Metric Name and value
+            status_code: `http_${apiStatusCode}`, // Diamension name and value
+            _aws: {
+              Timestamp: Date.now(),
+              CloudWatchMetrics: [
+                {
+                  Namespace: `demo_2`,
+                  Dimensions: [['status_code']],
+                  Metrics: [
+                    {
+                      Name: 'status_code_count',
+                      Unit: 'Count',
+                    },
+                  ],
+                },
+              ],
+            },
+          })
+        )
+    
+        // Create Metric For API Call Duration
+        console.log(
+          JSON.stringify({
+            message: '[Embedded Metric]', // Identifier for metric logs in CW logs
+            api_call_duration: apiCallDuration, // Metric Name and value
+            api_name: 'location_api', // Diamension name and value
+            _aws: {
+              Timestamp: Date.now(),
+              CloudWatchMetrics: [
+                {
+                  Namespace: `demo_2`,
+                  Dimensions: [['api_name']],
+                  Metrics: [
+                    {
+                      Name: 'api_call_duration',
+                      Unit: 'Milliseconds',
+                    },
+                  ],
+                },
+              ],
+            },
+          })
+        )
+    
+      } catch (error) {
+        console.log(error)
+      }
+    };
