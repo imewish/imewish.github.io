@@ -130,7 +130,7 @@ The only downside I see with this method is the creation of metric filters on lo
       }
     };
 
-Once the logs are pushed to cloudwatch logs, the next step is to create a metric filter on the log from which we want to filter the data points to generate the metric. 
+Once the logs are pushed to cloudwatch logs, the next step is to create a metric filter on the log from which we want to filter the data points to generate the metric.
 
 Follow the below screenshots to see how to create a metric filter based on the logs that we generate from the code. Once the metric filter is created properly and the filter patterns match with the logs it will create a metric and start pushing data points to it on every new log.
 
@@ -148,7 +148,7 @@ The CloudWatch embedded metric format is a JSON specification used to instruct C
 
 This is my personal favorite method. This is asynchronous, which means it does not make any API call to generate metrics, and no metric filters are needed. All you have to do is log your metrics to cloudwatch in a specific JSON format as documented [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html). AWS will automatically parse these logs from cloudwatch log groups and generate the metrics for you.
 
-There are two ways to use this method, 
+There are two ways to use this method,
 
 1. Directly log the metrics in JSON format as documented [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html)
 2. Using embedded metric [NPM](https://github.com/awslabs/aws-embedded-metrics-node) module from AWS (Examples available at the modules GitHub page [here](https://github.com/awslabs/aws-embedded-metrics-node))
@@ -223,3 +223,25 @@ Below is an example of the first method.
         console.log(error)
       }
     };
+
+Below are the screenshots of the custom metrics we created with the above methods,
+
+**Name Space**
+
+![](/static/uploads/screenshot-2021-08-28-at-10-33-42-pm.png)
+
+**Dimension**
+
+![](/static/uploads/screenshot-2021-08-28-at-10-33-50-pm.png)
+
+**Metric**
+
+![](/static/uploads/screenshot-2021-08-28-at-10-33-00-pm.png)
+
+**Conclusion**
+
+We have discussed three methods above, First one is synchronous and the other two are asynchronous. I personally prefer the asynchronous method because the metric generation process will not block the other API calls in the application. 
+
+We have recently started using custom metrics with one of my recent projects and we have created many metrics with the **Embedded Metric Format** and alarms based on these metrics. 
+
+Custom metrics are very useful when your application has other third-party services integrated and you want to track the performance of its processes and API calls etc.
