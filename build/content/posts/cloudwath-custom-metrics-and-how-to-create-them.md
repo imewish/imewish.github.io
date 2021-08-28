@@ -12,19 +12,19 @@ title = "CloudWatch Custom Metrics And How To Create Them"
 
 Cloudwatch is an integral part of the AWS ecosystem. Every service in AWS reports to cloudwatch for the service logs,  application logs, metrics, etc.
 
-In this article let's discuss cloudwatch metrics, and their custom metrics feature in detail.
+In this article let's discuss the cloudwatch custom metrics in detail.
 
 Metrics help us with finding the performance of the AWS services and the applications we run using these services. It also allows us to visualize the data with graphs and dashboards and create alarms based on the data reported tho metrics. If you are new to cloudwatch and cloudwatch metrics you can learn the basic concepts [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html "Cloudwatch Concepts")
 
 #### Custom Metrics
 
-By default, AWS provides free metrics for most of its services. Apart from its own service metrics, AWS allows us to publish custom metrics, which means you can send your application-specific metrics to cloudwatch metrics. for example, you can push the metrics for the duration of third-party api calls, or the count of status codes returned by an API, etc. Then you can create [alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html "Cloudwatch Alarms"), dashboards based on those metrics.
+By default, AWS provides free metrics for most of its services. Apart from its own service metrics, AWS allows us to publish custom metrics, which means we can send our application-specific metrics to cloudwatch metrics. for example, we can push the metrics for the duration of third-party api calls, or the count of status codes returned by an API, etc. Then we can create [alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html "Cloudwatch Alarms"), dashboards based on those metrics.
 
 Now let's see how we can create custom metrics and put data points to them, There are three ways of creating custom cloudwatch metrics from your application.
 
-* AWS API's/SDK for cloudwatch metric
-* Metric Log Filters
-* Cloudwatch Embedded Metric Format
+* **AWS API's/SDK for cloudwatch metric**
+* **Metric Log Filters**
+* C**loudwatch Embedded Metric Format**
 
 _Let's see how we can create Custom metrics with the above three methods. For the demo purpose, let's assume we have an AWS lambda function that calls a weather API, and we want to create metrics around the API call duration and the count of status codes returned by the API endpoint._
 
@@ -146,7 +146,7 @@ Follow the below screenshots to see how to create a metric filter based on the l
 
 The CloudWatch embedded metric format is a JSON specification used to instruct CloudWatch Logs to automatically extract metric values embedded in structured log events. You can use CloudWatch to graph and create alarms on the extracted metric values.
 
-This is my personal favorite method. This is asynchronous, which means it does not make any API call to generate metrics, and no metric filters are needed. All you have to do is log your metrics to cloudwatch in a specific JSON format as documented [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html). AWS will automatically parse these logs from cloudwatch log groups and generate the metrics for you.
+This is my personal favorite method. This is an asynchronous process, which means it does not make any API call to generate metrics, and no metric filters are needed. All you have to do is log your metrics to cloudwatch in a specific JSON format as documented [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html). AWS will automatically parse these logs from cloudwatch log groups and generate the metrics for you.
 
 There are two ways to use this method,
 
