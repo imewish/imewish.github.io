@@ -27,7 +27,7 @@ Now let's see how we can create custom metrics and put data points to them, Ther
 
 _Let's see how we can create Custom metrics with the above three methods. For the demo purpose, let's assume we have an AWS lambda function that calls a weather API, and we want to create metrics around the API call duration and the count of status codes returned by the API endpoint._
 
-**Using** [**AWS API's/SDK's**](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatch.html "Cloudwatch SDK")
+#### [**AWS API's/SDK's**](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatch.html "Cloudwatch SDK")
 
 This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatch.html#putMetricData-property) API to create the custom metrics. This method is pretty straightforward, but the problem with this method is that it will incur an additional API call and it can block other API calls in your application while putting metrics to cloudwatch. This could affect the latency of your application (for eg: REST APIs).  Also, each **putMetricData** api call involves cost. AWS will charge $0.01 per 1000 requests.
 
@@ -97,7 +97,7 @@ This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.
       }
     };
 
-**Using Metric Log Filters**
+#### **Metric Log Filters**
 
 Metric log filters can search and filter data points needed to create metrics from Cloudwatch log groups. CloudWatch Logs uses these metric filters to turn log data into numerical CloudWatch metrics that you can graph or set an alarm on. When you create a metric from a log filter, you can also choose to assign dimensions and a unit to the metric. If you specify a unit, be sure to specify the correct one when you create the filter. Changing the unit for the filter later will have no effect.
 
@@ -143,7 +143,7 @@ Follow the below screenshots to see how to create a metric filter based on the l
 
 ![](/uploads/screenshot-2021-08-26-at-7-14-37-am.png)
 
-**Cloudwatch Embedded Metric Format**
+#### **Cloudwatch Embedded Metric Format**
 
 The CloudWatch embedded metric format is a JSON specification used to instruct CloudWatch Logs to automatically extract metric values embedded in structured log events. You can use CloudWatch to graph and create alarms on the extracted metric values.
 
@@ -241,7 +241,7 @@ Below are the screenshots of the custom metrics we created with the above method
 
 **Conclusion**
 
-We have discussed three methods above, First one is synchronous and the other two are asynchronous. I personally prefer the asynchronous method because the metric generation process will not block the other API calls in the application. 
+We have discussed three methods above, First one is synchronous and the other two are asynchronous. I personally prefer the asynchronous method because the metric generation process will not block the other API calls in the application.
 
 Cloudwatch custom metrics can be used in the following scenarios,
 
