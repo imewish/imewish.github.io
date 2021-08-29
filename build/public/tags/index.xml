@@ -5,20 +5,56 @@
     <link>https://imewish.github.io/tags/</link>
     <description>Recent content in Tags on imewish</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Aug 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
       <link>https://imewish.github.io/tags/aws/</link>
-      <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
+      <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>clodwatch</title>
+      <link>https://imewish.github.io/tags/clodwatch/</link>
+      <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/clodwatch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
+      <link>https://imewish.github.io/tags/cloud/</link>
+      <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>custommetrics</title>
+      <link>https://imewish.github.io/tags/custommetrics/</link>
+      <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/custommetrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metrics</title>
+      <link>https://imewish.github.io/tags/metrics/</link>
+      <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/metrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>serverless</title>
       <link>https://imewish.github.io/tags/serverless/</link>
-      <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
+      <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/serverless/</guid>
       <description></description>

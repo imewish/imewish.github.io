@@ -5,7 +5,18 @@
     <link>https://imewish.github.io/tags/aws/</link>
     <description>Recent content in aws on imewish</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Aug 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CloudWatch Custom Metrics And How To Create Them</title>
+      <link>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</link>
+      <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</guid>
+      <description>Introduction Cloudwatch is an integral part of the AWS ecosystem. Every service in AWS reports to cloudwatch for the service logs, application logs, metrics, etc.
+In this article let&amp;rsquo;s discuss the cloudwatch custom metrics in detail.
+Metrics help us with finding the performance of the AWS services and the applications we run using these services. It also allows us to visualize the data with graphs and dashboards and create alarms based on the data reported tho metrics.</description>
+    </item>
+    
     <item>
       <title>AWS SQS With Lambda, Partial Batch Failure Handling</title>
       <link>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</link>

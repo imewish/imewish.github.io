@@ -135,13 +135,13 @@ Once the logs are pushed to cloudwatch logs, the next step is to create a metric
 
 Follow the below screenshots to see how to create a metric filter based on the logs that we generate from the code. Once the metric filter is created properly and the filter patterns match with the logs it will create a metric and start pushing data points to it on every new log.
 
-![](/static/uploads/screenshot-2021-08-26-at-7-12-02-am.png)
+![](/uploads/screenshot-2021-08-26-at-7-12-02-am.png)
 
-![](/static/uploads/screenshot-2021-08-26-at-7-12-52-am.png)
+![](/uploads/screenshot-2021-08-26-at-7-12-52-am.png)
 
-![](/static/uploads/screenshot-2021-08-26-at-7-14-02-am.png)
+![](/uploads/screenshot-2021-08-26-at-7-14-02-am.png)
 
-![](/static/uploads/screenshot-2021-08-26-at-7-14-37-am.png)
+![](/uploads/screenshot-2021-08-26-at-7-14-37-am.png)
 
 **Cloudwatch Embedded Metric Format**
 
@@ -229,15 +229,15 @@ Below are the screenshots of the custom metrics we created with the above method
 
 **Name Space**
 
-![](/static/uploads/screenshot-2021-08-28-at-10-33-42-pm.png)
+![](/uploads/screenshot-2021-08-28-at-10-33-42-pm.png)
 
 **Dimension**
 
-![](/static/uploads/screenshot-2021-08-28-at-10-33-50-pm.png)
+![](/uploads/screenshot-2021-08-28-at-10-33-50-pm.png)
 
 **Metric**
 
-![](/static/uploads/screenshot-2021-08-28-at-10-33-00-pm.png)
+![](/uploads/screenshot-2021-08-28-at-10-33-00-pm.png)
 
 **Conclusion**
 
