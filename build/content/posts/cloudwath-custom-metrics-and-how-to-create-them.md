@@ -1,6 +1,6 @@
 +++
 date = 2021-08-17T18:30:00Z
-image_upload = ""
+image_upload = "/static/uploads/linkedin-cover-1.png"
 layout = "post"
 permalink = "aws-cloud-watch-custom-metrics-howto"
 tags = ["cloud", "aws", "custommetrics", "metrics", "clodwatch", "serverless"]
