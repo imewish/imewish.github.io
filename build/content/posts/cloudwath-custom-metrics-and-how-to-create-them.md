@@ -50,8 +50,6 @@ This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.
         const apiStatusCode = response.status
         const endTime = new Date()
     
-        console.log(apiStatusCode)
-    
         const apiCallDuration = endTime - startTime
         
         const statusMetricParams = {
@@ -166,11 +164,9 @@ Below is an example of the first method.
       try {
        
         const startTime = new Date()
-        const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/')
+        const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/8')
         const apiStatusCode = response.status
         const endTime = new Date()
-    
-        console.log(apiStatusCode)
     
         const apiCallDuration = endTime - startTime
     
