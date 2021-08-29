@@ -1,6 +1,5 @@
 +++
 date = 2021-08-17T18:30:00Z
-draft = true
 image_upload = ""
 layout = "post"
 permalink = "aws-cloud-watch-custom-metrics-howto"
