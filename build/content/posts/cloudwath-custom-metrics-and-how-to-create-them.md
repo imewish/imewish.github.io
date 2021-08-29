@@ -24,13 +24,15 @@ Now let's see how we can create custom metrics and put data points to them, Ther
 
 * **AWS API's/SDK for cloudwatch metric**
 * **Metric Log Filters**
-* C**loudwatch Embedded Metric Format**
+* **Cloudwatch Embedded Metric Format**
 
 _Let's see how we can create Custom metrics with the above three methods. For the demo purpose, let's assume we have an AWS lambda function that calls a weather API, and we want to create metrics around the API call duration and the count of status codes returned by the API endpoint._
 
 **Using** [**AWS API's/SDK's**](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatch.html "Cloudwatch SDK")
 
 This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatch.html#putMetricData-property) API to create the custom metrics. This method is pretty straightforward, but the problem with this method is that it will incur an additional API call and it can block other API calls in your application while putting metrics to cloudwatch. This could affect the latency of your application (for eg: REST APIs).  Also, each **putMetricData** api call involves cost. AWS will charge $0.01 per 1000 requests.
+
+**Example**
 
     'use strict';
     
@@ -242,6 +244,7 @@ Below are the screenshots of the custom metrics we created with the above method
 
 We have discussed three methods above, First one is synchronous and the other two are asynchronous. I personally prefer the asynchronous method because the metric generation process will not block the other API calls in the application. 
 
-We have recently started using custom metrics with one of my recent projects and we have created many metrics with the **Embedded Metric Format** and alarms based on these metrics. 
+Cloudwatch custom metrics can be used in the following scenarios,
 
-Custom metrics are very useful when your application has other third-party services integrated and you want to track the performance of its processes and API calls etc.
+* Third Party integration metrics(API call duration, success or failed count of processes etc)
+* Custom metrics around events/process in the application
