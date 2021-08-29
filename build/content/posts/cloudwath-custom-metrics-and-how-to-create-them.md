@@ -245,5 +245,5 @@ We have discussed three methods above, First one is synchronous and the other tw
 
 Cloudwatch custom metrics can be used in the following scenarios,
 
-* Third Party integration metrics(API call duration, success or failed count of processes etc)
-* Custom metrics around events/process in the application
+* Third-Party integration metrics(API call duration, success or failed count of processes, etc)
+* Custom metrics around events/processes in the application
