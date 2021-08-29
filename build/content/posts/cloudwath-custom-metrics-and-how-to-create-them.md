@@ -37,7 +37,7 @@ This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.
     
     const axios = require('axios')
     const AWS = require('aws-sdk')
-    var cloudwatch = new AWS.CloudWatch();
+    const cloudwatch = new AWS.CloudWatch();
     
     
     module.exports.handler = async (event) => {
@@ -52,7 +52,7 @@ This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.
     
         const apiCallDuration = endTime - startTime
         
-        var statusMetricParams = {
+        const statusMetricParams = {
             MetricData: [ 
               {
                 MetricName: 'status_code', 
@@ -72,7 +72,7 @@ This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.
           
         await cloudwatch.putMetricData(statusMetricParams).promise();
         
-        var durationMetricParams = {
+        const durationMetricParams = {
             MetricData: [ 
                 {
                     MetricName: 'api_call_duration', 
@@ -93,7 +93,7 @@ This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.
         await cloudwatch.putMetricData(durationMetricParams).promise();
     
       } catch (error) {
-        console.log('failed',error)
+        console.error('failed',error)
       }
     };
 
@@ -127,7 +127,7 @@ The only downside I see with this method is the creation of metric filters on lo
         console.log({[`http_${apiStatusCode}`]: 1})
     
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     };
 
@@ -221,7 +221,7 @@ Below is an example of the first method.
         )
     
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     };
 
