@@ -2,9 +2,9 @@
 date = 2021-08-17T18:30:00Z
 image_upload = ""
 layout = "post"
-permalink = "aws-cloud-watch-custom-metrics-howto"
-tags = ["cloud", "aws", "custommetrics", "metrics", "clodwatch", "serverless"]
-title = "CloudWatch Custom Metrics And How To Create Them"
+permalink = "aws-cloudwatch-embedded-metrics-format-how-to"
+tags = ["embeddedmetrics", "cloud", "aws", "custommetrics", "metrics", "clodwatch", "serverless"]
+title = "Cloudwatch Custom Metrics With CloudWatch Embedded Metric Format"
 [cover]
 image = "/uploads/cw-metric.png"
 
@@ -49,6 +49,8 @@ This method uses the AWS cloudwatch metrics SDK's [putMetricData ](https://docs.
         const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/8')
         const apiStatusCode = response.status
         const endTime = new Date()
+    
+        console.log(apiStatusCode)
     
         const apiCallDuration = endTime - startTime
         
@@ -164,9 +166,11 @@ Below is an example of the first method.
       try {
        
         const startTime = new Date()
-        const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/8')
+        const response = await axios.get('https://www.metaweather.com/api/location/2487956/2021/8/')
         const apiStatusCode = response.status
         const endTime = new Date()
+    
+        console.log(apiStatusCode)
     
         const apiCallDuration = endTime - startTime
     
