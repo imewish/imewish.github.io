@@ -55,25 +55,23 @@ params:
     GoogleAnalyticsID: G-G13FWNNJ5X
 
     profileMode:
-        enabled: false
-        title: PaperMod
-        imageUrl: "#"
+        enabled: true
+        title: Hi, Im Vishnu Prasad
+        imageUrl: "https://media-exp1.licdn.com/dms/image/C5603AQGAWkZUotkUTA/profile-displayphoto-shrink_800_800/0/1629550596513?e=1636588800&v=beta&t=qbXdtcuP4m9oMUIGscm_FGJQX6DLkpbuzGJ_sRoPxKo"
         imageTitle: my image
-        # imageWidth: 120
-        # imageHeight: 120
-        buttons:
-            - name: Archives
-              url: archives
-            - name: Tags
-              url: tags
+        imageWidth: 250
+        imageHeight: 250
+        desc: >
+            Experienced Serverless Developer/Consultant, DevOps Engineer with a demonstrated history of working in the OTT,
+            E-commerce industry. Skilled in Amazon Webservices, Serverless Architecture and Development, 
+            NodeJS, Python, VueJS 
 
     homeInfoParams:
         Title: "Hi I'm Vishnu Prasad"
         Content: >
-            Serverless First Mindset: 
             Experienced Serverless Developer/Consultant, DevOps Engineer with a demonstrated history of working in the OTT,
             E-commerce industry. Skilled in Amazon Webservices, Serverless Architecture and Development, 
-            Cloud Automation, JavaScript, Python
+            Cloud Automation, NodeJS, Python, VueJS 
             
     socialIcons:
         - name: github
