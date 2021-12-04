@@ -7,6 +7,10 @@ tags = ["aws", "sqs", "serverless"]
 title = "AWS SQS With Lambda, Partial Batch Failure Handling"
 
 +++
+Update Nov 23, 2021,
+
+My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement [here](https://aws.amazon.com/about-aws/whats-new/2021/11/aws-lambda-partial-batch-response-sqs-event-source/).  You can find the detailed tutorial on how to enable this feature and use it on this blog from serverless [https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda](https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda "https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda")
+
 Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue. Lambda polls the queue and invokes your Lambda function [synchronously](https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html) with an event that contains queue messages. Lambda reads messages in batches and invokes your function once for each batch. When your function successfully processes a batch, Lambda deletes its messages from the queue.
 
 ### How Does Lambda Process The Messages?
@@ -28,7 +32,6 @@ By default, Lambda invokes your function as soon as records are available in the
 
    This is the most effective method to handle this situation.  Process the batch messages inside a `try-catch` block and store the `receiptHandle` for each message in an array and call the `sq.deleteMessage` API and delete those messages when you catch the error and throw an error once you delete the messages that are successfully processed.
 
-       
        'use strict';
        const AWS = require('aws-sdk')
        const sqs = new AWS.SQS();
@@ -72,7 +75,6 @@ By default, Lambda invokes your function as soon as records are available in the
        
          return `${sqs.endpoint.href}${accountId}/${queueName}`;
        };
-       
 
 **Conclusion**
 
