@@ -37,7 +37,7 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+    description: ""
     author: Vishnu Prasad
     # author: ["Me", "You"] # multiple authors
 
@@ -57,7 +57,7 @@ params:
     profileMode:
         enabled: true
         title: Hi, Im Vishnu Prasad
-        imageUrl: "https://media-exp1.licdn.com/dms/image/C5603AQGAWkZUotkUTA/profile-displayphoto-shrink_800_800/0/1629550596513?e=1636588800&v=beta&t=qbXdtcuP4m9oMUIGscm_FGJQX6DLkpbuzGJ_sRoPxKo"
+        imageUrl: "uploads/me.jpeg"
         imageTitle: my image
         imageWidth: 250
         imageHeight: 250
