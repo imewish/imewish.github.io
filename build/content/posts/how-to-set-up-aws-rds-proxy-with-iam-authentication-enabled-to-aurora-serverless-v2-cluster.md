@@ -1,6 +1,5 @@
 +++
 date = 2022-08-13T18:30:00Z
-draft = true
 image_upload = ""
 layout = ""
 permalink = "aws-rds-proxy-iam-authentication-aurora-serverless"
