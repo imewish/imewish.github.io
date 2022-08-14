@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster | Vishnu Prasad</title>
+
+<meta name="keywords" content="aurora, serverless, iamauth, postgres, database, rdsproxy, rds, aws" />
+<meta name="description" content="What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM).">
+<meta name="author" content="Vishnu Prasad">
+<link rel="canonical" href="https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/" />
+<meta name="google-site-verification" content="G-563XBXVYXT" />
+<link href="/assets/css/stylesheet.min.3839cf02b87f30309470412461116907caabd1b3ec3f5d015df618da2d034992.css" integrity="sha256-ODnPArh/MDCUcEEkYRFpB8qr0bPsP10BXfYY2i0DSZI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://imewish.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://imewish.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://imewish.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://imewish.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://imewish.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-G13FWNNJ5X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster" />
+<meta property="og:description" content="What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/" />
+<meta property="og:image" content="https://imewish.github.io/papermod-cover.png"/>
+<meta property="article:published_time" content="2022-08-13T18:30:00+00:00" />
+<meta property="article:modified_time" content="2022-08-13T18:30:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://imewish.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster"/>
+<meta name="twitter:description" content="What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM)."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://imewish.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster",
+      "item": "https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster",
+  "name": "How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster",
+  "description": "What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database …",
+  "keywords": [
+    "aurora", "serverless", "iamauth", "postgres", "database", "rdsproxy", "rds", "aws"
+  ],
+  "articleBody": "What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM).\nIn this article, we will see how we can set up an RDS Proxy with IAM authentication enabled and connect to an Aurora Serverless V2 Cluster.\nAll the IaC for this tutorial is written in Terraform. You can use your own choice of IaC.\nNote: RDS proxy cannot be used with Aurora Serverless V1 Cluster. Use RDS Data API instead\n1. Setup RDS AuroraV2 Cluster RDS Cluster Security Group\nMake sure the RDS Cluster Security group will accept the traffic from the RDS Proxy Security group.\nYou can also use the same security group for the RDS cluster and RDS Proxy. In this case, the security group should accept traffic from itself. With terraform, we should add self = true in the ingress rule. In this session, we are using different security groups for Cluster and Proxy.\nresource \"aws_security_group\" \"rds_cluster\" { name = \"rds-postgres-cluster\" description = \"Allow Postgres traffic to rds\" vpc_id = data.aws_ssm_parameter.vpc_id.value ingress { description = \"TLS from VPC\" from_port = 5432 to_port = 5432 protocol = \"tcp\" cidr_blocks = [data.aws_ssm_parameter.vpc_cidr.value] security_groups = [aws_security_group.rds_proxy.id] // Cluster should accept traffic from RDS proxy Security group } egress { from_port = 0 to_port = 0 protocol = \"-1\" cidr_blocks = [\"0.0.0.0/0\"] ipv6_cidr_blocks = [\"::/0\"] } }  RDS Cluster\nThis will create an RDS Aurora V2 Postgress Cluster.\n  Make sure IAM authentication is enabled\nresource \"aws_rds_cluster\" \"demo\" { cluster_identifier = \"${var.service}-${var.stage}-demo\" database_name = \"demo\" master_username = \"hyatt_main\" master_password = random_password.rds_demo.result engine = \"aurora-postgresql\" engine_mode = \"provisioned\" engine_version = \"13.6\" storage_encrypted = true kms_key_id = module.main_kms.alias_target_key_arn vpc_security_group_ids = [aws_security_group.rds_cluster.id] db_subnet_group_name = aws_db_subnet_group.cortex_back.id availability_zones = [\"us-east-2a\", \"us-east-2b\", \"us-east-2c\"] iam_database_authentication_enabled = true serverlessv2_scaling_configuration { max_capacity = 2.0 min_capacity = 1.0 } } #RDS Cluster Instance resource \"aws_rds_cluster_instance\" \"demo\" { identifier = \"${var.stage}-demo-1\" cluster_identifier = aws_rds_cluster.demo.id instance_class = \"db.serverless\" engine = aws_rds_cluster.demo.engine engine_version = aws_rds_cluster.demo.engine_version publicly_accessible = false }    Create Secret\nStore the DB credentials and endpoint details on AWS Secret Manager. This secret will be accessed by the RDS proxy to connect to the RDS cluster\nresource \"aws_secretsmanager_secret_version\" \"rds_credentials\" { secret_id = aws_secretsmanager_secret.rds_credentials.id secret_string =  2. Setup RDS Proxy Create an IAM Role\nCreate an IAM role for the RDS proxy, with permissions to access the secret from the secret manager that we created in the previous step. So the proxy can get the details to connect to the cluster.\nresource \"aws_iam_role\" \"rds_proxy_secrets_access\" { name = \"rds_proxy_secrets_access\" assume_role_policy = jsonencode({ Version = \"2012-10-17\" Statement = [ { Action = \"sts:AssumeRole\" Effect = \"Allow\" Sid = \"\" Principal = { Service = \"rds.amazonaws.com\" } }, ] }) inline_policy { name = \"my_inline_policy\" policy = jsonencode({ Version = \"2012-10-17\" Statement = [ { Action = [\"secretsmanager:GetSecretValue\"] Effect = \"Allow\" Resource = \"${aws_secretsmanager_secret.rds_credentials.arn}\" }, { Action = [\"kms:Decrypt\"] Effect = \"Allow\" Resource = \"*\" Condition = { StringEquals = { \"kms:ViaService\" = \"secretsmanager.us-east-2.amazonaws.com\" } } }, ] }) } }  Security Group for RDS Proxy\nThis security group will allow traffic from clients like AWS Lambda Functions, Containers, EC2, etc to the RDS proxy. The egress rule will also allow the RDS proxy to talk to the Secrets Manager.\n# RDS Proxy Security Group resource \"aws_security_group\" \"rds_proxy\" { name = \"rds-postgres-proxy-sg\" description = \"Allow Postgres traffic to rds from proxy\" vpc_id = data.aws_ssm_parameter.vpc_id.value ingress { description = \"TLS from VPC\" from_port = 5432 to_port = 5432 protocol = \"tcp\" cidr_blocks = [data.aws_ssm_parameter.vpc_cidr.value] } egress { from_port = 0 to_port = 0 protocol = \"-1\" cidr_blocks = [\"0.0.0.0/0\"] ipv6_cidr_blocks = [\"::/0\"] } }  Create RDS Proxy\n# RDS Proxy resource \"aws_db_proxy\" \"demo\" { name = \"demo\" debug_logging = true engine_family = \"POSTGRESQL\" idle_client_timeout = 1800 require_tls = true role_arn = aws_iam_role.rds_proxy_secrets_access.arn vpc_security_group_ids = [aws_security_group.rds_proxy.id] vpc_subnet_ids = [data.aws_ssm_parameter.private_subneta.value, data.aws_ssm_parameter.private_subnetb.value, data.aws_ssm_parameter.private_subnetc.value] auth { auth_scheme = \"SECRETS\" description = \"example\" iam_auth = \"REQUIRED\" secret_arn = aws_secretsmanager_secret.rds_credentials.arn } tags = { Name = \"Name\" Key = \"demo\" } } # RDS Proxy Target Group resource \"aws_db_proxy_default_target_group\" \"demo\" { db_proxy_name = aws_db_proxy.demo.name connection_pool_config { connection_borrow_timeout = 120 max_connections_percent = 100 max_idle_connections_percent = 50 } } # RDS Proxy Target resource \"aws_db_proxy_target\" \"demo\" { db_instance_identifier = aws_rds_cluster_instance.demo.id db_proxy_name = aws_db_proxy.demo.name target_group_name = aws_db_proxy_default_target_group.demo.name }  Now we have an RDS cluster and Proxy setup. The next step is to write a lambda function to connect to the cluster.\n3. Lambda Function This Lambda will use IAM authentication to connect to the RDS proxy, and the proxy will manage the connection to the cluster.\n  This function needs to be in the same VPC and subnets that the RDS proxy and Cluster are in.\n  And also should have a security group that can talk to the RDS proxy. You could also use the same security group of RDS proxy.\n// rds.ts import { Signer } from '@aws-sdk/rds-signer'; import { Client } from 'pg'; // Get an IAM token, This will be used as a password to connect to RDS Proxy const signer = new Signer({ hostname: 'Your RDS Proxy Endpoint', port: 5432, username: 'RDS Cluster Username', region: 'us-east-2', }); const token = await signer.getAuthToken(); const client = new Client({ user: 'RDS Cluster Username', host: 'Your RDS Proxy Endpoint', database: 'DB name', password: token, // IAM token port: 5432, ssl: true, }); await client.connect(); await client.query(select * from 'your table name');    Ensure that Lambda execution role includes rds-db:connect permissions as follows.\n{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Action\": [ \"rds-db:connect\" ], \"Resource\": [ \"arn:aws:rds-db:region:awsaccountnumber:dbuser:{proxyIdentifier from your rds proxy arn}/*\" ] } ] }  Conclusion With the above steps, you should be able to set up an RDS Cluster, RDS Proxy which can connect to the cluster, then a Lambda function that can connect to RDS Proxy via IAM authentication. If you face any issues while connecting to the Proxy, follow the troubleshooting guide below.\nTroubleshooting Steps to double check if you run to issue while connecting to the Proxy.\n Security Groups:  Check RDS proxy security group can access RDS Cluster. If you are using the same security group for both proxy and cluster, ensure the security group has the rule to access itself. RDS proxy security group outbound rule should be able to call Secrets Manager   IAM Role  Make sure the IAM role used in RDS Proxy has correct access roles to call Secrets Manager to get RDS cluster credentials   Client Code  Make sure to use the RDS Proxy endpoint as hostname on both RDS Signer and DB Client. Enable SSL on DB Client   Debug Logs  Enable debug logs on the Proxy. This would add debug logs to cloudwatch, which can give insights into what is causing the problem.    Useful Resources  https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.troubleshooting.html  ",
+  "wordCount" : "1201",
+  "inLanguage": "en",
+  "datePublished": "2022-08-13T18:30:00Z",
+  "dateModified": "2022-08-13T18:30:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Vishnu Prasad"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vishnu Prasad",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://imewish.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G13FWNNJ5X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G13FWNNJ5X');
+</script>
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://imewish.github.io/" accesskey="h" title="Home (Alt + H)">Home</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://imewish.github.io/posts" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://imewish.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+<div class="breadcrumbs">
+
+    <a href="https://imewish.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://imewish.github.io/posts/">Posts</a>
+</div>
+
+    <h1 class="post-title">
+      How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster
+    </h1>
+    <div class="post-meta">
+
+August 13, 2022&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Vishnu Prasad
+
+</div>
+  </header> 
+
+  <div class="toc">
+    <details >
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <div class="inner"><ul><li>
+        <a href="#what-is-rds-proxy" aria-label="What is RDS Proxy">What is RDS Proxy</a><ul>
+            <li>
+        <a href="#1-setup-rds-aurorav2-cluster" aria-label="1. Setup RDS AuroraV2 Cluster">1. Setup RDS AuroraV2 Cluster</a></li><li>
+        <a href="#2-setup-rds-proxy" aria-label="2. Setup RDS Proxy">2. Setup RDS Proxy</a></li><li>
+        <a href="#3-lambda-function" aria-label="3. Lambda Function">3. Lambda Function</a></li><li>
+        <a href="#conclusion" aria-label="Conclusion"><strong>Conclusion</strong></a></li><li>
+        <a href="#troubleshooting" aria-label="Troubleshooting">Troubleshooting</a></li><li>
+        <a href="#useful-resources" aria-label="Useful Resources">Useful Resources</a></li></ul>
+</li></ul>
+      </div>
+    </details>
+  </div>
+  <div class="post-content">
+<h2 id="what-is-rds-proxy">What is RDS Proxy<a hidden class="anchor" aria-hidden="true" href="#what-is-rds-proxy">#</a></h2>
+<p>Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM).</p>
+<p>In this article, we will see how we can set up an RDS Proxy with IAM authentication enabled and connect to an Aurora Serverless V2 Cluster.</p>
+<p>All the IaC for this tutorial is written in Terraform. You can use your own choice of IaC.</p>
+<p><em>Note: RDS proxy cannot be used with Aurora Serverless V1 Cluster. Use</em> <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html"><em>RDS Data API</em></a> <em>instead</em></p>
+<h3 id="1-setup-rds-aurorav2-cluster">1. Setup RDS AuroraV2 Cluster<a hidden class="anchor" aria-hidden="true" href="#1-setup-rds-aurorav2-cluster">#</a></h3>
+<p><strong>RDS Cluster Security Group</strong></p>
+<p>Make sure the RDS Cluster Security group will accept the traffic from the RDS Proxy Security group.</p>
+<p>You can also use the same security group for the RDS cluster and RDS Proxy. In this case, the security group should accept traffic from itself. With terraform, we should add <code>self = true</code> in the ingress rule. In this session, we are using different security groups for <strong>Cluster</strong> and <strong>Proxy</strong>.</p>
+<pre><code>resource &quot;aws_security_group&quot; &quot;rds_cluster&quot; {
+  name        = &quot;rds-postgres-cluster&quot;
+  description = &quot;Allow Postgres traffic to rds&quot;
+  vpc_id      = data.aws_ssm_parameter.vpc_id.value
+
+  ingress {
+    description     = &quot;TLS from VPC&quot;
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = &quot;tcp&quot;
+    cidr_blocks     = [data.aws_ssm_parameter.vpc_cidr.value]
+    security_groups = [aws_security_group.rds_proxy.id]
+    // Cluster should accept traffic from RDS proxy Security group
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = &quot;-1&quot;
+    cidr_blocks      = [&quot;0.0.0.0/0&quot;]
+    ipv6_cidr_blocks = [&quot;::/0&quot;]
+  }
+}
+</code></pre>
+<p><strong>RDS Cluster</strong></p>
+<p>This will create an RDS Aurora V2 Postgress Cluster.</p>
+<ul>
+<li>
+<p>Make sure IAM authentication is enabled</p>
+<pre><code>resource &quot;aws_rds_cluster&quot; &quot;demo&quot; {
+  cluster_identifier                  = &quot;${var.service}-${var.stage}-demo&quot;
+  database_name                       = &quot;demo&quot;
+  master_username                     = &quot;hyatt_main&quot;
+  master_password                     = random_password.rds_demo.result
+  engine                              = &quot;aurora-postgresql&quot;
+  engine_mode                         = &quot;provisioned&quot;
+  engine_version                      = &quot;13.6&quot;
+  storage_encrypted                   = true
+  kms_key_id                          = module.main_kms.alias_target_key_arn
+  vpc_security_group_ids              = [aws_security_group.rds_cluster.id]
+  db_subnet_group_name                = aws_db_subnet_group.cortex_back.id
+  availability_zones                  = [&quot;us-east-2a&quot;, &quot;us-east-2b&quot;, &quot;us-east-2c&quot;]
+  iam_database_authentication_enabled = true
+  
+serverlessv2_scaling_configuration {
+    max_capacity = 2.0
+    min_capacity = 1.0
+  }
+}
+  
+#RDS Cluster Instance
+  
+resource &quot;aws_rds_cluster_instance&quot; &quot;demo&quot; {
+  identifier          = &quot;${var.stage}-demo-1&quot;
+  cluster_identifier  = aws_rds_cluster.demo.id
+  instance_class      = &quot;db.serverless&quot;
+  engine              = aws_rds_cluster.demo.engine
+  engine_version      = aws_rds_cluster.demo.engine_version
+  publicly_accessible = false
+  
+}
+</code></pre>
+</li>
+</ul>
+<p><strong>Create Secret</strong></p>
+<p>Store the DB credentials and endpoint details on AWS Secret Manager. This secret will be accessed by the RDS proxy to connect to the RDS cluster</p>
+<pre><code>resource &quot;aws_secretsmanager_secret_version&quot; &quot;rds_credentials&quot; {
+  secret_id     = aws_secretsmanager_secret.rds_credentials.id
+  secret_string = &lt;&lt;EOF
+{
+  &quot;username&quot;: &quot;${aws_rds_cluster.demo.master_username}&quot;,
+  &quot;password&quot;: &quot;${random_password.rds_demo.result}&quot;,
+  &quot;engine&quot;: &quot;postgres&quot;,
+  &quot;host&quot;: &quot;${aws_rds_cluster.demo.endpoint}&quot;,
+  &quot;port&quot;: ${aws_rds_cluster.demo.port},
+  &quot;dbClusterIdentifier&quot;: &quot;${aws_rds_cluster.demo.cluster_identifier}&quot;
+}
+EOF
+}
+</code></pre>
+<h3 id="2-setup-rds-proxy">2. Setup RDS Proxy<a hidden class="anchor" aria-hidden="true" href="#2-setup-rds-proxy">#</a></h3>
+<p><strong>Create an IAM Role</strong></p>
+<p>Create an IAM role for the RDS proxy, with permissions to access the secret from the secret manager that we created in the previous step. So the proxy can get the details to connect to the cluster.</p>
+<pre><code>resource &quot;aws_iam_role&quot; &quot;rds_proxy_secrets_access&quot; {
+  name = &quot;rds_proxy_secrets_access&quot;
+
+  assume_role_policy = jsonencode({
+    Version = &quot;2012-10-17&quot;
+    Statement = [
+      {
+        Action = &quot;sts:AssumeRole&quot;
+        Effect = &quot;Allow&quot;
+        Sid    = &quot;&quot;
+        Principal = {
+          Service = &quot;rds.amazonaws.com&quot;
+        }
+      },
+    ]
+  })
+
+  inline_policy {
+    name = &quot;my_inline_policy&quot;
+
+    policy = jsonencode({
+      Version = &quot;2012-10-17&quot;
+      Statement = [
+        {
+          Action   = [&quot;secretsmanager:GetSecretValue&quot;]
+          Effect   = &quot;Allow&quot;
+          Resource = &quot;${aws_secretsmanager_secret.rds_credentials.arn}&quot;
+        },
+        {
+          Action   = [&quot;kms:Decrypt&quot;]
+          Effect   = &quot;Allow&quot;
+          Resource = &quot;*&quot;
+          Condition = {
+            StringEquals = {
+              &quot;kms:ViaService&quot; = &quot;secretsmanager.us-east-2.amazonaws.com&quot;
+            }
+          }
+        },
+      ]
+    })
+  }
+}
+</code></pre>
+<p><strong>Security Group for RDS Proxy</strong></p>
+<p>This security group will allow traffic from clients like AWS Lambda Functions, Containers, EC2, etc to the RDS proxy. The egress rule will also allow the RDS proxy to talk to the Secrets Manager.</p>
+<pre><code># RDS Proxy Security Group
+
+resource &quot;aws_security_group&quot; &quot;rds_proxy&quot; {
+  name        = &quot;rds-postgres-proxy-sg&quot;
+  description = &quot;Allow Postgres traffic to rds from proxy&quot;
+  vpc_id      = data.aws_ssm_parameter.vpc_id.value
+
+  ingress {
+    description = &quot;TLS from VPC&quot;
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [data.aws_ssm_parameter.vpc_cidr.value]
+  }
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = &quot;-1&quot;
+    cidr_blocks      = [&quot;0.0.0.0/0&quot;]
+    ipv6_cidr_blocks = [&quot;::/0&quot;]
+  }
+}
+</code></pre>
+<p><strong>Create RDS Proxy</strong></p>
+<pre><code># RDS Proxy
+
+resource &quot;aws_db_proxy&quot; &quot;demo&quot; {
+  name                   = &quot;demo&quot;
+  debug_logging          = true
+  engine_family          = &quot;POSTGRESQL&quot;
+  idle_client_timeout    = 1800
+  require_tls            = true
+  role_arn               = aws_iam_role.rds_proxy_secrets_access.arn
+  vpc_security_group_ids = [aws_security_group.rds_proxy.id]
+  vpc_subnet_ids         = [data.aws_ssm_parameter.private_subneta.value, data.aws_ssm_parameter.private_subnetb.value, data.aws_ssm_parameter.private_subnetc.value]
+
+  auth {
+    auth_scheme = &quot;SECRETS&quot;
+    description = &quot;example&quot;
+    iam_auth    = &quot;REQUIRED&quot;
+    secret_arn  = aws_secretsmanager_secret.rds_credentials.arn
+  }
+
+  tags = {
+    Name = &quot;Name&quot;
+    Key  = &quot;demo&quot;
+  }
+}
+
+# RDS Proxy Target Group
+
+resource &quot;aws_db_proxy_default_target_group&quot; &quot;demo&quot; {
+  db_proxy_name = aws_db_proxy.demo.name
+
+  connection_pool_config {
+    connection_borrow_timeout    = 120
+    max_connections_percent      = 100
+    max_idle_connections_percent = 50
+  }
+}
+
+# RDS Proxy Target
+
+resource &quot;aws_db_proxy_target&quot; &quot;demo&quot; {
+  db_instance_identifier = aws_rds_cluster_instance.demo.id
+  db_proxy_name          = aws_db_proxy.demo.name
+  target_group_name      = aws_db_proxy_default_target_group.demo.name
+}
+</code></pre>
+<p>Now we have an RDS cluster and Proxy setup. The next step is to write a lambda function to connect to the cluster.</p>
+<h3 id="3-lambda-function">3. Lambda Function<a hidden class="anchor" aria-hidden="true" href="#3-lambda-function">#</a></h3>
+<p>This Lambda will use IAM authentication to connect to the RDS proxy, and the proxy will manage the connection to the cluster.</p>
+<ul>
+<li>
+<p>This function needs to be in the same VPC and subnets that the RDS proxy and Cluster are in.</p>
+</li>
+<li>
+<p>And also should have a security group that can talk to the RDS proxy. You could also use the same security group of RDS proxy.</p>
+<pre><code>// rds.ts
+  
+import { Signer } from '@aws-sdk/rds-signer';
+import { Client } from 'pg';
+  
+// Get an IAM token, This will be used as a password to connect to RDS Proxy
+  
+const signer = new Signer({
+    hostname: 'Your RDS Proxy Endpoint',
+    port: 5432,
+    username: 'RDS Cluster Username',
+    region: 'us-east-2',
+  });
+  
+const token = await signer.getAuthToken();
+  
+const client = new Client({
+      user: 'RDS Cluster Username',
+      host: 'Your RDS Proxy Endpoint',
+      database: 'DB name',
+      password: token, // IAM token
+      port: 5432,
+      ssl: true,
+    });
+  
+await client.connect();
+    await client.query(select * from 'your table name');
+</code></pre>
+</li>
+</ul>
+<p>Ensure that Lambda execution role includes <strong>rds-db:connect</strong> permissions as follows.</p>
+<pre><code>{
+   &quot;Version&quot;: &quot;2012-10-17&quot;,
+   &quot;Statement&quot;: [
+      {
+         &quot;Effect&quot;: &quot;Allow&quot;,
+         &quot;Action&quot;: [
+             &quot;rds-db:connect&quot;
+         ],
+         &quot;Resource&quot;: [
+             &quot;arn:aws:rds-db:region:awsaccountnumber:dbuser:{proxyIdentifier from your rds proxy arn}/*&quot;
+         ]
+      }
+   ]
+}
+</code></pre>
+<h3 id="conclusion"><strong>Conclusion</strong><a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h3>
+<p>With the above steps, you should be able to set up an RDS Cluster, RDS Proxy which can connect to the cluster, then a Lambda function that can connect to RDS Proxy via IAM authentication. If you face any issues while connecting to the Proxy, follow the troubleshooting guide below.</p>
+<h3 id="troubleshooting">Troubleshooting<a hidden class="anchor" aria-hidden="true" href="#troubleshooting">#</a></h3>
+<p>Steps to double check if you run to issue while connecting to the Proxy.</p>
+<ol>
+<li><strong>Security Groups</strong>:
+<ul>
+<li>Check RDS proxy security group can access RDS Cluster. If you are using the same security group for both proxy and cluster, ensure the security group has the rule to access itself.</li>
+<li>RDS proxy security group outbound rule should be able to call Secrets Manager</li>
+</ul>
+</li>
+<li><strong>IAM Role</strong>
+<ul>
+<li>Make sure the IAM role used in RDS Proxy has correct access roles to call Secrets Manager to get RDS cluster credentials</li>
+</ul>
+</li>
+<li><strong>Client Code</strong>
+<ul>
+<li>Make sure to use the RDS Proxy endpoint as hostname on both RDS Signer and DB Client.</li>
+<li>Enable SSL on DB Client</li>
+</ul>
+</li>
+<li><strong>Debug Logs</strong>
+<ul>
+<li>Enable debug logs on the Proxy. This would add debug logs to cloudwatch, which can give insights into what is causing the problem.</li>
+</ul>
+</li>
+</ol>
+<h3 id="useful-resources">Useful Resources<a hidden class="anchor" aria-hidden="true" href="#useful-resources">#</a></h3>
+<ol>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html" title="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html">https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.troubleshooting.html" title="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.troubleshooting.html">https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.troubleshooting.html</a></li>
+</ol>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://imewish.github.io/tags/aurora/">aurora</a></li>
+      <li><a href="https://imewish.github.io/tags/serverless/">serverless</a></li>
+      <li><a href="https://imewish.github.io/tags/iamauth/">iamauth</a></li>
+      <li><a href="https://imewish.github.io/tags/postgres/">postgres</a></li>
+      <li><a href="https://imewish.github.io/tags/database/">database</a></li>
+      <li><a href="https://imewish.github.io/tags/rdsproxy/">rdsproxy</a></li>
+      <li><a href="https://imewish.github.io/tags/rds/">rds</a></li>
+      <li><a href="https://imewish.github.io/tags/aws/">aws</a></li>
+    </ul>
+    <nav class="paginav">
+      <a class="next" href="https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>Cloudwatch Custom Metrics With CloudWatch Embedded Metric Format</span>
+      </a>
+    </nav>
+
+
+
+
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster on twitter"
+        href="https://twitter.com/intent/tweet/?text=How%20to%20set%20up%20AWS%20RDS%20Proxy%20with%20IAM%20Authentication%20enabled%20to%20Aurora%20Serverless%20V2%20Cluster&amp;url=https%3a%2f%2fimewish.github.io%2fposts%2fhow-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster%2f&amp;hashtags=aurora%2cserverless%2ciamauth%2cpostgres%2cdatabase%2crdsproxy%2crds%2caws">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fimewish.github.io%2fposts%2fhow-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster%2f&amp;title=How%20to%20set%20up%20AWS%20RDS%20Proxy%20with%20IAM%20Authentication%20enabled%20to%20Aurora%20Serverless%20V2%20Cluster&amp;summary=How%20to%20set%20up%20AWS%20RDS%20Proxy%20with%20IAM%20Authentication%20enabled%20to%20Aurora%20Serverless%20V2%20Cluster&amp;source=https%3a%2f%2fimewish.github.io%2fposts%2fhow-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fimewish.github.io%2fposts%2fhow-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster%2f&title=How%20to%20set%20up%20AWS%20RDS%20Proxy%20with%20IAM%20Authentication%20enabled%20to%20Aurora%20Serverless%20V2%20Cluster">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fimewish.github.io%2fposts%2fhow-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster on whatsapp"
+        href="https://api.whatsapp.com/send?text=How%20to%20set%20up%20AWS%20RDS%20Proxy%20with%20IAM%20Authentication%20enabled%20to%20Aurora%20Serverless%20V2%20Cluster%20-%20https%3a%2f%2fimewish.github.io%2fposts%2fhow-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster on telegram"
+        href="https://telegram.me/share/url?text=How%20to%20set%20up%20AWS%20RDS%20Proxy%20with%20IAM%20Authentication%20enabled%20to%20Aurora%20Serverless%20V2%20Cluster&amp;url=https%3a%2f%2fimewish.github.io%2fposts%2fhow-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2022 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

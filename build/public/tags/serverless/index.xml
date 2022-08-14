@@ -5,7 +5,16 @@
     <link>https://imewish.github.io/tags/serverless/</link>
     <description>Recent content in serverless on Vishnu Prasad</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Aug 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Aug 2022 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster</title>
+      <link>https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</link>
+      <pubDate>Sat, 13 Aug 2022 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</guid>
+      <description>What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM).</description>
+    </item>
+    
     <item>
       <title>Cloudwatch Custom Metrics With CloudWatch Embedded Metric Format</title>
       <link>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</link>
