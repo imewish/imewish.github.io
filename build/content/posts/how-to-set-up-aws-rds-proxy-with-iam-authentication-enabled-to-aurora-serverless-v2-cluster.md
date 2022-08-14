@@ -26,7 +26,6 @@ Make sure the RDS Cluster Security group will accept the traffic from the RDS Pr
 
 You can also use the same security group for the RDS cluster and RDS Proxy. In this case, the security group should accept traffic from itself. With terraform, we should add `self = true` in the ingress rule. In this session, we are using different security groups for **Cluster** and **Proxy**.
 
-    
     resource "aws_security_group" "rds_cluster" {
       name        = "rds-postgres-cluster"
       description = "Allow Postgres traffic to rds"
@@ -50,8 +49,6 @@ You can also use the same security group for the RDS cluster and RDS Proxy. In t
         ipv6_cidr_blocks = ["::/0"]
       }
     }
-    
-    
 
 **RDS Cluster**
 
@@ -59,40 +56,38 @@ This will create an RDS Aurora V2 Postgress Cluster.
 
 * Make sure IAM authentication is enabled
 
-    resource "aws_rds_cluster" "demo" {
-      cluster_identifier                  = "${var.service}-${var.stage}-demo"
-      database_name                       = "demo"
-      master_username                     = "hyatt_main"
-      master_password                     = random_password.rds_demo.result
-      engine                              = "aurora-postgresql"
-      engine_mode                         = "provisioned"
-      engine_version                      = "13.6"
-      storage_encrypted                   = true
-      kms_key_id                          = module.main_kms.alias_target_key_arn
-      vpc_security_group_ids              = [aws_security_group.rds_cluster.id]
-      db_subnet_group_name                = aws_db_subnet_group.cortex_back.id
-      availability_zones                  = ["us-east-2a", "us-east-2b", "us-east-2c"]
-      iam_database_authentication_enabled = true
-    
-      serverlessv2_scaling_configuration {
-        max_capacity = 2.0
-        min_capacity = 1.0
-      }
-    }
-    
-    #RDS Cluster Instance
-    
-    resource "aws_rds_cluster_instance" "demo" {
-      identifier          = "${var.stage}-demo-1"
-      cluster_identifier  = aws_rds_cluster.demo.id
-      instance_class      = "db.serverless"
-      engine              = aws_rds_cluster.demo.engine
-      engine_version      = aws_rds_cluster.demo.engine_version
-      publicly_accessible = false
-    
-    }
-    
-    
+      resource "aws_rds_cluster" "demo" {
+        cluster_identifier                  = "${var.service}-${var.stage}-demo"
+        database_name                       = "demo"
+        master_username                     = "hyatt_main"
+        master_password                     = random_password.rds_demo.result
+        engine                              = "aurora-postgresql"
+        engine_mode                         = "provisioned"
+        engine_version                      = "13.6"
+        storage_encrypted                   = true
+        kms_key_id                          = module.main_kms.alias_target_key_arn
+        vpc_security_group_ids              = [aws_security_group.rds_cluster.id]
+        db_subnet_group_name                = aws_db_subnet_group.cortex_back.id
+        availability_zones                  = ["us-east-2a", "us-east-2b", "us-east-2c"]
+        iam_database_authentication_enabled = true
+      
+      serverlessv2_scaling_configuration {
+          max_capacity = 2.0
+          min_capacity = 1.0
+        }
+      }
+      
+      #RDS Cluster Instance
+      
+      resource "aws_rds_cluster_instance" "demo" {
+        identifier          = "${var.stage}-demo-1"
+        cluster_identifier  = aws_rds_cluster.demo.id
+        instance_class      = "db.serverless"
+        engine              = aws_rds_cluster.demo.engine
+        engine_version      = aws_rds_cluster.demo.engine_version
+        publicly_accessible = false
+      
+      }
 
 **Create Secret**
 
@@ -111,8 +106,6 @@ Store the DB credentials and endpoint details on AWS Secret Manager. This secret
     }
     EOF
     }
-    
-    
 
 ### 2. Setup RDS Proxy
 
@@ -162,8 +155,6 @@ Create an IAM role for the RDS proxy, with permissions to access the secret from
         })
       }
     }
-    
-    
 
 **Security Group for RDS Proxy**
 
@@ -191,12 +182,9 @@ This security group will allow traffic from clients like AWS Lambda Functions, C
         ipv6_cidr_blocks = ["::/0"]
       }
     }
-    
-    
 
 **Create RDS Proxy**
 
-    
     # RDS Proxy
     
     resource "aws_db_proxy" "demo" {
@@ -241,8 +229,6 @@ This security group will allow traffic from clients like AWS Lambda Functions, C
       db_proxy_name          = aws_db_proxy.demo.name
       target_group_name      = aws_db_proxy_default_target_group.demo.name
     }
-    
-    
 
 Now we have an RDS cluster and Proxy setup. The next step is to write a lambda function to connect to the cluster.
 
@@ -253,35 +239,33 @@ This Lambda will use IAM authentication to connect to the RDS proxy, and the pro
 * This function needs to be in the same VPC and subnets that the RDS proxy and Cluster are in.
 * And also should have a security group that can talk to the RDS proxy. You could also use the same security group of RDS proxy.
 
-    // rds.ts
-    
-    import { Signer } from '@aws-sdk/rds-signer';
-    import { Client } from 'pg';
-    
-    // Get an IAM token, This will be used as a password to connect to RDS Proxy
-    
-     const signer = new Signer({
-        hostname: 'Your RDS Proxy Endpoint',
-        port: 5432,
-        username: 'RDS Cluster Username',
-        region: 'us-east-2',
-      });
-    
-      const token = await signer.getAuthToken();
-    
-        const client = new Client({
-          user: 'RDS Cluster Username',
-          host: 'Your RDS Proxy Endpoint',
-          database: 'DB name',
-          password: token, // IAM token
-          port: 5432,
-          ssl: true,
-        });
-    
-        await client.connect();
-        await client.query(`select * from 'your table name'`);
-    
-    
+      // rds.ts
+      
+      import { Signer } from '@aws-sdk/rds-signer';
+      import { Client } from 'pg';
+      
+      // Get an IAM token, This will be used as a password to connect to RDS Proxy
+      
+      const signer = new Signer({
+          hostname: 'Your RDS Proxy Endpoint',
+          port: 5432,
+          username: 'RDS Cluster Username',
+          region: 'us-east-2',
+        });
+      
+      const token = await signer.getAuthToken();
+      
+      const client = new Client({
+            user: 'RDS Cluster Username',
+            host: 'Your RDS Proxy Endpoint',
+            database: 'DB name',
+            password: token, // IAM token
+            port: 5432,
+            ssl: true,
+          });
+      
+      await client.connect();
+          await client.query(select * from 'your table name');
 
 Ensure that Lambda execution role includes **rds-db:connect** permissions as follows.
 
@@ -299,7 +283,6 @@ Ensure that Lambda execution role includes **rds-db:connect** permissions as fol
           }
        ]
     }
-    
 
 ### **Conclusion**
 
