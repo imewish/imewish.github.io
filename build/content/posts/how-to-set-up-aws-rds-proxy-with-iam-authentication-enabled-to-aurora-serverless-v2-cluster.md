@@ -1,7 +1,7 @@
 +++
 date = 2022-08-13T18:30:00Z
 image_upload = ""
-layout = ""
+layout = "posts"
 permalink = "aws-rds-proxy-iam-authentication-aurora-serverless"
 tags = ["aurora", "serverless", "iamauth", "postgres", "database", "rdsproxy", "rds", "aws"]
 title = "How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster"
