@@ -29,3 +29,4 @@ pages:
 - build/content/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig.md
 - build/content/posts/dynamodb-cheatsheet-for-nodejs-javascript.md
 - build/content/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster.md
+- build/content/posts/understanding-osi-and-tcp-ip-networking-model.md
