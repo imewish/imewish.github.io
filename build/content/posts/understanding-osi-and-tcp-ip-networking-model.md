@@ -51,3 +51,7 @@ Encryption at the sender side and Decryption at the Receiver side
 Compress the data received from the application layer before sending it to improve the speed of data transfer
 
 Some of the Formats and Encoding managed by the presentation layer are ASCI, JPEG, MPEG, MIDI, TLS, SSL, etc
+
+#### **Layer 5: Session Layer**
+
+The session layer is responsible for managing the Authentication, Authorization, and Session restoration. The time between when the communication is opened and closed is known as the session. The session layer provides the mechanism for opening, closing, and managing a session between end-user application processes. It also ensures that the session stays open long enough to transfer all the data being exchanged, and then promptly closes the session in order to avoid wasting resources.
