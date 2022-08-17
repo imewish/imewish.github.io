@@ -4,14 +4,16 @@ image_upload = "/static/uploads/osi-header.jpeg"
 layout = "posts"
 permalink = "understanding-osi-networking-model"
 tags = ["aws", "osimodel", "osi", "networking"]
-title = "Understanding OSI networking model"
+title = "Understanding The OSI Networking Model"
+[cover]
+image = "/uploads/osi-header.jpeg"
 
 +++
 The OSI Model defines a networking framework to implement protocols in seven layers. OSI stands for open system interconnection. It was introduced in 1984. Designed to be an abstract model and teaching tool, the OSI Model remains a useful tool for learning about today's network technologies such as Ethernet and protocols like IP.
 
 This model is divided into 7 Layers.
 
-![osi-model-layers](/static/uploads/osi-1.jpeg "OSI-Model-Layers")
+![osi-model-layers](/uploads/osi-1.jpeg "OSI-Model-Layers")
 
 The data communication on the OSI model starts at the Application layer of the sender side and goes up to the physical layer. From there the data will be sent to the physical layer of the receiver side and goes up to the application layer.
 
