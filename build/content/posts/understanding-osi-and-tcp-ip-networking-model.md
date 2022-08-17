@@ -32,7 +32,7 @@ Applications like browsers, Email Clients, and Mobile apps use this layer to ini
 
 Some of the Application layer protocols are **HTTP, FTP, SMTP, NFC, MQTT, RPC, RTMP, etc**
 
-### Layer 6: Presentation
+### **Layer 6: Presentation**
 
 This layer operates as a data translator. it is responsible for making the data readable/presentable to and from the application layer. 
 
