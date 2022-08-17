@@ -24,7 +24,7 @@ The last 2 layers are grouped together and called Media Layers. These layers mak
 
 Let's get to know these layers in detail,
 
-#### **Layer 7: Application**
+### **Layer 7: Application**
 
 The Application layer helps applications to talk to the network services or it acts as an interface between applications and the network. 
 
@@ -32,7 +32,7 @@ Applications like browsers, Email Clients, and Mobile apps use this layer to ini
 
 Some of the Application layer protocols are **HTTP, FTP, SMTP, NFC, MQTT, RPC, RTMP, etc**
 
-#### Layer 6: Presentation
+### Layer 6: Presentation
 
 This layer operates as a data translator. it is responsible for making the data readable/presentable to and from the application layer. 
 
@@ -52,13 +52,13 @@ Compress the data received from the application layer before sending it to impro
 
 Some of the Formats and Encoding managed by the presentation layer are **ASCI, JPEG, MPEG, MIDI, TLS, SSL, etc**
 
-#### **Layer 5: Session Layer**
+### **Layer 5: Session Layer**
 
 The session layer is responsible for managing the Authentication, Authorization, and Session restoration. The time between when the communication is opened and closed is known as the session. The session layer provides the mechanism for opening, closing, and managing a session between end-user application processes. It also ensures that the session stays open long enough to transfer all the data being exchanged, and then promptly closes the session in order to avoid wasting resources.
 
 Some of the popular session layer protocols are, **RPC, RTCP, SCP, L2TP,  SMPP, etc**
 
-#### **Layer 4: Transport Layer**
+### **Layer 4: Transport Layer**
 
 Layer 4 is responsible for end-to-end communication between the two devices. This includes taking data from the session layer and breaking it up into chunks called segments before sending it to layer 3.The transport layer on the receiving device is responsible for reassembling the segments into data the session layer can consume.
 
@@ -66,7 +66,7 @@ The transport layer is also responsible for flow control and error control. Flow
 
 Some of the popular Transport layer protocols are: **TCP, UDP, RDP**
 
-#### **Layer 3: Network layer**
+### **Layer 3: Network layer**
 
 The network layer is responsible for packet forwarding including routing through intermediate routers, since it knows the address of neighboring network nodes, and it also manages the quality of service (QoS) and recognizes and forwards local host domain messages to the Transport layer (layer 4).
 
@@ -76,7 +76,7 @@ This is where IP source and destination addressing is defined and rooting protoc
 
 Some of the popular Network layer protocols are: **IPv4/IPv6**, **ICMP, IPsec**
 
-#### **Layer 2: DataLink**
+### **Layer 2: DataLink**
 
 This layer is the protocol layer that transfers data between adjacent network nodes in a wide area network (WAN) or between nodes on the same local area network (LAN) segment. In other words data link layer is very similar to the network layer, except the data link layer facilitates data transfer between two devices on the SAME network. The data link layer takes packets from the network layer and breaks them into smaller pieces called frames. Like the network layer, the data link layer is also responsible for flow control and error control in intra-network communication (The transport layer only does flow control and error control for inter-network communications).
 
@@ -84,7 +84,7 @@ The data link layer is composed to two sub layers. The data link layer's first s
 
 Some of the popular DataLink layer protocols are: **ARP, Ethernet, PPP\\**
 
-#### **Layer 1: Physical Layer**
+### **Layer 1: Physical Layer**
 
 The physical layer translates logical communications requests from the data link layer into hardware-specific operations to affect transmission or reception of electronic signals.The Physical layer includes the physical equipment involved in the data transfer, such as the cables and switches. This is also the layer where the data gets converted into a bit stream, which is a string of 1s and 0s. The physical layer of both devices must also agree on a signal convention so that the 1s can be distinguished from the 0s on both devices.
 
