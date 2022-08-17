@@ -30,7 +30,7 @@ The Application layer helps applications to talk to the network services or it a
 
 Applications like browsers, Email Clients, and Mobile apps use this layer to initiate a network connection.
 
-Some of the Application layer protocols are HTTP, FTP, SMTP, NFC, MQTT, RPC, RTMP, etc
+Some of the Application layer protocols are **HTTP, FTP, SMTP, NFC, MQTT, RPC, RTMP, etc**
 
 #### Layer 6: Presentation
 
@@ -50,7 +50,7 @@ Encryption at the sender side and Decryption at the Receiver side
 
 Compress the data received from the application layer before sending it to improve the speed of data transfer
 
-Some of the Formats and Encoding managed by the presentation layer are ASCI, JPEG, MPEG, MIDI, TLS, SSL, etc
+Some of the Formats and Encoding managed by the presentation layer are **ASCI, JPEG, MPEG, MIDI, TLS, SSL, etc**
 
 #### **Layer 5: Session Layer**
 
@@ -64,4 +64,22 @@ Layer 4 is responsible for end-to-end communication between the two devices. Thi
 
 The transport layer is also responsible for flow control and error control. Flow control determines an optimal speed of transmission to ensure that a sender with a fast connection doesn’t overwhelm a receiver with a slow connection. The transport layer performs error control on the receiving end by ensuring that the data received is complete, and requesting retransmission if it isn’t.
 
-Some of the popular Transport layer protocols are: TCP, UDP, RDP
+Some of the popular Transport layer protocols are: **TCP, UDP, RDP**
+
+#### **Layer 3: Network layer**
+
+The network layer is responsible for packet forwarding including routing through intermediate routers, since it knows the address of neighboring network nodes, and it also manages the quality of service (QoS) and recognizes and forwards local host domain messages to the Transport layer (layer 4).
+
+The network layer breaks up segments from the transport layer into smaller units, called packets, on the sender’s device, and reassembles these packets on the receiving device. The network layer also finds the best physical path for the data to reach its destination; this is known as routing.
+
+This is where IP source and destination addressing is defined and rooting protocols are used to carry packets from source to destination across intermediate routers.
+
+Some of the popular Network layer protocols are: **IPv4/IPv6**, **ICMP, IPsec**
+
+**Layer 2: DataLink**
+
+This layer is the protocol layer that transfers data between adjacent network nodes in a wide area network (WAN) or between nodes on the same local area network (LAN) segment. In other words data link layer is very similar to the network layer, except the data link layer facilitates data transfer between two devices on the SAME network. The data link layer takes packets from the network layer and breaks them into smaller pieces called frames. Like the network layer, the data link layer is also responsible for flow control and error control in intra-network communication (The transport layer only does flow control and error control for inter-network communications).
+
+The data link layer is composed to two sub layers. The data link layer's first sub layer is the media access control, MAC layer. It's used to acquire source and destination addresses(like MAC Address of the destination machine) which are inserted into the frame.
+
+Ethernet which is the most popular LAN technology is a perfect example of a data link layer protocol
