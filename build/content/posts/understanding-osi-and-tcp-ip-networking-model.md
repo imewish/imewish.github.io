@@ -87,3 +87,5 @@ Some of the popular DataLink layer protocols are: **ARP, Ethernet, PPP\\**
 #### **Layer 1: Physical Layer**
 
 The physical layer translates logical communications requests from the data link layer into hardware-specific operations to affect transmission or reception of electronic signals.The Physical layer includes the physical equipment involved in the data transfer, such as the cables and switches. This is also the layer where the data gets converted into a bit stream, which is a string of 1s and 0s. The physical layer of both devices must also agree on a signal convention so that the 1s can be distinguished from the 0s on both devices.
+
+Some of the popular Physical layer technologies are: **USB, Network modems, Ethernet Physical Layer, GSM, Bluetooth Physical Layer**
