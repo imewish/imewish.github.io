@@ -1,7 +1,7 @@
 +++
 date = 2022-08-14T18:30:00Z
 draft = true
-image_upload = ""
+image_upload = "/static/uploads/osi-header.jpeg"
 layout = "posts"
 permalink = "understanding-osi-networking-model"
 tags = ["aws", "osimodel", "osi", "networking"]
