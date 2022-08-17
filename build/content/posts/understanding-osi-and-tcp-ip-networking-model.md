@@ -55,3 +55,7 @@ Some of the Formats and Encoding managed by the presentation layer are ASCI, JPE
 #### **Layer 5: Session Layer**
 
 The session layer is responsible for managing the Authentication, Authorization, and Session restoration. The time between when the communication is opened and closed is known as the session. The session layer provides the mechanism for opening, closing, and managing a session between end-user application processes. It also ensures that the session stays open long enough to transfer all the data being exchanged, and then promptly closes the session in order to avoid wasting resources.
+
+Some of the popular session layer protocols are, **RPC, RTCP, SCP, L2TP,  SMPP etc**
+
+#### **Layer 4: Transport Layer**
