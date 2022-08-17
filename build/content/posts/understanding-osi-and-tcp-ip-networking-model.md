@@ -63,3 +63,5 @@ Some of the popular session layer protocols are, **RPC, RTCP, SCP, L2TP,  SMPP, 
 Layer 4 is responsible for end-to-end communication between the two devices. This includes taking data from the session layer and breaking it up into chunks called segments before sending it to layer 3.The transport layer on the receiving device is responsible for reassembling the segments into data the session layer can consume.
 
 The transport layer is also responsible for flow control and error control. Flow control determines an optimal speed of transmission to ensure that a sender with a fast connection doesn’t overwhelm a receiver with a slow connection. The transport layer performs error control on the receiving end by ensuring that the data received is complete, and requesting retransmission if it isn’t.
+
+Some of the popular Transport layer protocols are: TCP, UDP, RDP
