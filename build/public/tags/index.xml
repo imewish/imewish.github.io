@@ -1,26 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/</link>
     <description>Recent content in Tags on Vishnu Prasad</description>
+    <image>
+      <url>https://imewish.github.io/papermod-cover.png</url>
+      <link>https://imewish.github.io/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 12 Aug 2022 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Aug 2022 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>https://imewish.github.io/tags/aws/</link>
+      <pubDate>Sun, 14 Aug 2022 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://imewish.github.io/tags/networking/</link>
+      <pubDate>Sun, 14 Aug 2022 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>osi</title>
+      <link>https://imewish.github.io/tags/osi/</link>
+      <pubDate>Sun, 14 Aug 2022 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/osi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>osimodel</title>
+      <link>https://imewish.github.io/tags/osimodel/</link>
+      <pubDate>Sun, 14 Aug 2022 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/tags/osimodel/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aurora</title>
       <link>https://imewish.github.io/tags/aurora/</link>
       <pubDate>Fri, 12 Aug 2022 18:30:00 +0000</pubDate>
       
       <guid>https://imewish.github.io/tags/aurora/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://imewish.github.io/tags/aws/</link>
-      <pubDate>Fri, 12 Aug 2022 18:30:00 +0000</pubDate>
-      
-      <guid>https://imewish.github.io/tags/aws/</guid>
       <description></description>
     </item>
     
