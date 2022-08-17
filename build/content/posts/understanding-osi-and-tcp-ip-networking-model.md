@@ -2,9 +2,9 @@
 date = 2022-08-14T18:30:00Z
 draft = true
 image_upload = ""
-layout = ""
+layout = "posts"
 permalink = "understanding-osi-and-tcp-networking-model"
-tags = []
+tags = ["aws", "osimodel", "osi", "networking"]
 title = "Understanding OSI and TCP/IP networking model"
 
 +++
