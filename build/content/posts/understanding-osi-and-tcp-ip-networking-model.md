@@ -76,10 +76,14 @@ This is where IP source and destination addressing is defined and rooting protoc
 
 Some of the popular Network layer protocols are: **IPv4/IPv6**, **ICMP, IPsec**
 
-**Layer 2: DataLink**
+#### **Layer 2: DataLink**
 
 This layer is the protocol layer that transfers data between adjacent network nodes in a wide area network (WAN) or between nodes on the same local area network (LAN) segment. In other words data link layer is very similar to the network layer, except the data link layer facilitates data transfer between two devices on the SAME network. The data link layer takes packets from the network layer and breaks them into smaller pieces called frames. Like the network layer, the data link layer is also responsible for flow control and error control in intra-network communication (The transport layer only does flow control and error control for inter-network communications).
 
 The data link layer is composed to two sub layers. The data link layer's first sub layer is the media access control, MAC layer. It's used to acquire source and destination addresses(like MAC Address of the destination machine) which are inserted into the frame.
 
-Ethernet which is the most popular LAN technology is a perfect example of a data link layer protocol
+Some of the popular DataLink layer protocols are: **ARP, Ethernet, PPP\\**
+
+#### **Layer 1: Physical Layer**
+
+The physical layer translates logical communications requests from the data link layer into hardware-specific operations to affect transmission or reception of electronic signals.The Physical layer includes the physical equipment involved in the data transfer, such as the cables and switches. This is also the layer where the data gets converted into a bit stream, which is a string of 1s and 0s. The physical layer of both devices must also agree on a signal convention so that the 1s can be distinguished from the 0s on both devices.
