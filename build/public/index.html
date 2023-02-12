@@ -12,7 +12,7 @@
 <meta name="author" content="Vishnu Prasad">
 <link rel="canonical" href="https://imewish.github.io/">
 <meta name="google-site-verification" content="G-563XBXVYXT">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.abc7c82c3d415a6df50430738d1cbcc4c76fea558bc5a0c830d3babf78167a35.css" integrity="sha256-q8fILD1BWm31BDBzjRy8xMdv6lWLxaDIMNO6v3gWejU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f31506494d50c1e73c10e63d252a2d8a2cb329e28c1402c71fee0d3145ad3685.css" integrity="sha256-8xUGSU1Qwec8EOY9JSotiiyzKeKMFALHH&#43;4NMUWtNoU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://imewish.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://imewish.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://imewish.github.io/favicon-32x32.png">
@@ -150,12 +150,16 @@ if (!doNotTrack) {
         </ul>
     </nav>
 </header>
-<main class="main"><div class="profile">
-    <div class="profile_inner">
-        <img draggable="false" src="https://imewish.github.io/uploads/me.jpeg" alt="my image" title="my image"
-            height="250" width="250" />
-        <h1>Hi, Im Vishnu Prasad</h1>
-        <span></span><div class="social-icons">
+<main class="main"> 
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>Hi I&rsquo;m Vishnu Prasad</h1>
+    </header>
+    <div class="entry-content">
+        Experienced Serverless Developer/Consultant, DevOps Engineer with a demonstrated history of working in the OTT, E-commerce industry. Skilled in Amazon Webservices, Serverless Architecture and Development,  Cloud Automation, NodeJS, Python, VueJS
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons">
     <a href="https://github.com/imewish" target="_blank" rel="noopener noreferrer me" title="Github">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
@@ -189,13 +193,85 @@ if (!doNotTrack) {
     </a>
 </div>
 
-    </div>
-</div>
+    </footer>
+</article>
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Understanding The OSI Networking Model
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The OSI Model defines a networking framework to implement protocols in seven layers. OSI stands for open system interconnection. It was introduced in 1984. Designed to be an abstract model and teaching tool, the OSI Model remains a useful tool for learning about today’s network technologies such as Ethernet and protocols like IP.
+This model is divided into 7 Layers.
+The data communication on the OSI model starts at the Application layer of the sender side and goes up to the physical layer....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-14 18:30:00 +0000 UTC'>August 14, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Vishnu Prasad</footer>
+  <a class="entry-link" aria-label="post link to Understanding The OSI Networking Model" href="https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM)....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-12 18:30:00 +0000 UTC'>August 12, 2022</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Vishnu Prasad</footer>
+  <a class="entry-link" aria-label="post link to How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster" href="https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Cloudwatch Custom Metrics With CloudWatch Embedded Metric Format
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction Cloudwatch is an integral part of the AWS ecosystem. Every service in AWS reports to cloudwatch for the service logs, application logs, metrics, etc.
+In this article let’s discuss the cloudwatch custom metrics in detail.
+Metrics help us with finding the performance of the AWS services and the applications we run using these services. It also allows us to visualize the data with graphs and dashboards and create alarms based on the data reported tho metrics....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-08-17 18:30:00 +0000 UTC'>August 17, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Vishnu Prasad</footer>
+  <a class="entry-link" aria-label="post link to Cloudwatch Custom Metrics With CloudWatch Embedded Metric Format" href="https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>AWS SQS With Lambda, Partial Batch Failure Handling
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Update Nov 23, 2021,
+My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. You can find the detailed tutorial on how to enable this feature and use it on this blog from serverless https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda
+Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-23 18:30:00 +0000 UTC'>February 23, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad</footer>
+  <a class="entry-link" aria-label="post link to AWS SQS With Lambda, Partial Batch Failure Handling" href="https://imewish.github.io/posts/aws-sqs-partial-failure-handling/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Decoupling Application configuration from application code in your serverless application with AWS Appconfig
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.
+The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-14 18:30:00 +0000 UTC'>February 14, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Vishnu Prasad</footer>
+  <a class="entry-link" aria-label="post link to Decoupling Application configuration from application code in your serverless application with AWS Appconfig" href="https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://imewish.github.io/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
+    <span>&copy; 2023 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

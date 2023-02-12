@@ -55,7 +55,7 @@ params:
     GoogleAnalyticsID: G-G13FWNNJ5X
 
     profileMode:
-        enabled: true
+        enabled: false
         title: Hi, Im Vishnu Prasad
         imageUrl: "uploads/me.jpeg"
         imageTitle: my image
