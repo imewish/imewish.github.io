@@ -198,6 +198,19 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Running AWS Lambda Functions Every 10 Seconds
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.
+The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-02-12 18:30:00 +0000 UTC'>February 12, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Vishnu Prasad</footer>
+  <a class="entry-link" aria-label="post link to Running AWS Lambda Functions Every 10 Seconds" href="https://imewish.github.io/posts/running-aws-lambda-every-10-seconds/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Understanding The OSI Networking Model
     </h2>
   </header>
@@ -248,19 +261,6 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
   </div>
   <footer class="entry-footer"><span title='2021-02-23 18:30:00 +0000 UTC'>February 23, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad</footer>
   <a class="entry-link" aria-label="post link to AWS SQS With Lambda, Partial Batch Failure Handling" href="https://imewish.github.io/posts/aws-sqs-partial-failure-handling/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Decoupling Application configuration from application code in your serverless application with AWS Appconfig
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.
-The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-02-14 18:30:00 +0000 UTC'>February 14, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Vishnu Prasad</footer>
-  <a class="entry-link" aria-label="post link to Decoupling Application configuration from application code in your serverless application with AWS Appconfig" href="https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

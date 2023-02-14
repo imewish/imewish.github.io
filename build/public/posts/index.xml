@@ -10,7 +10,17 @@
       <link>https://imewish.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 14 Aug 2022 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Feb 2023 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running AWS Lambda Functions Every 10 Seconds</title>
+      <link>https://imewish.github.io/posts/running-aws-lambda-every-10-seconds/</link>
+      <pubDate>Sun, 12 Feb 2023 18:30:00 +0000</pubDate>
+      
+      <guid>https://imewish.github.io/posts/running-aws-lambda-every-10-seconds/</guid>
+      <description>Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.
+The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions.</description>
+    </item>
+    
     <item>
       <title>Understanding The OSI Networking Model</title>
       <link>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</link>
