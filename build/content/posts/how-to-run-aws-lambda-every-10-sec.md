@@ -37,3 +37,9 @@ The above state-machine will be triggered by the event bridge every minute and w
 4\. After the wait state it goes back to the start state and continues processing. On the first Pass state, it keeps incrementing the counter. 
 
 5\. The choice state will check the counter every time and if the value of the counter is equal to 6, which is 10 * 6 (1 minute), it goes to the last pass state and ends the step-function process. 
+
+Since I had to run 40+ lambda to run every 10 sec I could have to add those 40 in a parallel step in the step functions. But I decided to have a single function in the state machine, which will be responsible to trigger all the other lambdas using AWS SDK asynchronously.  The main reason for choosing this way is to disable or enable a single cron by keeping a list of functions on persistent storage/ env vars in case of downtime in the third-party API failures which functions rely on to get data. 
+
+Since the state machine is triggered using an event bridge rule, we can enable or disable all the crons in case of an emergency ( As a kill switch). 
+
+**Conclusion**
