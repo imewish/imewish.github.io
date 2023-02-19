@@ -1,7 +1,7 @@
 +++
 date = 2023-02-18T18:30:00Z
 image_upload = ""
-layout = "posts"
+layout = "post"
 permalink = "running-aws-lambda-every-10-seconds"
 tags = ["serverless", "cronjob", "lambda", "aws"]
 title = "How to Run AWS Lambda every 10 sec"
@@ -17,7 +17,7 @@ After googling around different solutions people tried to achieve this with step
 
 #### **The Solution**
 
-![step-function-defenition](/static/uploads/screenshot-2023-02-19-at-11-55-17-am.png "step-function-defenition")
+![step-function-defenition](/uploads/screenshot-2023-02-19-at-11-55-17-am.png "step-function-defenition")
 
 #### **How it works**
 
