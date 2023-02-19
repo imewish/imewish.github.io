@@ -11,9 +11,12 @@ title = "How to Run AWS Lambda every 10 sec"
 Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.
 
   
-The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions. The problem with this is event bridge only supports cron jobs as low as 1 minute. So for my use case, I cannot use Eventbridge.   
-Another way to achieve this could be running the cron inside an ECS/Fargate container using any nodejs framework and some cron NPM module. The problem with this can be debugging and troubleshooting each cron and restarting them if fails etc. I didn't want to get into that.  
-So how can we solve this in the proper serverless way?  
+The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions. The problem with this is event bridge only supports cron jobs as low as 1 minute. So for my use case, I cannot use Eventbridge. 
+
+  
+So how can we solve this in the proper serverless way?
+
+  
 After googling around different solutions people tried to achieve this with step functions and SQS etc. I decided to build something with AWS StepFunctions. The main reason to choose this is it can be a low-code solution, actually 0 code. The only thing we would need is the IaC code to build the step function.
 
 #### **The Solution**
