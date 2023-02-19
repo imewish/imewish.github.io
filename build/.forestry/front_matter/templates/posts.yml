@@ -28,5 +28,6 @@ pages:
 - build/content/posts/cloudwath-custom-metrics-and-how-to-create-them.md
 - build/content/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig.md
 - build/content/posts/dynamodb-cheatsheet-for-nodejs-javascript.md
+- build/content/posts/how-to-run-aws-lambda-every-10-sec.md
 - build/content/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster.md
 - build/content/posts/understanding-osi-and-tcp-ip-networking-model.md
