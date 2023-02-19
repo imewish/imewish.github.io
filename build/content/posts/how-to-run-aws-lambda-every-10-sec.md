@@ -8,3 +8,29 @@ tags = ["serverless", "cronjob", "lambda", "aws"]
 title = "How to Run AWS Lambda every 10 sec"
 
 +++
+Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.
+
+  
+The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions. The problem with this is event bridge only supports cron jobs as low as 1 minute. So for my use case, I cannot use Eventbridge.   
+Another way to achieve this could be running the cron inside an ECS/Fargate container using any nodejs framework and some cron NPM module. The problem with this can be debugging and troubleshooting each cron and restarting them if fails etc. I didn't want to get into that.  
+So how can we solve this in the proper serverless way?  
+After googling around different solutions people tried to achieve this with step functions and SQS etc. I decided to build something with AWS StepFunctions. The main reason to choose this is it can be a low-code solution, actually 0 code. The only thing we would need is the IaC code to build the step function.
+
+#### **The Solution**
+
+![step-function-defenition](/static/uploads/screenshot-2023-02-19-at-11-55-17-am.png "step-function-defenition")
+
+#### **How it works**
+
+The above state-machine will be triggered by the event bridge every minute and will pass an input {counter: 0}
+
+  
+1\. The first state in the above state machine(Pass state), at this stage we will transform the input by adding 1 to the input of the state. Using step-functions intrinsic function MathAdd in this case.
+
+2\. The next stage is a choice state, where we check the value of the counter, If the value of the counter is less than 6, the choice state goes to the next state and triggers a lambda function(a function that needs to be run every 10 sec)
+
+3\. Once the lambda function is triggered it enters a wait state. where it waits for 10 sec(the period we want to trigger lambda). 
+
+4\. After the wait state it goes back to the start state and continues processing. On the first Pass state, it keeps incrementing the counter. 
+
+5\. The choice state will check the counter every time and if the value of the counter is equal to 6, which is 10 * 6 (1 minute), it goes to the last pass state and ends the step-function process. 
