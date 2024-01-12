@@ -28,6 +28,9 @@ languages:
                 - name: Tags
                   url: tags/
                   weight: 10
+                - name: AboutMe
+                  url: /about-me
+                  weight: 10
 
 outputs:
     home:
@@ -69,9 +72,7 @@ params:
     homeInfoParams:
         Title: "Hi I'm Vishnu Prasad"
         Content: >
-            Experienced Serverless Developer/Consultant, DevOps Engineer with a demonstrated history of working in the OTT,
-            E-commerce industry. Skilled in Amazon Webservices, Serverless Architecture and Development, 
-            Cloud Automation, NodeJS, Python, VueJS 
+            Here you will see blogs around AWS/Serverless/Backend etc 
             
     socialIcons:
         - name: github

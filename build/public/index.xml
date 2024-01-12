@@ -131,11 +131,13 @@ There was a scenario which I was faced once in my company, One of our websites h
     
     <item>
       <title>About Me</title>
-      <link>https://imewish.github.io/about-hugo/</link>
+      <link>https://imewish.github.io/about-me/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://imewish.github.io/about-hugo/</guid>
-      <description>An AWS and Serverless enthusiast, Experienced Serverless Developer/DevOps Engineer with a demonstrated history of working in the OTT and E-Commerce Industries.</description>
+      <guid>https://imewish.github.io/about-me/</guid>
+      <description>Download Resume
+Experienced Serverless Developer and Architect with over 8 years of hands-on expertise in the AWS Cloud. My professional journey has been marked by a deep understanding of cloud technologies, particularly in the realm of Serverless computing. My career spans various industries, including OTT, E-commerce, Blockchain, and Marketing Technology (MarTech). Here&amp;rsquo;s a bit more about my journey:
+Serverless Expertise: With more than eight years in the field, I have honed my skills as a Serverless Developer and Architect, specializing in AWS Cloud.</description>
     </item>
     
   </channel>
