@@ -4,7 +4,7 @@ date = 2014-04-09T00:00:00Z
 title = "About Me"
 
 +++
-[Download Resume](/uploads/2023_Vishnu_Prasad_resume.pdf)
+[Download Resume](/uploads/2023_Vishnu_Prasad_Resume.pdf)
 
 Experienced Serverless Developer and Architect with over 8 years of hands-on expertise in the AWS Cloud. My professional journey has been marked by a deep understanding of cloud technologies, particularly in the realm of Serverless computing. My career spans various industries, including OTT, E-commerce, Blockchain, and Marketing Technology (MarTech). Here's a bit more about my journey:
 
