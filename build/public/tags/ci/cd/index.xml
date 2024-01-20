@@ -9,7 +9,8 @@
       <url>https://imewish.github.io/papermod-cover.png</url>
       <link>https://imewish.github.io/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://imewish.github.io/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://imewish.github.io/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline</title>
       <link>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</link>
@@ -18,7 +19,7 @@
       <guid>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</guid>
       <description>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
 1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
-&#39;use strict&#39;; module.exports.api = async event =&amp;gt; { return { statusCode: 200, body: JSON.</description>
+&amp;#39;use strict&amp;#39;; module.exports.api = async event =&amp;gt; { return { statusCode: 200, body: JSON.</description>
     </item>
     
   </channel>

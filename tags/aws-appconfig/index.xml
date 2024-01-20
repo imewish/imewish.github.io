@@ -10,6 +10,7 @@
       <link>https://imewish.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 14 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/aws-appconfig/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decoupling Application configuration from application code in your serverless application with AWS Appconfig</title>

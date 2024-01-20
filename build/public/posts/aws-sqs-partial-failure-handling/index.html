@@ -13,7 +13,7 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
 <meta name="author" content="Vishnu Prasad">
 <link rel="canonical" href="https://imewish.github.io/posts/aws-sqs-partial-failure-handling/">
 <meta name="google-site-verification" content="G-563XBXVYXT">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.f31506494d50c1e73c10e63d252a2d8a2cb329e28c1402c71fee0d3145ad3685.css" integrity="sha256-8xUGSU1Qwec8EOY9JSotiiyzKeKMFALHH&#43;4NMUWtNoU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css" integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://imewish.github.io/favicon.ico">
@@ -60,16 +60,14 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
 
     </style>
 </noscript>
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G13FWNNJ5X"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-G13FWNNJ5X', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-G13FWNNJ5X', { 'anonymize_ip': false });
 }
 </script>
 <meta property="og:title" content="AWS SQS With Lambda, Partial Batch Failure Handling" />
@@ -120,7 +118,7 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
   "keywords": [
     "aws", "sqs", "serverless"
   ],
-  "articleBody": "Update Nov 23, 2021,\nMy wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. You can find the detailed tutorial on how to enable this feature and use it on this blog from serverless https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda\nAmazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue. Lambda polls the queue and invokes your Lambda function synchronously with an event that contains queue messages. Lambda reads messages in batches and invokes your function once for each batch. When your function successfully processes a batch, Lambda deletes its messages from the queue.\nHow Does Lambda Process The Messages? By default, Lambda invokes your function as soon as records are available in the SQS queue. Lambda will poll up to 10(Can be increased) messages in your queue at once and will send that batch to the function. This means each invocation of lambda will receive up to 10 messages from the Queue to process. Once all messages in the batch are processed lambda will delete the batch from the queue and will start processing the next batch.\nWhat Happens If One Of The Message In The Batch Failed To Process?  If you don’t throw an error on your function and one of the messages didn’t process correctly the message will be lost If you catch and throw an error, the whole batch will be sent back to the queue including the ones which were processed successfully. This batch will be retried again multiple times based on the maxReceiveCount configuration if the error is not resolved. This will lead to reprocessing of successful messages multiple times if you have configured a Dead letter Queue configured with your SQS Queue the failed batch will end up there once the ReceiveCount for a message exceeds the maxReceiveCount . The successfully processed messaged will also end up in the DLQ. If the consumer of this DLQ has the ability to differentiate between failure and success messages in the batch we are good to go.  How to Handle The Partial Failure?   Use a batchSize of 1\nThis is useful in low-traffic scenarios. Only one message will be sent to lambda on each invocation. But this limits the throughput of how quickly you are able to process messages\n  Delete successfully processed messages\nThis is the most effective method to handle this situation. Process the batch messages inside a try-catch block and store the receiptHandle for each message in an array and call the sq.deleteMessage API and delete those messages when you catch the error and throw an error once you delete the messages that are successfully processed.\n'use strict'; const AWS = require('aws-sdk') const sqs = new AWS.SQS(); module.exports.handler = async event = { const sqsSuccessMessages = []; try { const records = event.Records ? event.Records : [event]; for (const record of records) { await processMessageFucntion(record) // Store successfully processed records sqsSuccessMessages.push(record); } } catch (e) { if (sqsSuccessMessages.length  0) { await deleteSuccessMessages(sqsSuccessMessages); } throw new Error(e); } }; // Delete success messages from the queue incase any failure while processing the batch // On no failure case lambda will delete the whole batch once processed const deleteSuccessMessages = async messages = { for (const msg of messages) { await sqs .deleteMessage({ QueueUrl: getQueueUrl({ sqs, eventSourceARN: msg.eventSourceARN }), ReceiptHandle: msg.receiptHandle }) .promise(); } }; const getQueueUrl = ({ eventSourceARN, sqs }) = { const [, , , , accountId, queueName] = eventSourceARN.split(':'); return `${sqs.endpoint.href}${accountId}/${queueName}`; };    Conclusion\nAs of now, there is no support for handling partial batch failures in Lambda with SQS. It is totally up to you to decide if you want to handle it or not depends on your application need.\nRecently AWS had added support for custom checkpointing for DynamoDB Streams and Kinesis. This means customers now can automatically checkpoint records that have been successfully processed using a new parameter, FunctionResponseType. When customers set this parameter to Report Batch Item Failure, if a batch fails to process, only records after the last successful message are retried. This reduces duplicate processing and gives customers more options for failure handling.\nThis gives hope, that AWS may add something similar for SQS as well🙏\n",
+  "articleBody": "Update Nov 23, 2021,\nMy wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. You can find the detailed tutorial on how to enable this feature and use it on this blog from serverless https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda\nAmazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue. Lambda polls the queue and invokes your Lambda function synchronously with an event that contains queue messages. Lambda reads messages in batches and invokes your function once for each batch. When your function successfully processes a batch, Lambda deletes its messages from the queue.\nHow Does Lambda Process The Messages? By default, Lambda invokes your function as soon as records are available in the SQS queue. Lambda will poll up to 10(Can be increased) messages in your queue at once and will send that batch to the function. This means each invocation of lambda will receive up to 10 messages from the Queue to process. Once all messages in the batch are processed lambda will delete the batch from the queue and will start processing the next batch.\nWhat Happens If One Of The Message In The Batch Failed To Process? If you don’t throw an error on your function and one of the messages didn’t process correctly the message will be lost If you catch and throw an error, the whole batch will be sent back to the queue including the ones which were processed successfully. This batch will be retried again multiple times based on the maxReceiveCount configuration if the error is not resolved. This will lead to reprocessing of successful messages multiple times if you have configured a Dead letter Queue configured with your SQS Queue the failed batch will end up there once the ReceiveCount for a message exceeds the maxReceiveCount . The successfully processed messaged will also end up in the DLQ. If the consumer of this DLQ has the ability to differentiate between failure and success messages in the batch we are good to go. How to Handle The Partial Failure? Use a batchSize of 1\nThis is useful in low-traffic scenarios. Only one message will be sent to lambda on each invocation. But this limits the throughput of how quickly you are able to process messages\nDelete successfully processed messages\nThis is the most effective method to handle this situation. Process the batch messages inside a try-catch block and store the receiptHandle for each message in an array and call the sq.deleteMessage API and delete those messages when you catch the error and throw an error once you delete the messages that are successfully processed.\n'use strict'; const AWS = require('aws-sdk') const sqs = new AWS.SQS(); module.exports.handler = async event =\u003e { const sqsSuccessMessages = []; try { const records = event.Records ? event.Records : [event]; for (const record of records) { await processMessageFucntion(record) // Store successfully processed records sqsSuccessMessages.push(record); } } catch (e) { if (sqsSuccessMessages.length \u003e 0) { await deleteSuccessMessages(sqsSuccessMessages); } throw new Error(e); } }; // Delete success messages from the queue incase any failure while processing the batch // On no failure case lambda will delete the whole batch once processed const deleteSuccessMessages = async messages =\u003e { for (const msg of messages) { await sqs .deleteMessage({ QueueUrl: getQueueUrl({ sqs, eventSourceARN: msg.eventSourceARN }), ReceiptHandle: msg.receiptHandle }) .promise(); } }; const getQueueUrl = ({ eventSourceARN, sqs }) =\u003e { const [, , , , accountId, queueName] = eventSourceARN.split(':'); return `${sqs.endpoint.href}${accountId}/${queueName}`; }; Conclusion\nAs of now, there is no support for handling partial batch failures in Lambda with SQS. It is totally up to you to decide if you want to handle it or not depends on your application need.\nRecently AWS had added support for custom checkpointing for DynamoDB Streams and Kinesis. This means customers now can automatically checkpoint records that have been successfully processed using a new parameter, FunctionResponseType. When customers set this parameter to Report Batch Item Failure, if a batch fails to process, only records after the last successful message are retried. This reduces duplicate processing and gives customers more options for failure handling.\nThis gives hope, that AWS may add something similar for SQS as well🙏\n",
   "wordCount" : "729",
   "inLanguage": "en",
   "datePublished": "2021-02-23T18:30:00Z",
@@ -211,7 +209,7 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
     <h1 class="post-title">
       AWS SQS With Lambda, Partial Batch Failure Handling
     </h1>
-    <div class="post-meta"><span title='2021-02-23 18:30:00 +0000 UTC'>February 23, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Vishnu Prasad
+    <div class="post-meta">&lt;span title=&#39;2021-02-23 18:30:00 &#43;0000 UTC&#39;&gt;February 23, 2021&lt;/span&gt;&amp;nbsp;·&amp;nbsp;4 min&amp;nbsp;·&amp;nbsp;Vishnu Prasad
 
 </div>
   </header> <div class="toc">
@@ -256,10 +254,10 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
 <pre><code>'use strict';
 const AWS = require('aws-sdk')
 const sqs = new AWS.SQS();
-   
+
 module.exports.handler = async event =&gt; {
   const sqsSuccessMessages = [];
-   
+
   try {
     const records = event.Records ? event.Records : [event];
     for (const record of records) {
@@ -274,7 +272,7 @@ module.exports.handler = async event =&gt; {
     throw new Error(e);
   }
 };
-   
+
 // Delete success messages from the queue incase any failure while processing the batch
 // On no failure case lambda will delete the whole batch once processed
 const deleteSuccessMessages = async messages =&gt; {
@@ -290,10 +288,10 @@ const deleteSuccessMessages = async messages =&gt; {
       .promise();
   }
 };
-   
+
 const getQueueUrl = ({ eventSourceARN, sqs }) =&gt; {
   const [, , , , accountId, queueName] = eventSourceARN.split(':');
-   
+
   return `${sqs.endpoint.href}${accountId}/${queueName}`;
 };
 </code></pre>

@@ -1,247 +1,149 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://imewish.github.io/tags/aws/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/cronjob/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/lambda/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/serverless/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/networking/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/osi/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/osimodel/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/aurora/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/database/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/iamauth/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/postgres/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/rds/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/rdsproxy/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/clodwatch/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/cloud/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/custommetrics/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/embeddedmetrics/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/metrics/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</loc>
     <lastmod>2021-02-23T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/sqs/</loc>
     <lastmod>2021-02-23T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/appconfig/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/aws-appconfig/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/limits/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</loc>
     <lastmod>2021-02-10T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/limit/</loc>
     <lastmod>2021-02-10T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/dynamodb/</loc>
     <lastmod>2020-09-01T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</loc>
     <lastmod>2020-09-01T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/artillery/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/aws-lambda/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/hugo/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/load-testing/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/loadtesting/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/serverlessartillery/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/s3/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/about-me/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/tags/ci/cd/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://imewish.github.io/series/</loc>
   </url>
-  
 </urlset>
