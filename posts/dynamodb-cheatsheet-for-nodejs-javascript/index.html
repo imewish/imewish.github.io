@@ -57,17 +57,18 @@ This cheat sheet will cover the most commonly used scenarios of data operations 
 
     </style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G13FWNNJ5X"></script>
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-G13FWNNJ5X', { 'anonymize_ip': false });
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-189162430-1', 'auto');
+	
+	ga('send', 'pageview');
 }
-</script>
-<meta property="og:title" content="DynamoDB CheatSheet For NodeJS/JavaScript" />
+</script><meta property="og:title" content="DynamoDB CheatSheet For NodeJS/JavaScript" />
 <meta property="og:description" content="Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don&rsquo;t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.
 This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs." />
 <meta property="og:type" content="article" />
