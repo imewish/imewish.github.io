@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>limit on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/limit/</link>
@@ -11,16 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/limit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Feb 2021 18:30:00 +0000</lastBuildDate>
+    <atom:link href="https://imewish.github.io/tags/limit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS Service Limits To Keep In Mind While Developing A Serverless Application</title>
       <link>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</link>
       <pubDate>Wed, 10 Feb 2021 18:30:00 +0000</pubDate>
-      
       <guid>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</guid>
       <description>Serverless is great, it helps companies to focus on product and application development without worrying much about the infrastructure and scaling. But there are some soft and hard limits for every AWS service which we need to keep in mind when we are developing a serverless application. These limits are set to protect the customer as well as the provider against any unintentional use.
 In this article, we will talk about some of those limits and how to avoid them.</description>
     </item>
-    
   </channel>
 </rss>

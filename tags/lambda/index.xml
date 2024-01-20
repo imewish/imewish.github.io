@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lambda on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/lambda/</link>
@@ -11,16 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Feb 2023 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Feb 2023 18:30:00 +0000</lastBuildDate>
+    <atom:link href="https://imewish.github.io/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Run AWS Lambda every 10 sec</title>
       <link>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</link>
       <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
-      
       <guid>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</guid>
       <description>Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.
 The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions.</description>
     </item>
-    
   </channel>
 </rss>

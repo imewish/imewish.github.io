@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sqs on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/sqs/</link>
@@ -11,17 +11,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 23 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/sqs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 18:30:00 +0000</lastBuildDate>
+    <atom:link href="https://imewish.github.io/tags/sqs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS SQS With Lambda, Partial Batch Failure Handling</title>
       <link>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</link>
       <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
-      
       <guid>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</guid>
       <description>Update Nov 23, 2021,
 My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. You can find the detailed tutorial on how to enable this feature and use it on this blog from serverless https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda
 Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue.</description>
     </item>
-    
   </channel>
 </rss>

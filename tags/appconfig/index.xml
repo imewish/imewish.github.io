@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>appconfig on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/appconfig/</link>
@@ -11,16 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Feb 2021 18:30:00 +0000</lastBuildDate><atom:link href="https://imewish.github.io/tags/appconfig/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Feb 2021 18:30:00 +0000</lastBuildDate>
+    <atom:link href="https://imewish.github.io/tags/appconfig/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decoupling Application configuration from application code in your serverless application with AWS Appconfig</title>
       <link>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</link>
       <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
-      
       <guid>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</guid>
       <description>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.
 The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it.</description>
     </item>
-    
   </channel>
 </rss>
