@@ -58,18 +58,26 @@
 
     </style>
 </noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2GF369X3PK');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-189162430-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-2GF369X3PK', { 'anonymize_ip': false });
 }
-</script><meta property="og:title" content="Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline" />
+</script>
+<meta property="og:title" content="Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline" />
 <meta property="og:description" content="In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
 1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
 &#39;use strict&#39;; module.exports.api = async event =&gt; { return { statusCode: 200, body: JSON." />

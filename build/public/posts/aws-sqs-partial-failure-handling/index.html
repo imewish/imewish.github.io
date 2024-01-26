@@ -58,18 +58,26 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
 
     </style>
 </noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2GF369X3PK');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-189162430-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-2GF369X3PK', { 'anonymize_ip': false });
 }
-</script><meta property="og:title" content="AWS SQS With Lambda, Partial Batch Failure Handling" />
+</script>
+<meta property="og:title" content="AWS SQS With Lambda, Partial Batch Failure Handling" />
 <meta property="og:description" content="Update Nov 23, 2021,
 My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. You can find the detailed tutorial on how to enable this feature and use it on this blog from serverless https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda
 Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue." />

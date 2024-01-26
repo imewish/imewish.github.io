@@ -8,7 +8,7 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-googleAnalytics: UA-189162430-1
+googleAnalytics: G-2GF369X3PK
 
 # googleAnalytics: UA-123-45
 
@@ -55,7 +55,7 @@ params:
     ShowToc: true
     # comments: false
     images: ["papermod-cover.png"]
-    GoogleAnalyticsID: UA-189162430-1
+    GoogleAnalyticsID: G-2GF369X3PK
 
     profileMode:
         enabled: false
