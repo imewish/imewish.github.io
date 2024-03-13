@@ -43,7 +43,7 @@ Metrics help us with finding the performance of the AWS services and the applica
       <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</guid>
       <description>Update Nov 23, 2021,
-My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. You can find the detailed tutorial on how to enable this feature and use it on this blog from serverless https://www.serverless.com/blog/improved-sqs-batch-error-handling-with-aws-lambda
+My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. I have written a new article on how to do it here https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/
 Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue.</description>
     </item>
     <item>
