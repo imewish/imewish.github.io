@@ -60,15 +60,6 @@ There was a scenario which I was faced once in my company, One of our websites h
 </noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-2GF369X3PK');
-</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
-<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.dataLayer = window.dataLayer || [];
@@ -82,13 +73,14 @@ if (!doNotTrack) {
 In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.
 There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/" /><meta property="og:image" content="https://imewish.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/" />
+<meta property="og:image" content="https://imewish.github.io/papermod-cover.png" />
+<meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-01-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-01-28T00:00:00+00:00" />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://imewish.github.io/papermod-cover.png"/>
-
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://imewish.github.io/papermod-cover.png" />
 <meta name="twitter:title" content="URL redirects with AWS S3 and Cloudfront"/>
 <meta name="twitter:description" content="Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.
 In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.
@@ -128,7 +120,7 @@ There was a scenario which I was faced once in my company, One of our websites h
   "articleBody": "Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.\nIn this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.\nThere was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.\nTo fix this issue the approach we had was to do add a temporary redirect for that old URL to the new one until it gets updated at google search.\nThe Fix\nAWS S3 Static hosting provides an option to add redirection rules to the website hosted in a particular bucket. https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html\nIn this particular case, the URL’s we are going to use will be these,\nhttps://example.com/content/old-content\nand we will be redirecting this to\nhttps://example.com/content/new/content\nTo add the rules,\nClick on your bucket Go to properties and click on static website hosting Under the redirection rules filed, put the following code Redirect Rule,\ncontent/old-content/ example.com content/new/content Please note, The HostName(Line 7) part is important if your S3 website is configured with Cloudfront. Else during redirect, the domain name will be replaced with the S3 website endpoint.\nThat’s it. Now any requests coming to the old URL will be automatically redirected to the new one\n",
   "wordCount" : "243",
   "inLanguage": "en",
-  "datePublished": "2020-01-28T00:00:00Z",
+  "image": "https://imewish.github.io/papermod-cover.png""datePublished": "2020-01-28T00:00:00Z",
   "dateModified": "2020-01-28T00:00:00Z",
   "author":{
     "@type": "Person",

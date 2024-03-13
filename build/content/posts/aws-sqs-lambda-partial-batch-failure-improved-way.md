@@ -25,12 +25,12 @@ Enabling this configuration instructs Lambda to abstain from retrying messages f
 
 However, there's a caveat: simply enabling this configuration doesn't achieve our desired outcome. We need to make changes at the code level within the Lambda function.
 
-Here’s How we do it. 
+Here’s How we do it.
 
 ```typescript
-import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
+import type { SQSHandler } from 'aws-lambda';
 
-export const handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
+const main: SQSHandler = async (event, context): Promise<SQSBatchResponse> => {
   const failedMessageIds: { id: string }[] = [];
 
   for (const record of event.Records) {

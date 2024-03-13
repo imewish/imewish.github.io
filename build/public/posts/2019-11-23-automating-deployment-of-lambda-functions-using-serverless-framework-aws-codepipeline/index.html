@@ -60,15 +60,6 @@
 </noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-2GF369X3PK');
-</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
-<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.dataLayer = window.dataLayer || [];
@@ -82,13 +73,14 @@ if (!doNotTrack) {
 1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
 &#39;use strict&#39;; module.exports.api = async event =&gt; { return { statusCode: 200, body: JSON." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/" /><meta property="og:image" content="https://imewish.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/" />
+<meta property="og:image" content="https://imewish.github.io/papermod-cover.png" />
+<meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://imewish.github.io/papermod-cover.png"/>
-
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://imewish.github.io/papermod-cover.png" />
 <meta name="twitter:title" content="Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline"/>
 <meta name="twitter:description" content="In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
 1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
@@ -128,7 +120,7 @@ if (!doNotTrack) {
   "articleBody": "In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild\n1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml\n'use strict'; module.exports.api = async event =\u003e { return { statusCode: 200, body: JSON.stringify( { message: 'Go Serverless v1.0! Your function executed successfully!' }, null, 2 ), }; }; Update your serverless.yml to add an API Gateway endpoint.\nservice: serverless-nodejs-api provider: name: aws runtime: nodejs10.x stage: dev functions: getMsg: handler: handler.api events: - http: GET / Now we have our serverless API code ready.\nYou can deploy this to AWS manually by running sls deploy --stage dev\nThis will deploy the lambda function and create an API gateway endpoint for the function.\nOnce deployed, the output will print the newly created API gateway endpoint. test the function by calling the API endpoint. Something like this,\nService Information service: serverless-nodejs-api stage: dev region: us-east-1 stack: serverless-nodejs-api-dev resources: 9 api keys: None endpoints: GET - https://xxxxx.execute-api.us-east-1.amazonaws.com/dev functions: api: serverless-nodejs-api-dev-getMsg layers: None test the function by calling the API endpoint.\ncurl https://xxxxx.execute-api.us-east-1.amazonaws.com/dev { \"message\": \"Go Serverless v1.0! Your function executed successfully!\" } Now let’s automate the deployment process with Github, AWS Codepipeline\nLet’s consider this code as production-ready and push the code to the GitHub repo master branch.\nPS: We can create multiple pipelines per brach for eg: Master -\u003e Prod, Development -\u003e Staging/Dev Environment\n3. Setup Codepipeline 3.1 Set Pipeline name and Create IAM Role 3.2 Add source stage In this stage, Connect to your Github account and choose your repo and branch Set the detection method\n3.3 Add build stage In this step, we have to create a Codebuild project, where we configure our build and deploy environment and commands.\nClick on the Create Project button, it will take you to the Codebuild setup page.\nSet the project name here\nChoose your runtime and image for the build environment\nChoose an IAM role for the project - This part is important\nThis role must have enough permissions for the serverless framework to deploy the function and its resources to AWS as follows,\nCreate an S3 bucket for your function deployments Upload your function zip files to that S3 bucket Submit a CloudFormation template Create the log groups for your Lambda functions Create a REST API in API Gateway You can use the below awesome NPM modules to create a narrow IAM policy template that will cover many Serverless use cases.\nnpm install -g yo generator-serverless-policy\nthen on your serverless app directory\n$ yo serverless-policy ? Your Serverless service name test-service ? You can specify a specific stage, if you like: dev ? You can specify a specific region, if you like: us-west-1 ? Does your service rely on DynamoDB? Yes ? Is your service going to be using S3 buckets? Yes app name test-service app stage dev app region us-west-1 Writing to test-service-dev-us-west-1-policy.json After you finish creating the codebuild project go to its IAM role and append the policy with the rules created by the above template.\nYou can find the IAM policy we used for this guide here, https://github.com/imewish/serverless-nodejs-api/blob/master/codebuild-IAM-policy.json\nDefine Build Spec.\nYou can find it here. https://github.com/imewish/serverless-nodejs-api/blob/master/buildspec.yml\nHere we will define the commands to set up the serverless framework and deploy commands to AWS.\nOn install phase\nSet nodejs 10 as runtime\nInstall serverless framework On Build Phase\nInstall npm packages\nDeploy to lambda with sls deploy --stage dev/prod\nNB: You can also run your tests here if you have test cases written for your lambda functions.\nEnable Cloudwatch logs so that we can tail our build process logs.\nThen click on Continue to Codepipeline this will take us back to Codepipeline Setup.\n4. Deploy Stage This stage is optional.\nSince the serverless framework already put the deployment artifacts to an S3 bucket we can skip this part. But if you want to store it to a different bucket you can set up like this.\nClick Next and then review all the setup then Create the pipeline.\nThat’s it!. Now you can test this by going to the newly created pipeline and click on Release Change\n",
   "wordCount" : "717",
   "inLanguage": "en",
-  "datePublished": "2020-01-01T00:00:00Z",
+  "image": "https://imewish.github.io/papermod-cover.png""datePublished": "2020-01-01T00:00:00Z",
   "dateModified": "2020-01-01T00:00:00Z",
   "author":{
     "@type": "Person",
