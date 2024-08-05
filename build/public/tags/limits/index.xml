@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>limits on Vishnu Prasad</title>
+    <title>Limits on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/limits/</link>
-    <description>Recent content in limits on Vishnu Prasad</description>
-    <image>
-      <title>Vishnu Prasad</title>
-      <url>https://imewish.github.io/papermod-cover.png</url>
-      <link>https://imewish.github.io/papermod-cover.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Limits on Vishnu Prasad</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 14 Feb 2021 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://imewish.github.io/tags/limits/index.xml" rel="self" type="application/rss+xml" />
@@ -18,8 +13,7 @@
       <link>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</link>
       <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</guid>
-      <description>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.
-The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it.</description>
+      <description>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.&#xA;The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it.</description>
     </item>
   </channel>
 </rss>

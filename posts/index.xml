@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Vishnu Prasad</title>
     <link>https://imewish.github.io/posts/</link>
     <description>Recent content in Posts on Vishnu Prasad</description>
-    <image>
-      <title>Vishnu Prasad</title>
-      <url>https://imewish.github.io/papermod-cover.png</url>
-      <link>https://imewish.github.io/papermod-cover.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 11 Mar 2024 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://imewish.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -18,25 +13,21 @@
       <link>https://imewish.github.io/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</link>
       <pubDate>Mon, 11 Mar 2024 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</guid>
-      <description>This article is the continuation of one (link) of the previous articles, where I explained how to handle partial batch failures in SQS when using it with AWS Lambda. At the time of writing that article, there was no native way of handling this. Two feasible methods were, either using a batch size of one or deleting each successful message after processing.
-Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Process.</description>
+      <description>This article is the continuation of one (link) of the previous articles, where I explained how to handle partial batch failures in SQS when using it with AWS Lambda. At the time of writing that article, there was no native way of handling this. Two feasible methods were, either using a batch size of one or deleting each successful message after processing.&#xA;Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Process.</description>
     </item>
     <item>
       <title>How to Run AWS Lambda every 10 sec</title>
       <link>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</link>
       <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</guid>
-      <description>Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.
-The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions.</description>
+      <description>Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.&#xA;The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions.</description>
     </item>
     <item>
       <title>Understanding The OSI Networking Model</title>
       <link>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</link>
       <pubDate>Sun, 14 Aug 2022 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</guid>
-      <description>The OSI Model defines a networking framework to implement protocols in seven layers. OSI stands for open system interconnection. It was introduced in 1984. Designed to be an abstract model and teaching tool, the OSI Model remains a useful tool for learning about today&amp;rsquo;s network technologies such as Ethernet and protocols like IP.
-This model is divided into 7 Layers.
-The data communication on the OSI model starts at the Application layer of the sender side and goes up to the physical layer.</description>
+      <description>The OSI Model defines a networking framework to implement protocols in seven layers. OSI stands for open system interconnection. It was introduced in 1984. Designed to be an abstract model and teaching tool, the OSI Model remains a useful tool for learning about today&amp;rsquo;s network technologies such as Ethernet and protocols like IP.&#xA;This model is divided into 7 Layers.&#xA;The data communication on the OSI model starts at the Application layer of the sender side and goes up to the physical layer.</description>
     </item>
     <item>
       <title>How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster</title>
@@ -50,72 +41,56 @@ The data communication on the OSI model starts at the Application layer of the s
       <link>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</link>
       <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</guid>
-      <description>Introduction Cloudwatch is an integral part of the AWS ecosystem. Every service in AWS reports to cloudwatch for the service logs, application logs, metrics, etc.
-In this article let&amp;rsquo;s discuss the cloudwatch custom metrics in detail.
-Metrics help us with finding the performance of the AWS services and the applications we run using these services. It also allows us to visualize the data with graphs and dashboards and create alarms based on the data reported tho metrics.</description>
+      <description>Introduction Cloudwatch is an integral part of the AWS ecosystem. Every service in AWS reports to cloudwatch for the service logs, application logs, metrics, etc.&#xA;In this article let&amp;rsquo;s discuss the cloudwatch custom metrics in detail.&#xA;Metrics help us with finding the performance of the AWS services and the applications we run using these services. It also allows us to visualize the data with graphs and dashboards and create alarms based on the data reported tho metrics.</description>
     </item>
     <item>
       <title>AWS SQS With Lambda, Partial Batch Failure Handling</title>
       <link>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</link>
       <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</guid>
-      <description>Update Nov 23, 2021,
-My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. I have written a new article on how to do it here https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/
-Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue.</description>
+      <description>Update Nov 23, 2021,&#xA;My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. I have written a new article on how to do it here https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/&#xA;Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue.</description>
     </item>
     <item>
       <title>Decoupling Application configuration from application code in your serverless application with AWS Appconfig</title>
       <link>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</link>
       <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</guid>
-      <description>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.
-The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it.</description>
+      <description>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.&#xA;The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it.</description>
     </item>
     <item>
       <title>AWS Service Limits To Keep In Mind While Developing A Serverless Application</title>
       <link>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</link>
       <pubDate>Wed, 10 Feb 2021 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</guid>
-      <description>Serverless is great, it helps companies to focus on product and application development without worrying much about the infrastructure and scaling. But there are some soft and hard limits for every AWS service which we need to keep in mind when we are developing a serverless application. These limits are set to protect the customer as well as the provider against any unintentional use.
-In this article, we will talk about some of those limits and how to avoid them.</description>
+      <description>Serverless is great, it helps companies to focus on product and application development without worrying much about the infrastructure and scaling. But there are some soft and hard limits for every AWS service which we need to keep in mind when we are developing a serverless application. These limits are set to protect the customer as well as the provider against any unintentional use.&#xA;In this article, we will talk about some of those limits and how to avoid them.</description>
     </item>
     <item>
       <title>DynamoDB CheatSheet For NodeJS/JavaScript</title>
       <link>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</link>
       <pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</guid>
-      <description>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don&amp;rsquo;t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.
-This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs.</description>
+      <description>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don&amp;rsquo;t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.&#xA;This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs.</description>
     </item>
     <item>
       <title>Load Testing Serverless Applications With Serverless Artillery</title>
       <link>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</link>
       <pubDate>Mon, 13 Apr 2020 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</guid>
-      <description>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
-Why is Load Testing important? Load testing will help us to find the following
-- How fast is the system
-- How much load can the system handle
-- Under what conditions will the system fail
-- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.</description>
+      <description>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.&#xA;Why is Load Testing important? Load testing will help us to find the following&#xA;- How fast is the system&#xA;- How much load can the system handle&#xA;- Under what conditions will the system fail&#xA;- Determine our application’s capabilities by measuring its response time, throughput, CPU utilization, latency, etc.</description>
     </item>
     <item>
       <title>URL redirects with AWS S3 and Cloudfront</title>
       <link>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</link>
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</guid>
-      <description>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.
-In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.
-There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</description>
+      <description>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.&#xA;In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.&#xA;There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</description>
     </item>
     <item>
       <title>Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline</title>
       <link>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</guid>
-      <description>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
-1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
-&amp;#39;use strict&amp;#39;; module.exports.api = async event =&amp;gt; { return { statusCode: 200, body: JSON.</description>
+      <description>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild&#xA;1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml&#xA;&amp;#39;use strict&amp;#39;; module.exports.api = async event =&amp;gt; { return { statusCode: 200, body: JSON.</description>
     </item>
   </channel>
 </rss>
