@@ -20,6 +20,7 @@ Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Proce
 <link rel="mask-icon" href="https://imewish.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://imewish.github.io/posts/aws-sqs-lambda-partial-batch-failure-improved-way/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,16 +58,25 @@ Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Proce
 
     </style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-2GF369X3PK', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2GF369X3PK');
+        }
+      </script>
+    
+  
+
 <meta property="og:title" content="AWS SQS With Lambda, Partial Batch Failure Handling: Improved Way" />
 <meta property="og:description" content="This article is the continuation of one (link) of the previous articles, where I explained how to handle partial batch failures in SQS when using it with AWS Lambda. At the time of writing that article, there was no native way of handling this. Two feasible methods were, either using a batch size of one or deleting each successful message after processing.
 Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Process." />
@@ -273,6 +283,11 @@ Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Proce
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://imewish.github.io/posts/cloud-watch-logs-field-level-indexes/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Optimizing Amazon CloudWatch Insights Queries With Field Level Indexes for Efficient Log Analytics</span>
+  </a>
   <a class="next" href="https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/">
     <span class="title">Next »</span>
     <br>
@@ -353,7 +368,7 @@ Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Proce
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
+    <span>&copy; 2025 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

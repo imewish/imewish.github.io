@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>S3 on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/s3/</link>
     <description>Recent content in S3 on Vishnu Prasad</description>
-    <generator>Hugo</generator>
+    <image>
+      <title>Vishnu Prasad</title>
+      <url>https://imewish.github.io/papermod-cover.png</url>
+      <link>https://imewish.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://imewish.github.io/tags/s3/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +18,9 @@
       <link>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</link>
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</guid>
-      <description>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.&#xA;In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.&#xA;There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</description>
+      <description>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.
+In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.
+There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</description>
     </item>
   </channel>
 </rss>

@@ -1,1 +1,3 @@
 User-agent: *
+Disallow:
+Sitemap: https://imewish.github.io/sitemap.xml

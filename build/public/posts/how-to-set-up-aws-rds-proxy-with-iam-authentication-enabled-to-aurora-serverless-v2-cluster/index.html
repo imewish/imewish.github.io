@@ -19,6 +19,7 @@
 <link rel="mask-icon" href="https://imewish.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,16 +57,25 @@
 
     </style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-2GF369X3PK', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2GF369X3PK');
+        }
+      </script>
+    
+  
+
 <meta property="og:title" content="How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster" />
 <meta property="og:description" content="What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM)." />
 <meta property="og:type" content="article" />
@@ -535,14 +545,14 @@ await client.connect();
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://imewish.github.io/tags/aurora/">aurora</a></li>
-      <li><a href="https://imewish.github.io/tags/serverless/">serverless</a></li>
-      <li><a href="https://imewish.github.io/tags/iamauth/">iamauth</a></li>
-      <li><a href="https://imewish.github.io/tags/postgres/">postgres</a></li>
-      <li><a href="https://imewish.github.io/tags/database/">database</a></li>
-      <li><a href="https://imewish.github.io/tags/rdsproxy/">rdsproxy</a></li>
-      <li><a href="https://imewish.github.io/tags/rds/">rds</a></li>
-      <li><a href="https://imewish.github.io/tags/aws/">aws</a></li>
+      <li><a href="https://imewish.github.io/tags/aurora/">Aurora</a></li>
+      <li><a href="https://imewish.github.io/tags/serverless/">Serverless</a></li>
+      <li><a href="https://imewish.github.io/tags/iamauth/">Iamauth</a></li>
+      <li><a href="https://imewish.github.io/tags/postgres/">Postgres</a></li>
+      <li><a href="https://imewish.github.io/tags/database/">Database</a></li>
+      <li><a href="https://imewish.github.io/tags/rdsproxy/">Rdsproxy</a></li>
+      <li><a href="https://imewish.github.io/tags/rds/">Rds</a></li>
+      <li><a href="https://imewish.github.io/tags/aws/">Aws</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/">
@@ -630,7 +640,7 @@ await client.connect();
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
+    <span>&copy; 2025 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

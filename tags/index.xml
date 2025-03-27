@@ -1,18 +1,114 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/</link>
     <description>Recent content in Tags on Vishnu Prasad</description>
-    <generator>Hugo</generator>
+    <image>
+      <title>Vishnu Prasad</title>
+      <url>https://imewish.github.io/papermod-cover.png</url>
+      <link>https://imewish.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Feb 2023 18:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2025 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon Cloudwatch</title>
+      <link>https://imewish.github.io/tags/amazon-cloudwatch/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/amazon-cloudwatch/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Aws</title>
       <link>https://imewish.github.io/tags/aws/</link>
-      <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws Cloudwatch</title>
+      <link>https://imewish.github.io/tags/aws-cloudwatch/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/aws-cloudwatch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloud Watch</title>
+      <link>https://imewish.github.io/tags/cloud-watch/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/cloud-watch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudwatch</title>
+      <link>https://imewish.github.io/tags/cloudwatch/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/cloudwatch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudwatch Insights</title>
+      <link>https://imewish.github.io/tags/cloudwatch-insights/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/cloudwatch-insights/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudwatch Insights Index</title>
+      <link>https://imewish.github.io/tags/cloudwatch-insights-index/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/cloudwatch-insights-index/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudwatch Insights Query</title>
+      <link>https://imewish.github.io/tags/cloudwatch-insights-query/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/cloudwatch-insights-query/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudwatch Log Indexing</title>
+      <link>https://imewish.github.io/tags/cloudwatch-log-indexing/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/cloudwatch-log-indexing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudwatch Query</title>
+      <link>https://imewish.github.io/tags/cloudwatch-query/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/cloudwatch-query/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Log Analytics</title>
+      <link>https://imewish.github.io/tags/log-analytics/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/log-analytics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Log Indexing</title>
+      <link>https://imewish.github.io/tags/log-indexing/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/log-indexing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logs</title>
+      <link>https://imewish.github.io/tags/logs/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/logs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Serverless</title>
+      <link>https://imewish.github.io/tags/serverless/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/serverless/</guid>
       <description></description>
     </item>
     <item>
@@ -27,13 +123,6 @@
       <link>https://imewish.github.io/tags/lambda/</link>
       <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/tags/lambda/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Serverless</title>
-      <link>https://imewish.github.io/tags/serverless/</link>
-      <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/tags/serverless/</guid>
       <description></description>
     </item>
     <item>

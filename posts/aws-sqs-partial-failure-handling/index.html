@@ -21,6 +21,7 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
 <link rel="mask-icon" href="https://imewish.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://imewish.github.io/posts/aws-sqs-partial-failure-handling/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,16 +59,25 @@ Amazon Web Services released SQS triggers for Lambda functions in June 2018. You
 
     </style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-2GF369X3PK', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GF369X3PK"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2GF369X3PK');
+        }
+      </script>
+    
+  
+
 <meta property="og:title" content="AWS SQS With Lambda, Partial Batch Failure Handling" />
 <meta property="og:description" content="Update Nov 23, 2021,
 My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. I have written a new article on how to do it here https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/
@@ -306,9 +316,9 @@ const getQueueUrl = ({ eventSourceARN, sqs }) =&gt; {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://imewish.github.io/tags/aws/">aws</a></li>
-      <li><a href="https://imewish.github.io/tags/sqs/">sqs</a></li>
-      <li><a href="https://imewish.github.io/tags/serverless/">serverless</a></li>
+      <li><a href="https://imewish.github.io/tags/aws/">Aws</a></li>
+      <li><a href="https://imewish.github.io/tags/sqs/">Sqs</a></li>
+      <li><a href="https://imewish.github.io/tags/serverless/">Serverless</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/">
@@ -396,7 +406,7 @@ const getQueueUrl = ({ eventSourceARN, sqs }) =&gt; {
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
+    <span>&copy; 2025 <a href="https://imewish.github.io/">Vishnu Prasad</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

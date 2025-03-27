@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Sqs on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/sqs/</link>
     <description>Recent content in Sqs on Vishnu Prasad</description>
-    <generator>Hugo</generator>
+    <image>
+      <title>Vishnu Prasad</title>
+      <url>https://imewish.github.io/papermod-cover.png</url>
+      <link>https://imewish.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 23 Feb 2021 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://imewish.github.io/tags/sqs/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +18,9 @@
       <link>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</link>
       <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</guid>
-      <description>Update Nov 23, 2021,&#xA;My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. I have written a new article on how to do it here https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/&#xA;Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue.</description>
+      <description>Update Nov 23, 2021,
+My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. I have written a new article on how to do it here https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/
+Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue.</description>
     </item>
   </channel>
 </rss>

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Networking on Vishnu Prasad</title>
     <link>https://imewish.github.io/tags/networking/</link>
     <description>Recent content in Networking on Vishnu Prasad</description>
-    <generator>Hugo</generator>
+    <image>
+      <title>Vishnu Prasad</title>
+      <url>https://imewish.github.io/papermod-cover.png</url>
+      <link>https://imewish.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 14 Aug 2022 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://imewish.github.io/tags/networking/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +18,9 @@
       <link>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</link>
       <pubDate>Sun, 14 Aug 2022 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</guid>
-      <description>The OSI Model defines a networking framework to implement protocols in seven layers. OSI stands for open system interconnection. It was introduced in 1984. Designed to be an abstract model and teaching tool, the OSI Model remains a useful tool for learning about today&amp;rsquo;s network technologies such as Ethernet and protocols like IP.&#xA;This model is divided into 7 Layers.&#xA;The data communication on the OSI model starts at the Application layer of the sender side and goes up to the physical layer.</description>
+      <description>The OSI Model defines a networking framework to implement protocols in seven layers. OSI stands for open system interconnection. It was introduced in 1984. Designed to be an abstract model and teaching tool, the OSI Model remains a useful tool for learning about today&amp;rsquo;s network technologies such as Ethernet and protocols like IP.
+This model is divided into 7 Layers.
+The data communication on the OSI model starts at the Application layer of the sender side and goes up to the physical layer.</description>
     </item>
   </channel>
 </rss>
