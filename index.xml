@@ -23,6 +23,16 @@
 This doesn&amp;rsquo;t have to be the case.</description>
     </item>
     <item>
+      <title>Managing Multiple GitHub Accounts from the CLI</title>
+      <link>https://imewish.github.io/posts/github-multiple-account-management-cli/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/posts/github-multiple-account-management-cli/</guid>
+      <description>The Problem If you use multiple GitHub accounts—for example, a work account and a personal account—you may encounter a frustrating issue when working from the command line:
+You try to push code to your personal repository, but GitHub rejects it with a permission denied error because it is authenticating as your work account.
+This happens even though you are the owner of the personal repository.
+Why This Happens GitHub allows multiple accounts, but Git does not automatically switch identities per repository The CLI (SSH or HTTPS) reuses a cached or default identity As a result, all pushes to github.</description>
+    </item>
+    <item>
       <title>Optimizing Amazon CloudWatch Insights Queries With Field Level Indexes for Efficient Log Analytics</title>
       <link>https://imewish.github.io/posts/cloud-watch-logs-field-level-indexes/</link>
       <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
