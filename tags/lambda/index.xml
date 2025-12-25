@@ -18,9 +18,9 @@
       <link>https://imewish.github.io/posts/appsync-error-handling/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/posts/appsync-error-handling/</guid>
-      <description>A practical guide to implementing type-safe, production-ready error handling in serverless architectures
-Introduction If you&amp;rsquo;ve built REST APIs with AWS API Gateway, you know how nice it is to return structured error responses with proper HTTP status codes, error types, and detailed context. Then you switch to GraphQL with AppSync, and suddenly your beautiful error handling becomes&amp;hellip; generic.
-{ &amp;#34;errors&amp;#34;: [{ &amp;#34;message&amp;#34;: &amp;#34;Error&amp;#34; }] } That&amp;rsquo;s it. No error types. No structured context.</description>
+      <description>Introduction If you&amp;rsquo;ve built REST APIs with AWS API Gateway, you know how nice it is to return structured error responses with proper HTTP status codes, error types, and detailed context. Then you switch to GraphQL with AppSync, and suddenly your beautiful error handling becomes&amp;hellip; generic.
+{ &amp;#34;errors&amp;#34;: [{ &amp;#34;message&amp;#34;: &amp;#34;Error&amp;#34; }] } That&amp;rsquo;s it. No error types. No structured context. Just a string.
+This doesn&amp;rsquo;t have to be the case.</description>
     </item>
     <item>
       <title>How to Run AWS Lambda every 10 sec</title>

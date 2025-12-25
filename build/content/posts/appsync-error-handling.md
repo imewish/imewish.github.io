@@ -16,10 +16,6 @@ tags:
   - appsync error handling best practices
 ---
 
-*A practical guide to implementing type-safe, production-ready error handling in serverless architectures*
-
----
-
 ## Introduction
 
 If you've built REST APIs with AWS API Gateway, you know how nice it is to return structured error responses with proper HTTP status codes, error types, and detailed context. Then you switch to GraphQL with AppSync, and suddenly your beautiful error handling becomes... generic.
