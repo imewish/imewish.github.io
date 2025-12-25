@@ -2,10 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://imewish.github.io/tags/amazon-cloudwatch/</loc>
-    <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <loc>https://imewish.github.io/tags/appsync/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/appsync-error-handling/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/appsync-error-handling-best-practices/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
   </url><url>
     <loc>https://imewish.github.io/tags/aws/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/aws-appsync/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/best-practice/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/posts/appsync-error-handling/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/error/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/error-handling/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/lambda/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/posts/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/serverless/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/</loc>
+    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://imewish.github.io/tags/amazon-cloudwatch/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
   </url><url>
     <loc>https://imewish.github.io/tags/aws-cloudwatch/</loc>
@@ -44,18 +83,6 @@
     <loc>https://imewish.github.io/posts/cloud-watch-logs-field-level-indexes/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://imewish.github.io/posts/</loc>
-    <lastmod>2025-02-14T18:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://imewish.github.io/tags/serverless/</loc>
-    <lastmod>2025-02-14T18:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://imewish.github.io/tags/</loc>
-    <lastmod>2025-02-14T18:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://imewish.github.io/</loc>
-    <lastmod>2025-02-14T18:30:00+00:00</lastmod>
-  </url><url>
     <loc>https://imewish.github.io/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</loc>
     <lastmod>2024-03-11T18:30:00+00:00</lastmod>
   </url><url>
@@ -63,9 +90,6 @@
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
   </url><url>
     <loc>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</loc>
-    <lastmod>2023-02-18T18:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://imewish.github.io/tags/lambda/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
   </url><url>
     <loc>https://imewish.github.io/tags/networking/</loc>

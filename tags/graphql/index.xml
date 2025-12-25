@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graphql on Vishnu Prasad</title>
+    <link>http://localhost:1313/tags/graphql/</link>
+    <description>Recent content in Graphql on Vishnu Prasad</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 22 Dec 2025 18:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/graphql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Error Handling in AWS Appsync</title>
+      <link>http://localhost:1313/posts/appsync-error-handling/</link>
+      <pubDate>Mon, 22 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/appsync-error-handling/</guid>
+      <description>Table of Contents Executive Summary System Architecture Component Design Error Flow Diagram Implementation Details AppSync Integration Error Response Schema Client Integration Guide Testing Strategy Operational Considerations Executive Summary This document describes the end-to-end error handling architecture for our serverless GraphQL API built on AWS AppSync and Lambda. The system provides:&#xA;Type-safe custom exceptions with additional context information Middleware-based error transformation for consistent error responses AppSync JavaScript resolver integration for GraphQL error propagation Structured error schemas for client consumption Key Benefits Consistent error responses across all API endpoints Type-safe error handling with TypeScript generics Rich error context for debugging and client-side error handling Separation of concerns between business logic and error handling Clean stack traces for production debugging System Architecture High-Level Overview The error handling system operates across three layers:</description>
+    </item>
+  </channel>
+</rss>

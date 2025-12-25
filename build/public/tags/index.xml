@@ -11,20 +11,83 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Feb 2025 18:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Dec 2025 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://imewish.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Amazon Cloudwatch</title>
-      <link>https://imewish.github.io/tags/amazon-cloudwatch/</link>
-      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/tags/amazon-cloudwatch/</guid>
+      <title>Appsync</title>
+      <link>https://imewish.github.io/tags/appsync/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/appsync/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Appsync Error Handling</title>
+      <link>https://imewish.github.io/tags/appsync-error-handling/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/appsync-error-handling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Appsync Error Handling Best Practices</title>
+      <link>https://imewish.github.io/tags/appsync-error-handling-best-practices/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/appsync-error-handling-best-practices/</guid>
       <description></description>
     </item>
     <item>
       <title>Aws</title>
       <link>https://imewish.github.io/tags/aws/</link>
-      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws Appsync</title>
+      <link>https://imewish.github.io/tags/aws-appsync/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/aws-appsync/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best Practice</title>
+      <link>https://imewish.github.io/tags/best-practice/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/best-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Error</title>
+      <link>https://imewish.github.io/tags/error/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/error/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Error Handling</title>
+      <link>https://imewish.github.io/tags/error-handling/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/error-handling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lambda</title>
+      <link>https://imewish.github.io/tags/lambda/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/lambda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Serverless</title>
+      <link>https://imewish.github.io/tags/serverless/</link>
+      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/serverless/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Amazon Cloudwatch</title>
+      <link>https://imewish.github.io/tags/amazon-cloudwatch/</link>
+      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
+      <guid>https://imewish.github.io/tags/amazon-cloudwatch/</guid>
       <description></description>
     </item>
     <item>
@@ -105,24 +168,10 @@
       <description></description>
     </item>
     <item>
-      <title>Serverless</title>
-      <link>https://imewish.github.io/tags/serverless/</link>
-      <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/tags/serverless/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Cronjob</title>
       <link>https://imewish.github.io/tags/cronjob/</link>
       <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
       <guid>https://imewish.github.io/tags/cronjob/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Lambda</title>
-      <link>https://imewish.github.io/tags/lambda/</link>
-      <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/tags/lambda/</guid>
       <description></description>
     </item>
     <item>
