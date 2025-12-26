@@ -2,239 +2,397 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://imewish.github.io/tags/appsync/</loc>
+    <loc>https://vishnuprasad.blog/tags/appsync/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/appsync-error-handling/</loc>
+    <loc>https://vishnuprasad.blog/tags/appsync-error-handling/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/appsync-error-handling-best-practices/</loc>
+    <loc>https://vishnuprasad.blog/tags/appsync-error-handling-best-practices/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/authentication/</loc>
+    <loc>https://vishnuprasad.blog/tags/authentication/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/aws/</loc>
+    <loc>https://vishnuprasad.blog/tags/aws/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/aws-appsync/</loc>
+    <loc>https://vishnuprasad.blog/tags/aws-appsync/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/best-practice/</loc>
+    <loc>https://vishnuprasad.blog/tags/best-practice/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/appsync-error-handling/</loc>
+    <loc>https://vishnuprasad.blog/posts/appsync-error-handling/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cli/</loc>
+    <loc>https://vishnuprasad.blog/tags/cli/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/error/</loc>
+    <loc>https://vishnuprasad.blog/tags/error/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/error-handling/</loc>
+    <loc>https://vishnuprasad.blog/tags/error-handling/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/github/</loc>
+    <loc>https://vishnuprasad.blog/tags/github/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/github-auth/</loc>
+    <loc>https://vishnuprasad.blog/tags/github-auth/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/lambda/</loc>
+    <loc>https://vishnuprasad.blog/tags/lambda/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/linux/</loc>
+    <loc>https://vishnuprasad.blog/tags/linux/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/macos/</loc>
+    <loc>https://vishnuprasad.blog/tags/macos/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/github-multiple-account-management-cli/</loc>
+    <loc>https://vishnuprasad.blog/posts/github-multiple-account-management-cli/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/multiple-accounts/</loc>
+    <loc>https://vishnuprasad.blog/tags/multiple-accounts/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/</loc>
+    <loc>https://vishnuprasad.blog/posts/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/serverless/</loc>
+    <loc>https://vishnuprasad.blog/tags/serverless/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/</loc>
+    <loc>https://vishnuprasad.blog/tags/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/</loc>
+    <loc>https://vishnuprasad.blog/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/amazon-cloudwatch/</loc>
+    <loc>https://vishnuprasad.blog/tags/amazon-cloudwatch/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/aws-cloudwatch/</loc>
+    <loc>https://vishnuprasad.blog/tags/aws-cloudwatch/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloud-watch/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloud-watch/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloudwatch/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloudwatch/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloudwatch-insights/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloudwatch-insights/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloudwatch-insights-index/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloudwatch-insights-index/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloudwatch-insights-query/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloudwatch-insights-query/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloudwatch-log-indexing/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloudwatch-log-indexing/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloudwatch-query/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloudwatch-query/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/log-analytics/</loc>
+    <loc>https://vishnuprasad.blog/tags/log-analytics/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/log-indexing/</loc>
+    <loc>https://vishnuprasad.blog/tags/log-indexing/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/logs/</loc>
+    <loc>https://vishnuprasad.blog/tags/logs/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/cloud-watch-logs-field-level-indexes/</loc>
+    <loc>https://vishnuprasad.blog/posts/cloud-watch-logs-field-level-indexes/</loc>
     <lastmod>2025-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</loc>
+    <loc>https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</loc>
     <lastmod>2024-03-11T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cronjob/</loc>
+    <loc>https://vishnuprasad.blog/tags/cronjob/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</loc>
+    <loc>https://vishnuprasad.blog/posts/how-to-run-aws-lambda-every-10-sec/</loc>
     <lastmod>2023-02-18T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/networking/</loc>
+    <loc>https://vishnuprasad.blog/tags/networking/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/osi/</loc>
+    <loc>https://vishnuprasad.blog/tags/osi/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/osimodel/</loc>
+    <loc>https://vishnuprasad.blog/tags/osimodel/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</loc>
+    <loc>https://vishnuprasad.blog/posts/understanding-osi-and-tcp-ip-networking-model/</loc>
     <lastmod>2022-08-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/aurora/</loc>
+    <loc>https://vishnuprasad.blog/tags/aurora/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/database/</loc>
+    <loc>https://vishnuprasad.blog/tags/database/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</loc>
+    <loc>https://vishnuprasad.blog/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/iamauth/</loc>
+    <loc>https://vishnuprasad.blog/tags/iamauth/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/postgres/</loc>
+    <loc>https://vishnuprasad.blog/tags/postgres/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/rds/</loc>
+    <loc>https://vishnuprasad.blog/tags/rds/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/rdsproxy/</loc>
+    <loc>https://vishnuprasad.blog/tags/rdsproxy/</loc>
     <lastmod>2022-08-12T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/clodwatch/</loc>
+    <loc>https://vishnuprasad.blog/tags/clodwatch/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/cloud/</loc>
+    <loc>https://vishnuprasad.blog/tags/cloud/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</loc>
+    <loc>https://vishnuprasad.blog/posts/cloudwath-custom-metrics-and-how-to-create-them/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/custommetrics/</loc>
+    <loc>https://vishnuprasad.blog/tags/custommetrics/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/embeddedmetrics/</loc>
+    <loc>https://vishnuprasad.blog/tags/embeddedmetrics/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/metrics/</loc>
+    <loc>https://vishnuprasad.blog/tags/metrics/</loc>
     <lastmod>2021-08-17T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</loc>
+    <loc>https://vishnuprasad.blog/posts/aws-sqs-partial-failure-handling/</loc>
     <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/sqs/</loc>
+    <loc>https://vishnuprasad.blog/tags/sqs/</loc>
     <lastmod>2021-02-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/appconfig/</loc>
+    <loc>https://vishnuprasad.blog/tags/appconfig/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/aws-appconfig/</loc>
+    <loc>https://vishnuprasad.blog/tags/aws-appconfig/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</loc>
+    <loc>https://vishnuprasad.blog/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/limits/</loc>
+    <loc>https://vishnuprasad.blog/tags/limits/</loc>
     <lastmod>2021-02-14T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</loc>
+    <loc>https://vishnuprasad.blog/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</loc>
     <lastmod>2021-02-10T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/limit/</loc>
+    <loc>https://vishnuprasad.blog/tags/limit/</loc>
     <lastmod>2021-02-10T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/dynamodb/</loc>
+    <loc>https://vishnuprasad.blog/tags/dynamodb/</loc>
     <lastmod>2020-09-01T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</loc>
+    <loc>https://vishnuprasad.blog/posts/dynamodb-cheatsheet-for-nodejs-javascript/</loc>
     <lastmod>2020-09-01T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/artillery/</loc>
+    <loc>https://vishnuprasad.blog/tags/artillery/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/aws-lambda/</loc>
+    <loc>https://vishnuprasad.blog/tags/aws-lambda/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/hugo/</loc>
+    <loc>https://vishnuprasad.blog/tags/hugo/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/load-testing/</loc>
+    <loc>https://vishnuprasad.blog/tags/load-testing/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</loc>
+    <loc>https://vishnuprasad.blog/posts/load-testing-serverless-sls-artillery/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/loadtesting/</loc>
+    <loc>https://vishnuprasad.blog/tags/loadtesting/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/serverlessartillery/</loc>
+    <loc>https://vishnuprasad.blog/tags/serverlessartillery/</loc>
     <lastmod>2020-04-13T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/s3/</loc>
+    <loc>https://vishnuprasad.blog/tags/s3/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</loc>
+    <loc>https://vishnuprasad.blog/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</loc>
+    <loc>https://vishnuprasad.blog/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/tags/ci/cd/</loc>
+    <loc>https://vishnuprasad.blog/tags/ci/cd/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/about-me/</loc>
+    <loc>https://vishnuprasad.blog/about-me/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/categories/</loc>
+    <loc>https://vishnuprasad.blog/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://imewish.github.io/series/</loc>
+    <loc>https://vishnuprasad.blog/series/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

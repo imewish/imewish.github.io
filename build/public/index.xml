@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Vishnu Prasad</title>
-    <link>https://imewish.github.io/</link>
+    <link>https://vishnuprasad.blog/</link>
     <description>Recent content on Vishnu Prasad</description>
     <image>
       <title>Vishnu Prasad</title>
-      <url>https://imewish.github.io/papermod-cover.png</url>
-      <link>https://imewish.github.io/papermod-cover.png</link>
+      <url>https://vishnuprasad.blog/papermod-cover.png</url>
+      <link>https://vishnuprasad.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 23 Dec 2025 18:30:00 +0000</lastBuildDate>
-    <atom:link href="https://imewish.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vishnuprasad.blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Robust Error Handling System for AWS AppSync APIs with Appsync JS Resolvers</title>
-      <link>https://imewish.github.io/posts/appsync-error-handling/</link>
+      <link>https://vishnuprasad.blog/posts/appsync-error-handling/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/appsync-error-handling/</guid>
+      <guid>https://vishnuprasad.blog/posts/appsync-error-handling/</guid>
       <description>Introduction If you&amp;rsquo;ve built REST APIs with AWS API Gateway, you know how nice it is to return structured error responses with proper HTTP status codes, error types, and detailed context. Then you switch to GraphQL with AppSync, and suddenly your beautiful error handling becomes&amp;hellip; generic.
 { &amp;#34;errors&amp;#34;: [{ &amp;#34;message&amp;#34;: &amp;#34;Error&amp;#34; }] } That&amp;rsquo;s it. No error types. No structured context. Just a string.
 This doesn&amp;rsquo;t have to be the case.</description>
     </item>
     <item>
       <title>Managing Multiple GitHub Accounts from the CLI</title>
-      <link>https://imewish.github.io/posts/github-multiple-account-management-cli/</link>
+      <link>https://vishnuprasad.blog/posts/github-multiple-account-management-cli/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/github-multiple-account-management-cli/</guid>
+      <guid>https://vishnuprasad.blog/posts/github-multiple-account-management-cli/</guid>
       <description>The Problem If you use multiple GitHub accounts—for example, a work account and a personal account—you may encounter a frustrating issue when working from the command line:
 You try to push code to your personal repository, but GitHub rejects it with a permission denied error because it is authenticating as your work account.
 This happens even though you are the owner of the personal repository.
@@ -34,91 +34,91 @@ Why This Happens GitHub allows multiple accounts, but Git does not automatically
     </item>
     <item>
       <title>Optimizing Amazon CloudWatch Insights Queries With Field Level Indexes for Efficient Log Analytics</title>
-      <link>https://imewish.github.io/posts/cloud-watch-logs-field-level-indexes/</link>
+      <link>https://vishnuprasad.blog/posts/cloud-watch-logs-field-level-indexes/</link>
       <pubDate>Fri, 14 Feb 2025 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/cloud-watch-logs-field-level-indexes/</guid>
+      <guid>https://vishnuprasad.blog/posts/cloud-watch-logs-field-level-indexes/</guid>
       <description>Introduction to Amazon CloudWatch Logs Insights Amazon CloudWatch Logs Insights is a powerful tool designed to help developers, DevOps engineers, and cloud administrators extract actionable intelligence from their log data. Whether you’re troubleshooting application errors, monitoring system health, or auditing security events, CloudWatch Logs Insights enables you to query logs in real time using a purpose-built query language.
 Query Methods: CloudWatch Logs Insights uses a SQL-like syntax with support for commands like:</description>
     </item>
     <item>
       <title>AWS SQS With Lambda, Partial Batch Failure Handling: Improved Way</title>
-      <link>https://imewish.github.io/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</link>
+      <link>https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</link>
       <pubDate>Mon, 11 Mar 2024 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</guid>
+      <guid>https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/</guid>
       <description>This article is the continuation of one (link) of the previous articles, where I explained how to handle partial batch failures in SQS when using it with AWS Lambda. At the time of writing that article, there was no native way of handling this. Two feasible methods were, either using a batch size of one or deleting each successful message after processing.
 Quick Recap On, What Happens If One Of The Messages In The Batch Failed To Process.</description>
     </item>
     <item>
       <title>How to Run AWS Lambda every 10 sec</title>
-      <link>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</link>
+      <link>https://vishnuprasad.blog/posts/how-to-run-aws-lambda-every-10-sec/</link>
       <pubDate>Sat, 18 Feb 2023 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/how-to-run-aws-lambda-every-10-sec/</guid>
+      <guid>https://vishnuprasad.blog/posts/how-to-run-aws-lambda-every-10-sec/</guid>
       <description>Recently I had a requirement at work to run a cron job every 10 sec or 30 sec to poll some third-party API to pull some data. There will be more than 40 of these cron parallelly to fetch different sets of data from different APIs. The first obvious option would come to a serverless first mindset which I have is to run these on lambda functions.
 The only native way in AWS to run the Lambda function is to have an Event bridge trigger with Cron expressions.</description>
     </item>
     <item>
       <title>Understanding The OSI Networking Model</title>
-      <link>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</link>
+      <link>https://vishnuprasad.blog/posts/understanding-osi-and-tcp-ip-networking-model/</link>
       <pubDate>Sun, 14 Aug 2022 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/understanding-osi-and-tcp-ip-networking-model/</guid>
+      <guid>https://vishnuprasad.blog/posts/understanding-osi-and-tcp-ip-networking-model/</guid>
       <description>The OSI Model defines a networking framework to implement protocols in seven layers. OSI stands for open system interconnection. It was introduced in 1984. Designed to be an abstract model and teaching tool, the OSI Model remains a useful tool for learning about today&amp;rsquo;s network technologies such as Ethernet and protocols like IP.
 This model is divided into 7 Layers.
 The data communication on the OSI model starts at the Application layer of the sender side and goes up to the physical layer.</description>
     </item>
     <item>
       <title>How to set up AWS RDS Proxy with IAM Authentication enabled to Aurora Serverless V2 Cluster</title>
-      <link>https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</link>
+      <link>https://vishnuprasad.blog/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</link>
       <pubDate>Fri, 12 Aug 2022 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</guid>
+      <guid>https://vishnuprasad.blog/posts/how-to-set-up-aws-rds-proxy-with-iam-authentication-enabled-to-aurora-serverless-v2-cluster/</guid>
       <description>What is RDS Proxy Many applications, including those built on modern serverless architectures, can have many open connections to the database server and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With RDS Proxy, failover times for Aurora and RDS databases are reduced by up to 66%, and database credentials, authentication, and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM).</description>
     </item>
     <item>
       <title>Cloudwatch Custom Metrics With CloudWatch Embedded Metric Format</title>
-      <link>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</link>
+      <link>https://vishnuprasad.blog/posts/cloudwath-custom-metrics-and-how-to-create-them/</link>
       <pubDate>Tue, 17 Aug 2021 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/cloudwath-custom-metrics-and-how-to-create-them/</guid>
+      <guid>https://vishnuprasad.blog/posts/cloudwath-custom-metrics-and-how-to-create-them/</guid>
       <description>Introduction Cloudwatch is an integral part of the AWS ecosystem. Every service in AWS reports to cloudwatch for the service logs, application logs, metrics, etc.
 In this article let&amp;rsquo;s discuss the cloudwatch custom metrics in detail.
 Metrics help us with finding the performance of the AWS services and the applications we run using these services. It also allows us to visualize the data with graphs and dashboards and create alarms based on the data reported tho metrics.</description>
     </item>
     <item>
       <title>AWS SQS With Lambda, Partial Batch Failure Handling</title>
-      <link>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</link>
+      <link>https://vishnuprasad.blog/posts/aws-sqs-partial-failure-handling/</link>
       <pubDate>Tue, 23 Feb 2021 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/aws-sqs-partial-failure-handling/</guid>
+      <guid>https://vishnuprasad.blog/posts/aws-sqs-partial-failure-handling/</guid>
       <description>Update Nov 23, 2021,
 My wish I mentioned at the end of this blog has been granted by AWS 🥳. AWS Lambda now supports partial batch response for SQS as an event source. Find the announcement here. I have written a new article on how to do it here https://vishnuprasad.blog/posts/aws-sqs-lambda-partial-batch-failure-improved-way/
 Amazon Web Services released SQS triggers for Lambda functions in June 2018. You can use an AWS Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue.</description>
     </item>
     <item>
       <title>Decoupling Application configuration from application code in your serverless application with AWS Appconfig</title>
-      <link>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</link>
+      <link>https://vishnuprasad.blog/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</link>
       <pubDate>Sun, 14 Feb 2021 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</guid>
+      <guid>https://vishnuprasad.blog/posts/decoupling-application-configuration-from-application-code-in-your-serverless-application-with-aws-appconfig/</guid>
       <description>The easiest and most common way of adding application configurations(Eg: feature toggle flags, secrets, fallback URLs, etc) with your serverless applications is by setting them as lambda environment variables. These variables are set to the lambda functions from a configuration file in your code (eg: serverless.yml) or read from secrets manager or parameter store etc and exported during the deployment on your CICD pipeline.
 The problem with this approach is, suppose you have a serverless application that has multiple lambda functions under it.</description>
     </item>
     <item>
       <title>AWS Service Limits To Keep In Mind While Developing A Serverless Application</title>
-      <link>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</link>
+      <link>https://vishnuprasad.blog/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</link>
       <pubDate>Wed, 10 Feb 2021 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</guid>
+      <guid>https://vishnuprasad.blog/posts/aws-limits-to-keep-in-mind-while-developing-a-serverless-application/</guid>
       <description>Serverless is great, it helps companies to focus on product and application development without worrying much about the infrastructure and scaling. But there are some soft and hard limits for every AWS service which we need to keep in mind when we are developing a serverless application. These limits are set to protect the customer as well as the provider against any unintentional use.
 In this article, we will talk about some of those limits and how to avoid them.</description>
     </item>
     <item>
       <title>DynamoDB CheatSheet For NodeJS/JavaScript</title>
-      <link>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</link>
+      <link>https://vishnuprasad.blog/posts/dynamodb-cheatsheet-for-nodejs-javascript/</link>
       <pubDate>Tue, 01 Sep 2020 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/dynamodb-cheatsheet-for-nodejs-javascript/</guid>
+      <guid>https://vishnuprasad.blog/posts/dynamodb-cheatsheet-for-nodejs-javascript/</guid>
       <description>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don&amp;rsquo;t have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.
 This cheat sheet will cover the most commonly used scenarios of data operations in DynamoDB with AWS DynamoDB Document client for JavaScript/Nodejs.</description>
     </item>
     <item>
       <title>Load Testing Serverless Applications With Serverless Artillery</title>
-      <link>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</link>
+      <link>https://vishnuprasad.blog/posts/load-testing-serverless-sls-artillery/</link>
       <pubDate>Mon, 13 Apr 2020 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/load-testing-serverless-sls-artillery/</guid>
+      <guid>https://vishnuprasad.blog/posts/load-testing-serverless-sls-artillery/</guid>
       <description>Load testing is an important part when you are designing any type of application, whether it is traditional EC2 based or container-based or a complete serverless application.
 Why is Load Testing important? Load testing will help us to find the following
 - How fast is the system
@@ -128,27 +128,27 @@ Why is Load Testing important? Load testing will help us to find the following
     </item>
     <item>
       <title>URL redirects with AWS S3 and Cloudfront</title>
-      <link>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</link>
+      <link>https://vishnuprasad.blog/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</link>
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</guid>
+      <guid>https://vishnuprasad.blog/posts/2019-12-15-url-redirects-with-aws-s3-and-cloudfront/</guid>
       <description>Hosting a static website with S3 is awesome! It is Faster, Cheaper, Zero maintenance.
 In this article, we will see how to do URL redirects on a website hosted with AWS S3 and Cloudfront.
 There was a scenario which I was faced once in my company, One of our websites had deleted some old content and replaced it with new content and URL. And when people who google search for that particular content they get the old URL which doest exists.</description>
     </item>
     <item>
       <title>Automating Deployment Of Lambda Functions Using Serverless Framework, AWS CodePipeline</title>
-      <link>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</link>
+      <link>https://vishnuprasad.blog/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</guid>
+      <guid>https://vishnuprasad.blog/posts/2019-11-23-automating-deployment-of-lambda-functions-using-serverless-framework-aws-codepipeline/</guid>
       <description>In this guide we will set up a very simple REST API endpoint with the serverless framework, AWS Lambda, and API Gateway and deploy it to AWS Lambda with Github, AWS Codepipeline, Codebuild
 1. Install the Serverless Framework npm install serverless -g 2. Create a project serverless create --template aws-nodejs --path serverless-nodejs-api This will create two files handler.js and serveless.yml
 &amp;#39;use strict&amp;#39;; module.exports.api = async event =&amp;gt; { return { statusCode: 200, body: JSON.</description>
     </item>
     <item>
       <title>About Me</title>
-      <link>https://imewish.github.io/about-me/</link>
+      <link>https://vishnuprasad.blog/about-me/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>https://imewish.github.io/about-me/</guid>
+      <guid>https://vishnuprasad.blog/about-me/</guid>
       <description>Download Resume
 Experienced Serverless Developer and Architect with over 8 years of hands-on expertise in the AWS Cloud. My professional journey has been marked by a deep understanding of cloud technologies, particularly in the realm of Serverless computing. My career spans various industries, including OTT, E-commerce, Blockchain, and Marketing Technology (MarTech). Here&amp;rsquo;s a bit more about my journey:
 Serverless Expertise: With more than eight years in the field, I have honed my skills as a Serverless Developer and Architect, specializing in AWS Cloud.</description>

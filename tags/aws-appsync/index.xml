@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Aws Appsync on Vishnu Prasad</title>
-    <link>https://imewish.github.io/tags/aws-appsync/</link>
+    <link>https://vishnuprasad.blog/tags/aws-appsync/</link>
     <description>Recent content in Aws Appsync on Vishnu Prasad</description>
     <image>
       <title>Vishnu Prasad</title>
-      <url>https://imewish.github.io/papermod-cover.png</url>
-      <link>https://imewish.github.io/papermod-cover.png</link>
+      <url>https://vishnuprasad.blog/papermod-cover.png</url>
+      <link>https://vishnuprasad.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 23 Dec 2025 18:30:00 +0000</lastBuildDate>
-    <atom:link href="https://imewish.github.io/tags/aws-appsync/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vishnuprasad.blog/tags/aws-appsync/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Robust Error Handling System for AWS AppSync APIs with Appsync JS Resolvers</title>
-      <link>https://imewish.github.io/posts/appsync-error-handling/</link>
+      <link>https://vishnuprasad.blog/posts/appsync-error-handling/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/appsync-error-handling/</guid>
+      <guid>https://vishnuprasad.blog/posts/appsync-error-handling/</guid>
       <description>Introduction If you&amp;rsquo;ve built REST APIs with AWS API Gateway, you know how nice it is to return structured error responses with proper HTTP status codes, error types, and detailed context. Then you switch to GraphQL with AppSync, and suddenly your beautiful error handling becomes&amp;hellip; generic.
 { &amp;#34;errors&amp;#34;: [{ &amp;#34;message&amp;#34;: &amp;#34;Error&amp;#34; }] } That&amp;rsquo;s it. No error types. No structured context. Just a string.
 This doesn&amp;rsquo;t have to be the case.</description>

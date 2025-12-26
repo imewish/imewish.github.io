@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Authentication on Vishnu Prasad</title>
-    <link>https://imewish.github.io/tags/authentication/</link>
+    <link>https://vishnuprasad.blog/tags/authentication/</link>
     <description>Recent content in Authentication on Vishnu Prasad</description>
     <image>
       <title>Vishnu Prasad</title>
-      <url>https://imewish.github.io/papermod-cover.png</url>
-      <link>https://imewish.github.io/papermod-cover.png</link>
+      <url>https://vishnuprasad.blog/papermod-cover.png</url>
+      <link>https://vishnuprasad.blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 23 Dec 2025 18:30:00 +0000</lastBuildDate>
-    <atom:link href="https://imewish.github.io/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vishnuprasad.blog/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing Multiple GitHub Accounts from the CLI</title>
-      <link>https://imewish.github.io/posts/github-multiple-account-management-cli/</link>
+      <link>https://vishnuprasad.blog/posts/github-multiple-account-management-cli/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://imewish.github.io/posts/github-multiple-account-management-cli/</guid>
+      <guid>https://vishnuprasad.blog/posts/github-multiple-account-management-cli/</guid>
       <description>The Problem If you use multiple GitHub accounts—for example, a work account and a personal account—you may encounter a frustrating issue when working from the command line:
 You try to push code to your personal repository, but GitHub rejects it with a permission denied error because it is authenticating as your work account.
 This happens even though you are the owner of the personal repository.

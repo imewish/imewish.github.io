@@ -1,7 +1,8 @@
-baseURL: "https://imewish.github.io/"
+baseURL: "https://vishnuprasad.blog/"
 title: Vishnu Prasad
 paginate: 5
 theme: hugo-PaperMod
+canonifyURLs: true
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -9,6 +10,10 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 googleAnalytics: G-2GF369X3PK
+
+sitemap:
+    changefreq: 'weekly'
+    priority: 0.5
 
 # googleAnalytics: UA-123-45
 
