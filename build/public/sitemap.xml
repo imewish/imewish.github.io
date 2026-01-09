@@ -2,57 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vishnuprasad.blog/tags/appsync/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/tags/appsync-error-handling/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/tags/appsync-error-handling-best-practices/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://vishnuprasad.blog/tags/authentication/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://vishnuprasad.blog/tags/aws/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/tags/aws-appsync/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/tags/best-practice/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/posts/appsync-error-handling/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://vishnuprasad.blog/tags/cli/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/tags/error/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/tags/error-handling/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -63,11 +18,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://vishnuprasad.blog/tags/github-auth/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://vishnuprasad.blog/tags/lambda/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -97,11 +47,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://vishnuprasad.blog/tags/serverless/</loc>
-    <lastmod>2025-12-23T18:30:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://vishnuprasad.blog/tags/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -109,6 +54,61 @@
   </url><url>
     <loc>https://vishnuprasad.blog/</loc>
     <lastmod>2025-12-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/appsync/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/appsync-error-handling/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/appsync-error-handling-best-practices/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/aws/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/aws-appsync/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/best-practice/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/posts/appsync-error-handling/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/error/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/error-handling/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/lambda/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://vishnuprasad.blog/tags/serverless/</loc>
+    <lastmod>2025-11-23T18:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>

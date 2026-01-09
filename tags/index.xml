@@ -14,27 +14,6 @@
     <lastBuildDate>Tue, 23 Dec 2025 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://vishnuprasad.blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Appsync</title>
-      <link>https://vishnuprasad.blog/tags/appsync/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/appsync/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Appsync Error Handling</title>
-      <link>https://vishnuprasad.blog/tags/appsync-error-handling/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/appsync-error-handling/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Appsync Error Handling Best Practices</title>
-      <link>https://vishnuprasad.blog/tags/appsync-error-handling-best-practices/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/appsync-error-handling-best-practices/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Authentication</title>
       <link>https://vishnuprasad.blog/tags/authentication/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
@@ -42,45 +21,10 @@
       <description></description>
     </item>
     <item>
-      <title>Aws</title>
-      <link>https://vishnuprasad.blog/tags/aws/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/aws/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Aws Appsync</title>
-      <link>https://vishnuprasad.blog/tags/aws-appsync/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/aws-appsync/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Best Practice</title>
-      <link>https://vishnuprasad.blog/tags/best-practice/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/best-practice/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Cli</title>
       <link>https://vishnuprasad.blog/tags/cli/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
       <guid>https://vishnuprasad.blog/tags/cli/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Error</title>
-      <link>https://vishnuprasad.blog/tags/error/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/error/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Error Handling</title>
-      <link>https://vishnuprasad.blog/tags/error-handling/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/error-handling/</guid>
       <description></description>
     </item>
     <item>
@@ -95,13 +39,6 @@
       <link>https://vishnuprasad.blog/tags/github-auth/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
       <guid>https://vishnuprasad.blog/tags/github-auth/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Lambda</title>
-      <link>https://vishnuprasad.blog/tags/lambda/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/tags/lambda/</guid>
       <description></description>
     </item>
     <item>
@@ -126,9 +63,72 @@
       <description></description>
     </item>
     <item>
+      <title>Appsync</title>
+      <link>https://vishnuprasad.blog/tags/appsync/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/appsync/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Appsync Error Handling</title>
+      <link>https://vishnuprasad.blog/tags/appsync-error-handling/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/appsync-error-handling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Appsync Error Handling Best Practices</title>
+      <link>https://vishnuprasad.blog/tags/appsync-error-handling-best-practices/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/appsync-error-handling-best-practices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>https://vishnuprasad.blog/tags/aws/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws Appsync</title>
+      <link>https://vishnuprasad.blog/tags/aws-appsync/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/aws-appsync/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best Practice</title>
+      <link>https://vishnuprasad.blog/tags/best-practice/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/best-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Error</title>
+      <link>https://vishnuprasad.blog/tags/error/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/error/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Error Handling</title>
+      <link>https://vishnuprasad.blog/tags/error-handling/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/error-handling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lambda</title>
+      <link>https://vishnuprasad.blog/tags/lambda/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/tags/lambda/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Serverless</title>
       <link>https://vishnuprasad.blog/tags/serverless/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
       <guid>https://vishnuprasad.blog/tags/serverless/</guid>
       <description></description>
     </item>

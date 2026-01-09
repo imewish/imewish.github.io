@@ -14,15 +14,6 @@
     <lastBuildDate>Tue, 23 Dec 2025 18:30:00 +0000</lastBuildDate>
     <atom:link href="https://vishnuprasad.blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building a Robust Error Handling System for AWS AppSync APIs with Appsync JS Resolvers</title>
-      <link>https://vishnuprasad.blog/posts/appsync-error-handling/</link>
-      <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
-      <guid>https://vishnuprasad.blog/posts/appsync-error-handling/</guid>
-      <description>Introduction If you&amp;rsquo;ve built REST APIs with AWS API Gateway, you know how nice it is to return structured error responses with proper HTTP status codes, error types, and detailed context. Then you switch to GraphQL with AppSync, and suddenly your beautiful error handling becomes&amp;hellip; generic.
-{ &amp;#34;errors&amp;#34;: [{ &amp;#34;message&amp;#34;: &amp;#34;Error&amp;#34; }] } That&amp;rsquo;s it. No error types. No structured context. Just a string.
-This doesn&amp;rsquo;t have to be the case.</description>
-    </item>
-    <item>
       <title>Managing Multiple GitHub Accounts from the CLI</title>
       <link>https://vishnuprasad.blog/posts/github-multiple-account-management-cli/</link>
       <pubDate>Tue, 23 Dec 2025 18:30:00 +0000</pubDate>
@@ -31,6 +22,15 @@ This doesn&amp;rsquo;t have to be the case.</description>
 You try to push code to your personal repository, but GitHub rejects it with a permission denied error because it is authenticating as your work account.
 This happens even though you are the owner of the personal repository.
 Why This Happens GitHub allows multiple accounts, but Git does not automatically switch identities per repository The CLI (SSH or HTTPS) reuses a cached or default identity As a result, all pushes to github.</description>
+    </item>
+    <item>
+      <title>Building a Robust Error Handling System for AWS AppSync APIs with Appsync JS Resolvers</title>
+      <link>https://vishnuprasad.blog/posts/appsync-error-handling/</link>
+      <pubDate>Sun, 23 Nov 2025 18:30:00 +0000</pubDate>
+      <guid>https://vishnuprasad.blog/posts/appsync-error-handling/</guid>
+      <description>Introduction If you&amp;rsquo;ve built REST APIs with AWS API Gateway, you know how nice it is to return structured error responses with proper HTTP status codes, error types, and detailed context. Then you switch to GraphQL with AppSync, and suddenly your beautiful error handling becomes&amp;hellip; generic.
+{ &amp;#34;errors&amp;#34;: [{ &amp;#34;message&amp;#34;: &amp;#34;Error&amp;#34; }] } That&amp;rsquo;s it. No error types. No structured context. Just a string.
+This doesn&amp;rsquo;t have to be the case.</description>
     </item>
     <item>
       <title>Optimizing Amazon CloudWatch Insights Queries With Field Level Indexes for Efficient Log Analytics</title>

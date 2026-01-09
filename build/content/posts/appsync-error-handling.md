@@ -2,7 +2,7 @@
 layout: post
 title: 'Building a Robust Error Handling System for AWS AppSync APIs with Appsync JS Resolvers'
 permalink: aws-appsync-robust-error-handling
-date: 2025-12-23T18:30:00.000Z
+date: 2025-11-23T18:30:00.000Z
 tags:
   - aws
   - serverless
